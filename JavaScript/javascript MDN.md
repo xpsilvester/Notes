@@ -296,6 +296,7 @@ var p = new Person();
   y 执行“粘性”搜索,匹配从目标字符串的当前位置开始，可以使用y标志。
 
 * 常用正则匹配
+
   零和非零开头的数字：^(0|[1-9][0-9]*)$
 
   非零开头的最多带两位小数的数字：^([1-9][0-9]*)+(.[0-9]{1,2})?$ 
@@ -319,6 +320,7 @@ var p = new Person();
 
 ## [数组的方法](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Indexed_collections)
   Array 对象具有下列方法：（例子对应序号）
+
 * concat() 连接两个数组并返回一个新的数组。
 * join(deliminator = ',') 将数组的所有元素连接成一个字符串。
 * push() 在数组末尾添加一个或多个元素，并返回数组操作后的长度。
@@ -367,7 +369,8 @@ var myArray = new Array ("1", "2", "3");
 var first = myArray.shift(); // ["2", "3"], first is "1"
 ```
 ## 例6
-```JavaScriptvar myArray = new Array ("1", "2", "3");
+```JavaScript
+var myArray = new Array ("1", "2", "3");
 myArray.unshift("4", "5"); //["4", "5", "1", "2", "3"]
 ```
 ## 例7
@@ -456,67 +459,67 @@ console.log(total) // Prints 60
 
 * Map对象:一个Map对象就是一个简单的键值对映射集合，可以按照数据插入时的顺序遍历所有的元素。 
 
-		  例1代码演示了使用Map进行的一些基本操作，你可以使用for...of循环来得到所有的[key, value]。
+  例1代码演示了使用Map进行的一些基本操作，你可以使用for...of循环来得到所有的[key, value]。
 
 * Object和Map的比较：
 
-    （1）一般地，objects会被用于将字符串类型映射到数值。Object允许设置键值对、根据键获取值、删除键、检测某个键是否存在。而Map具有更多的优势。
+  （1）一般地，objects会被用于将字符串类型映射到数值。Object允许设置键值对、根据键获取值、删除键、检测某个键是否存在。而Map具有更多的优势。
 
-    （2）Object的键均为Strings类型，在Map里键可以是任意类型。
+  （2）Object的键均为Strings类型，在Map里键可以是任意类型。
 
-    （3）必须手动计算Object的尺寸，但是可以很容易地获取使用Map的尺寸。
+  （3）必须手动计算Object的尺寸，但是可以很容易地获取使用Map的尺寸。
 
-    （4）Map的遍历遵循元素的插入顺序。
+  （4）Map的遍历遵循元素的插入顺序。
 
-    （5）Object有原型，所以映射中有一些缺省的键。（可以理解为map = Object.create(null)）。
+  （5）Object有原型，所以映射中有一些缺省的键。（可以理解为map = Object.create(null)）。
 
-      这三条提示可以帮你决定用Map还是Object：
+  这三条提示可以帮你决定用Map还是Object：
 
-      （1）如果键在运行时才能知道，或者所有的键类型相同，所有的值类型相同，那就使用映射。
+  （1）如果键在运行时才能知道，或者所有的键类型相同，所有的值类型相同，那就使用映射。
 
-      （2）如果需要将原始值存储为键，则使用映射，因为对象将每个键视为字符串，不管它是一个数字值、布尔值还是任何其他原始值。
+  （2）如果需要将原始值存储为键，则使用映射，因为对象将每个键视为字符串，不管它是一个数字值、布尔值还是任何其他原始值。
 
-      （3）如果需要对个别元素进行操作，使用对象。
+  （3）如果需要对个别元素进行操作，使用对象。
 
 * WeakMap对象:WeakMap对象也是键值对的集合。它的键必须是对象类型，值可以是任意类型。
 
-			  它的键被弱保持，也就是说，当其键所指对象没有其他地方引用的时候，它会被GC回收掉。WeakMap提供的接口与Map相同。
+  它的键被弱保持，也就是说，当其键所指对象没有其他地方引用的时候，它会被GC回收掉。WeakMap提供的接口与Map相同。
 
-			  与Map对象不同的是，WeakMap的键是不可枚举的。不提供列出其键的方法。列表是否存在取决于垃圾回收器的状态，是不可预知的。
+  与Map对象不同的是，WeakMap的键是不可枚举的。不提供列出其键的方法。列表是否存在取决于垃圾回收器的状态，是不可预知的。
 
 ### 集合
-1. Set对象:Set对象是一组值的集合，这些值是不重复的，可以按照添加顺序来遍历。
+* Set对象:Set对象是一组值的集合，这些值是不重复的，可以按照添加顺序来遍历。
 		  
-   例2演示了Set的基本操作
+  例2演示了Set的基本操作
 
-2. 数组和集合的转换：
+* 数组和集合的转换：
           
-          可以使用Array.from或展开操作符来完成集合到数组的转换。
+  可以使用Array.from或展开操作符来完成集合到数组的转换。
 
-					同样，Set的构造器接受数组作为参数，可以完成从Array到Set的转换。
+  同样，Set的构造器接受数组作为参数，可以完成从Array到Set的转换。
 
-					需要重申的是，Set对象中的值不重复，所以数组转换为集合时，所有重复值将会被删除。
+  需要重申的是，Set对象中的值不重复，所以数组转换为集合时，所有重复值将会被删除。
 
-3. Array和Set的对比：
-          一般情况下，在JavaScript中使用数组来存储一组元素，而新的集合对象有这些优势：
+* Array和Set的对比：
+  一般情况下，在JavaScript中使用数组来存储一组元素，而新的集合对象有这些优势：
 
-					数组中用于判断元素是否存在的indexOf 函数效率低下。
+  数组中用于判断元素是否存在的indexOf 函数效率低下。
 
-					Set对象允许根据值删除元素，而数组中必须使用基于下标的 splice 方法。
+  Set对象允许根据值删除元素，而数组中必须使用基于下标的 splice 方法。
 
-					数组的indexOf方法无法找到NaN值。
+  数组的indexOf方法无法找到NaN值。
 
-					Set对象存储不重复的值，所以不需要手动处理包含重复值的情况。
+  Set对象存储不重复的值，所以不需要手动处理包含重复值的情况。
 
-4. WeakSet对象：
+* WeakSet对象：
 
-         WeakSet对象是一组对象的集合。WeakSet中的对象不重复且不可枚举。
+  WeakSet对象是一组对象的集合。WeakSet中的对象不重复且不可枚举。
 
-			   与Set对象的主要区别有：WeakSets中的值必须是对象类型，不可以是别的类型
+  与Set对象的主要区别有：WeakSets中的值必须是对象类型，不可以是别的类型
 
-			   WeakSet的“weak”指的是，对集合中的对象，如果不存在其他引用，那么该对象将可被垃圾回收。
+  WeakSet的“weak”指的是，对集合中的对象，如果不存在其他引用，那么该对象将可被垃圾回收。
 
-			   于是不存在一个当前可用对象组成的列表，所以WeakSets不可枚举
+  于是不存在一个当前可用对象组成的列表，所以WeakSets不可枚举
 
 ### Map的键和Set的值的等值判断
 	判断使用与===相似的规则。
@@ -563,7 +566,7 @@ for (let item of mySet) console.log(item);
 ```
 ## 2017.12.29
 
-## 对象：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Working_with_Objects
+## [对象](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Working_with_Objects)
 ### 枚举一个对象的所有属性（例1）
 * for...in 循环
 	该方法依次访问一个对象及其原型链中所有可枚举的属性。
@@ -572,9 +575,9 @@ for (let item of mySet) console.log(item);
 * Object.getOwnPropertyNames(o)
 	该方法返回一个数组，它包含了对象 o 所有拥有的属性（无论是否可枚举）的名称。
 
-### 对象模型的细节：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Details_of_the_Object_Model
+### [对象模型的细节](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Details_of_the_Object_Model)
 
-### 继承与原型链：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Inheritance_and_the_prototype_chain
+### [继承与原型链](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)
 
 
 ## 例1
