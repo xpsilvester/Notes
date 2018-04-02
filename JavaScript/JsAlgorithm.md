@@ -65,6 +65,7 @@ document.write(binarySearch(arr1,19)+"</br>");
 ### 时间复杂度O(n^2)
 ```JavaScript
 var arr2 = new Array(1,2,10,9,5);
+//第一种
 function bubbleSort(A){
 	var i,j,flag,temp;
 	for(i=A.length-1;i>=1;i--){
@@ -82,6 +83,7 @@ function bubbleSort(A){
 	}
 }
 /*
+第二种
 function bubbleSort(A) {
   for (var i = 0; i < A.length; i++) {
     var sorted = true;
@@ -98,6 +100,22 @@ function bubbleSort(A) {
       return;
     }
   }
+}
+第三种（推荐:容易写，不容易出错）
+function bubbleSort(arr){
+	var flag=0;
+	while(flag==0){
+		for(var i=0 ; i<arr.length;i++){
+			if(arr[i]>arr[i+1]){
+				var temp=arr[i];
+				arr[i]=arr[i+1];
+				arr[i+1]=temp;
+				flag=0;
+            }else{
+            	flag=1;
+            }
+        }
+	}
 }
 */
 bubbleSort(arr2);
