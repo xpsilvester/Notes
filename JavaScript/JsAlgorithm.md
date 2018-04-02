@@ -104,18 +104,18 @@ function bubbleSort(A) {
 第三种（推荐:容易写，不容易出错）
 function bubbleSort(arr){
 	var flag=0;
-	while(flag==0){
+	do{
+		flag=1;
 		for(var i=0 ; i<arr.length;i++){
 			if(arr[i]>arr[i+1]){
 				var temp=arr[i];
 				arr[i]=arr[i+1];
 				arr[i+1]=temp;
 				flag=0;
-            }else{
-            	flag=1;
             }
         }
 	}
+	while(flag==0)
 }
 */
 bubbleSort(arr2);
