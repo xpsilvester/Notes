@@ -1,35 +1,34 @@
-//2017.12.21
-/*
-语法和数据类型：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide
-1.变量声明提升(Variable hoisting)
+## 2017.12.21
+
+## 语法和数据类型：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide
+* 变量声明提升(Variable hoisting)
 	！JavaScript 变量的另一特别之处是，你可以引用稍后声明的变量而不会引发异常。
 	（这一概念称为变量声明提升(hoisting)；JavaScript 变量感觉上是被“提升”或移到了所有函数和语句之前。然而提升后的变量将返回 undefined 值。
 	所以在使用或引用某个变量之后进行声明和初始化操作，这个被提升的引用仍将得到 undefined 值。）
 	！由于存在变量声明提升，一个函数中所有的var语句应尽可能地放在接近函数顶部的地方。这将大大提升程序代码的清晰度。
 	使用let可以阻止变量提升 ，还可以使用const声明一个常量阻止
 
-2.函数提升（Function hoisting）
+* 函数提升（Function hoisting）
     对于函数，只有函数声明会被提升到顶部，而不包括函数表达式。
 
-3.全局变量(Global variables)
+* 全局变量(Global variables)
 	全局变量实际上是全局对象的属性。在网页中，（译注：缺省的）全局对象是 window，所以你可以用形如 window.variable的语法来设置和访问全局变量。
 	（因此，你可以通过指定 window 或 frame 的名字，从一个 window 或 frame 访问另一个 window 或 frame 中声明的变量。
 	例如，在文档里声明一个叫 phoneNumber 的变量，那么你就可以在子框架里使用 parent.phoneNumber 来引用它。）
 
-4.常量(Constants)
+* 常量(Constants)
 	用关键字 const 创建一个只读(read-only)的常量。
 	在同一作用域中，不能使用与变量名或函数名相同的名字来命名常量。
 
 	！然而,对象属性是不受保护的,所以可以使用如下语句来执行。
 	（const MY_OBJECT = {"key": "value"};
 	MY_OBJECT.key = "otherValue";）
-*/
 
-/*
-函数:https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Functions
-1.作用域和函数堆栈
+
+## 函数: https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Functions
+* 作用域和函数堆栈
 	递归：一个函数可以指向并调用自身。有三种方法可以达到这个目的：函数名、arguments.callee、作用域下的一个指向该函数的变量名
-2.嵌套函数和闭包
+* 嵌套函数和闭包
 	内部函数只可以在外部函数中访问。内部函数形成了一个闭包：它可以访问外部函数的参数和变量，但是外部函数却不能使用它的参数和变量。
 	下面的例1展示了嵌套函数：
 
@@ -41,7 +40,7 @@
 				所以最近的优先级最高，最远的优先级最低。这就是作用域链。
 				链的第一个元素就是最里面的作用域，最后一个元素便是最外层的作用域。
 
-3.闭包
+* 闭包
 	JavaScript 允许函数嵌套，并且内部函数可以访问定义在外部函数中的所有变量和函数，
 	以及外部函数能访问的所有变量和函数。但是，外部函数却不能够访问定义在内部函数中的变量和函数。
 	！当内部函数以某一种方式被任何一个外部函数作用域访问时，一个闭包就产生了。如例3就是一个简单的闭包
@@ -50,7 +49,7 @@
 	没有其它任何方法可以取得内嵌的变量。内嵌函数的内嵌变量就像内嵌函数的保险柜。
 	它们会为内嵌函数保留“稳定”——而又安全——的数据参与运行。而这些内嵌函数甚至不会被分配给一个变量，或者不必一定要有名字。
 
-4.使用 arguments 对象
+* 使用 arguments 对象
 	使用arguments对象，你可以处理比声明的更多的参数来调用函数。
 	这在你事先不知道会需要将多少参数传递给函数时十分有用。
 	你可以用arguments.length来获得实际传递给函数的参数的数量，然后用arguments对象来取得每个参数。
@@ -58,10 +57,10 @@
 	例5：设想有一个用来连接字符串的函数。唯一事先确定的参数是在连接后的字符串中用来分隔各个连接部分的字符（译注：比如例子里的分号“；”）
 		 （你可以给这个函数传递任意数量的参数，它会将各个参数连接成一个字符串“列表”：）
 
-5.this 的词法
+* this 的词法
 	在箭头函数出现之前，每一个新函数都重新定义了自己的 this 值，以至于有些功能实现不如意，如例6
 
-6.预定义函数
+* 预定义函数
   JavaScript语言有好些个顶级的内建函数：
 	eval()方法会对一串字符串形式的JavaScript代码字符求值。
 
@@ -83,10 +82,8 @@
 
 	encodeURIComponent() 方法通过用以一个，两个，三个或四个转义序列表示字符的UTF-8编码替换统一资源标识符（URI）的每个字符来进行编码（每个字符对应四个转义序列，这四个序列组了两个”替代“字符）。
 
-
-*/
-
-//例1
+## 例1
+```JavaScript
 function addSquares(a, b) {
   function square(x) {
     return x * x;
@@ -96,8 +93,8 @@ function addSquares(a, b) {
 a = addSquares(2, 3); // returns 13
 b = addSquares(3, 4); // returns 25
 c = addSquares(4, 5); // returns 41
-
-//例2
+```
+## 例2
 function outside(x) {
   function inside(y) {
     return x + y;
@@ -109,7 +106,7 @@ result = fn_inside(5); // returns 8
 
 result1 = outside(3)(5); // returns 8
 
-//例3
+## 例3
 var pet = function(name) {          //外部函数定义了一个变量"name"
   var getName = function() {            
     //内部函数可以访问 外部函数定义的"name"
