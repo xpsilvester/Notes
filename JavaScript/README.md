@@ -1,6 +1,6 @@
 # JSnotes
 JS笔记
 
-## JavaScript MDN上的语法
+#### JavaScript MDN上的语法
 
-## JsAlgorithm JavaScript基本算法
+#### JsAlgorithm JavaScript基本算法

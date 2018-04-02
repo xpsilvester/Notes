@@ -1,10 +1,10 @@
 # JsAlgorithm
 JS的常用算法练习  
 
-[1.初级算法-线性查找-时间复杂度O(n)](#1.初级算法-线性查找-时间复杂度O(n))
+[1.初级算法-线性查找-时间复杂度O(n)](#1.初级算法)
   
 
-[2.二分查找(又称折半查找) - 适用于已排好序的线性结构 - 时间复杂度O(logN)](#2.二分查找(又称折半查找) - 适用于已排好序的线性结构 - 时间复杂度O(logN))
+[2.二分查找(又称折半查找) - 适用于已排好序的线性结构 - 时间复杂度O(logN)](#2.二分查找)
 
 [3.冒泡排序 -- 时间复杂度O(n^2)](#3.冒泡排序)
 
@@ -21,7 +21,8 @@ JS的常用算法练习
 [9.栈的实现](#9.栈的实现)
 
 [10.快速排序 -- 平均时间复杂度O(nlog2n)](#10.快速排序)
-## 1.初级算法-线性查找-时间复杂度O(n)--相当于算法界中的HelloWorld
+## 1.初级算法
+### 线性查找-时间复杂度O(n)--相当于算法界中的HelloWorld
 ```JavaScript
 var arr = new Array(1,2,10,9,5);
 
@@ -37,7 +38,8 @@ function linearSearch(A,x){
 }
 document.write(linearSearch(arr,10)+"</br>");
 ```
-## 2.二分查找(又称折半查找) - 适用于已排好序的线性结构 - 时间复杂度O(logN)
+## 2.二分查找
+### (又称折半查找) - 适用于已排好序的线性结构 - 时间复杂度O(logN)
 ```JavaScript
 //二分搜索
 //A为已按"升序排列"的数组，x为要查询的元素
@@ -59,7 +61,8 @@ function binarySearch(A, x){
 }
 document.write(binarySearch(arr1,19)+"</br>");
 ```
-## 3.冒泡排序 -- 时间复杂度O(n^2)
+## 3.冒泡排序
+### 时间复杂度O(n^2)
 ```JavaScript
 var arr2 = new Array(1,2,10,9,5);
 function bubbleSort(A){
@@ -102,7 +105,8 @@ bubbleSort(arr2);
 		document.write(arr2[k]+",");
 	}
 ```
-## 4.选择排序 -- 时间复杂度O(n^2)
+## 4.选择排序
+### 时间复杂度O(n^2)
 ```JavaScript
 
 //思路：找到最小值的下标记下来，再交换
@@ -127,11 +131,12 @@ for(var i=0;i<arr3.length;i++)
 document.write(arr3[i]+",");
 document.write("</br>");
 ```
-## 5.插入算法 -- 时间复杂度O(n^2)
+## 5.插入算法
+### 时间复杂度O(n^2)
    
    假定当前元素之前的元素已经排好序，先把自己的位置空出来，然后前面比自己大的元素依次向后移，直到空出一个"坑"，然后把目标元素插入"坑"中每趟将一个待排序的元素作为关键字，按照其关键字值的大小插入到已经排好的部分序列的适当位置，直到插入完成
 
-``JavaScript
+```JavaScript
 function insertSort(A){
 	for(var i=1;i<A.length;i++){//数组从下标0开始存储，第一个元素有序，所以从第二个开始处理
 		var temp=A[i];//将待插入元素暂存于temp中
@@ -151,7 +156,8 @@ document.write(arr4[i]+",");
 document.write("</br>");
 ```
 
-## 6.字符串反转 -- 时间复杂度O(logN)
+## 6.字符串反转
+### 时间复杂度O(logN)
 
 字符串反转(比如：ABC -> CBA) 可以直接用str.split("").reverse().join("")
 ``JavaScript
@@ -172,7 +178,8 @@ var k=reverse(str);
 document.write(k);
 document.write("</br>");
 ```
-## 7.设计一个基于对象的单链表（双链表类似）
+## 7.设计一个基于对象的单链表
+### （双链表类似）
 
 需要设计两个类，Node 类用来表示节点, LinkedList 类提供插入节点、删除节点、显示列表元素的方法,以及其他一些辅助方法。
 
@@ -260,7 +267,8 @@ console.log("****************************");
 
 ```
 
-## 8.用数组实现的队列：利用数组中的push和shift方法可以使队列的实现显得非常简单
+## 8.用数组实现的队列
+### 利用数组中的push和shift方法可以使队列的实现显得非常简单
 ```JavaScript
 var name1=[];
 name1.push("wuxinpei");//推入元素
@@ -315,7 +323,8 @@ ui.isempty();//true
 
 ```
 
-## 9.栈的实现：从定义一个stack构造函数开始
+## 9.栈的实现
+### 从定义一个stack构造函数开始
 
 ```JavaScript
 function Stack() {  
@@ -353,7 +362,8 @@ lk.length();//0
 
 ```
 
-## 10.快速排序--交换排序和递归--平均复杂度O(nlog2n)
+## 10.快速排序
+### 交换排序和递归--平均复杂度O(nlog2n)
 
 ```JavaScript
 arr5=[49,38,65,97,76,13,27];
