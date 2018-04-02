@@ -226,7 +226,7 @@ var p = new Person();
 
 ## [正则表达式](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions)
 
-1. 常用符号：
+* 常用符号：
   ^：匹配输入的开始。如果多行标志被设置为true，那么也匹配换行符后紧跟的位置。例如，/^A/ 并不会匹配 "an A" 中的 'A'，但是会匹配 "An E" 中的 'A'。
   $：匹配输入的结束。如果多行标示被设置为true，那么也匹配换行符前的位置。
   *：匹配前一个表达式0次或多次。等价于 {0,}。
@@ -249,7 +249,7 @@ var p = new Person();
   \w:匹配一个单字字符（字母、数字或者下划线）。等价于[A-Za-z0-9_]。
   \W:匹配一个非单字字符。等价于[^A-Za-z0-9_]。
 
-2. 使用正则表达式的方法：
+* 使用正则表达式的方法：
   exec  一个在字符串中执行查找匹配的RegExp方法，它返回一个数组（未匹配到则返回null）。
   test  一个在字符串中测试是否匹配的RegExp方法，它返回true或false。
   match 一个在字符串中执行查找匹配的String方法，它返回一个数组或者在未匹配到时返回null。
@@ -257,13 +257,13 @@ var p = new Person();
   replace 一个在字符串中执行查找匹配的String方法，并且使用替换字符串替换掉匹配到的子字符串。
   split 一个使用正则表达式或者一个固定字符串分隔一个字符串，并将分隔后的子字符串存储到数组中的String方法。
 
-3. 通过标志进行高级搜索
+* 通过标志进行高级搜索
   g 全局搜索。
   i 不区分大小写搜索。
   m 多行搜索。
   y 执行“粘性”搜索,匹配从目标字符串的当前位置开始，可以使用y标志。
 
-4. 常用正则匹配
+* 常用正则匹配
   零和非零开头的数字：^(0|[1-9][0-9]*)$
   非零开头的最多带两位小数的数字：^([1-9][0-9]*)+(.[0-9]{1,2})?$ 
   带1-2位小数的正数或负数：^(\-)?\d+(\.\d{1,2})?$ 
@@ -279,25 +279,25 @@ var p = new Person();
 
 ## [数组的方法](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Indexed_collections)
   Array 对象具有下列方法：（例子对应序号）
-1. concat() 连接两个数组并返回一个新的数组。
-2. join(deliminator = ',') 将数组的所有元素连接成一个字符串。
-3. push() 在数组末尾添加一个或多个元素，并返回数组操作后的长度。
-4. pop() 从数组移出最后一个元素，并返回该元素。
-5. shift() 从数组移出第一个元素，并返回该元素。
-6. unshift() 在数组开头添加一个或多个元素，并返回数组的新长度。
-7. slice(start_index, upto_index) 从数组提取一个片段，并作为一个新数组返回。
-8. splice(index, count_to_remove, addElement1, addElement2, ...)从数组移出一些元素，（可选）并替换它们。
-9. reverse() 颠倒数组元素的顺序：第一个变成最后一个，最后一个变成第一个。
-10. sort() 给数组元素排序。
-11. indexOf(searchElement[, fromIndex]) 在数组中搜索searchElement 并返回第一个匹配的索引。
-12. lastIndexOf(searchElement[, fromIndex]) 和 indexOf 差不多，但这是从结尾开始，并且是反向搜索。
-13. forEach(callback[, thisObject]) 在数组每个元素项上执行callback。
-14. map(callback[, thisObject]) 在数组的每个单元项上执行callback函数，并把返回包含回调函数返回值的新数组（译者注：也就是遍历数组，并通过callback对数组元素进行操作，并将所有操作结果放入数组中并返回该数组）。
-15. filter(callback[, thisObject]) 返回一个包含所有在回调函数上返回为true的元素的新数组（译者注：callback在这里担任的是过滤器的角色，当元素符合条件，过滤器就返回true，而filter则会返回所有符合过滤条件的元素）。
-16. every(callback[, thisObject]) 当数组中每一个元素在callback上被返回true时就返回true（译者注：同上，every其实类似filter，只不过它的功能是判断是不是数组中的所有元素都符合条件，并且返回的是布尔值）。
-17. some(callback[, thisObject]) 只要数组中有一项在callback上被返回true，就返回true（译者注：同上，类似every，不过前者要求都符合筛选条件才返回true，后者只要有符合条件的就返回true）。
-18. reduce(callback[, initialValue]) 使用回调函数 callback(firstValue, secondValue) 把数组列表计算成一个单一值（译者注：他数组元素两两递归处理的方式把数组计算成一个值）
-19. reduceRight(callback[, initalvalue]) 和 reduce()相似，但这从最后一个元素开始的。
+* concat() 连接两个数组并返回一个新的数组。
+* join(deliminator = ',') 将数组的所有元素连接成一个字符串。
+* push() 在数组末尾添加一个或多个元素，并返回数组操作后的长度。
+* pop() 从数组移出最后一个元素，并返回该元素。
+* shift() 从数组移出第一个元素，并返回该元素。
+* unshift() 在数组开头添加一个或多个元素，并返回数组的新长度。
+* slice(start_index, upto_index) 从数组提取一个片段，并作为一个新数组返回。
+* splice(index, count_to_remove, addElement1, addElement2, ...)从数组移出一些元素，（可选）并替换它们。
+* reverse() 颠倒数组元素的顺序：第一个变成最后一个，最后一个变成第一个。
+* sort() 给数组元素排序。
+* indexOf(searchElement[, fromIndex]) 在数组中搜索searchElement 并返回第一个匹配的索引。
+* lastIndexOf(searchElement[, fromIndex]) 和 indexOf 差不多，但这是从结尾开始，并且是反向搜索。
+* forEach(callback[, thisObject]) 在数组每个元素项上执行callback。
+* map(callback[, thisObject]) 在数组的每个单元项上执行callback函数，并把返回包含回调函数返回值的新数组（译者注：也就是遍历数组，并通过callback对数组元素进行操作，并将所有操作结果放入数组中并返回该数组）。
+* filter(callback[, thisObject]) 返回一个包含所有在回调函数上返回为true的元素的新数组（译者注：callback在这里担任的是过滤器的角色，当元素符合条件，过滤器就返回true，而filter则会返回所有符合过滤条件的元素）。
+* every(callback[, thisObject]) 当数组中每一个元素在callback上被返回true时就返回true（译者注：同上，every其实类似filter，只不过它的功能是判断是不是数组中的所有元素都符合条件，并且返回的是布尔值）。
+* some(callback[, thisObject]) 只要数组中有一项在callback上被返回true，就返回true（译者注：同上，类似every，不过前者要求都符合筛选条件才返回true，后者只要有符合条件的就返回true）。
+* reduce(callback[, initialValue]) 使用回调函数 callback(firstValue, secondValue) 把数组列表计算成一个单一值（译者注：他数组元素两两递归处理的方式把数组计算成一个值）
+* reduceRight(callback[, initalvalue]) 和 reduce()相似，但这从最后一个元素开始的。
 
 ## 例1
 
@@ -414,7 +414,7 @@ console.log(total) // Prints 60
 
 ## [带键的集合](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Keyed_Collections)
 
-### 映射
+#* 
 1. Map对象:一个Map对象就是一个简单的键值对映射集合，可以按照数据插入时的顺序遍历所有的元素。
 		  例1代码演示了使用Map进行的一些基本操作，你可以使用for...of循环来得到所有的[key, value]。
 
