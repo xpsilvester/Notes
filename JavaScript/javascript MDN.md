@@ -273,6 +273,7 @@ var p = new Person();
   \W:匹配一个非单字字符。等价于[^A-Za-z0-9_]。
 
 * 使用正则表达式的方法：
+
   exec  一个在字符串中执行查找匹配的RegExp方法，它返回一个数组（未匹配到则返回null）。
 
   test  一个在字符串中测试是否匹配的RegExp方法，它返回true或false。
