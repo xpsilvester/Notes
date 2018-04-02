@@ -1,6 +1,6 @@
 ## 2017.12.21
 
-## 语法和数据类型：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide
+## [语法和数据类型](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide)
 * 变量声明提升(Variable hoisting)
 	！JavaScript 变量的另一特别之处是，你可以引用稍后声明的变量而不会引发异常。
 	（这一概念称为变量声明提升(hoisting)；JavaScript 变量感觉上是被“提升”或移到了所有函数和语句之前。然而提升后的变量将返回 undefined 值。
@@ -25,7 +25,7 @@
 	MY_OBJECT.key = "otherValue";）
 
 
-## 函数: https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Functions
+## [函数](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Functions)
 * 作用域和函数堆栈
 	递归：一个函数可以指向并调用自身。有三种方法可以达到这个目的：函数名、arguments.callee、作用域下的一个指向该函数的变量名
 * 嵌套函数和闭包
@@ -62,6 +62,7 @@
 
 * 预定义函数
   JavaScript语言有好些个顶级的内建函数：
+
 	eval()方法会对一串字符串形式的JavaScript代码字符求值。
 
 	uneval()方法创建的一个Object的源代码的字符串表示。
@@ -95,6 +96,7 @@ b = addSquares(3, 4); // returns 25
 c = addSquares(4, 5); // returns 41
 ```
 ## 例2
+```JavaScript
 function outside(x) {
   function inside(y) {
     return x + y;
@@ -105,8 +107,9 @@ fn_inside = outside(3); // Think of it like: give me a function that adds 3 to w
 result = fn_inside(5); // returns 8
 
 result1 = outside(3)(5); // returns 8
-
+```
 ## 例3
+```JavaScript
 var pet = function(name) {          //外部函数定义了一个变量"name"
   var getName = function() {            
     //内部函数可以访问 外部函数定义的"name"
@@ -118,8 +121,9 @@ var pet = function(name) {          //外部函数定义了一个变量"name"
 myPet = pet("Vivie");
     
 myPet();  
-
-//例4
+```
+## 例4
+```JavaScript
 var createPet = function(name) {
   var sex;
   
@@ -152,8 +156,9 @@ pet.setName("Oliver");
 pet.setSex("male");
 pet.getSex();                   // male
 pet.getName();                  // Oliver
-
-//例5
+```
+## 例5
+```JavaScript
 function myConcat(separator) {
    var result = "", // initialize list
        i;
@@ -171,8 +176,9 @@ myConcat("; ", "elephant", "giraffe", "lion", "cheetah");
 
 // returns "sage. basil. oregano. pepper. parsley. "
 myConcat(". ", "sage", "basil", "oregano", "pepper", "parsley");
-
-//例6
+```
+## 例6
+```JavaScript
 function Person() {
   // The Person() constructor defines `this` as itself.
   this.age = 0;
@@ -187,8 +193,9 @@ function Person() {
 
 var p = new Person();
 console.log(p.age)//0
-
-//解决方法：
+```
+## 解决方法：
+```JavaScript
 //1.在ECMAScript 3/5里，通过把this的值赋值给一个变量可以修复这个问题。
 function Person() {
   var self = this; // Some choose `that` instead of `self`. 
@@ -201,8 +208,9 @@ function Person() {
     self.age++;
   }, 1000);
 }
-
+```
 //2.箭头功能捕捉闭包上下文的this值，所以下面的代码工作正常。
+```JavaScript
 function Person(){
   this.age = 0;
 
@@ -213,11 +221,12 @@ function Person(){
 
 var p = new Person();
 
+```
+## 2017.12.25
 
-//2017.12.25
-/*
-正则表达式：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions
-1.常用符号：
+## [正则表达式](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions)
+
+1. 常用符号：
   ^：匹配输入的开始。如果多行标志被设置为true，那么也匹配换行符后紧跟的位置。例如，/^A/ 并不会匹配 "an A" 中的 'A'，但是会匹配 "An E" 中的 'A'。
   $：匹配输入的结束。如果多行标示被设置为true，那么也匹配换行符前的位置。
   *：匹配前一个表达式0次或多次。等价于 {0,}。
@@ -240,7 +249,7 @@ var p = new Person();
   \w:匹配一个单字字符（字母、数字或者下划线）。等价于[A-Za-z0-9_]。
   \W:匹配一个非单字字符。等价于[^A-Za-z0-9_]。
 
-2.使用正则表达式的方法：
+2. 使用正则表达式的方法：
   exec  一个在字符串中执行查找匹配的RegExp方法，它返回一个数组（未匹配到则返回null）。
   test  一个在字符串中测试是否匹配的RegExp方法，它返回true或false。
   match 一个在字符串中执行查找匹配的String方法，它返回一个数组或者在未匹配到时返回null。
@@ -248,13 +257,13 @@ var p = new Person();
   replace 一个在字符串中执行查找匹配的String方法，并且使用替换字符串替换掉匹配到的子字符串。
   split 一个使用正则表达式或者一个固定字符串分隔一个字符串，并将分隔后的子字符串存储到数组中的String方法。
 
-3.通过标志进行高级搜索
+3. 通过标志进行高级搜索
   g 全局搜索。
   i 不区分大小写搜索。
   m 多行搜索。
   y 执行“粘性”搜索,匹配从目标字符串的当前位置开始，可以使用y标志。
 
-4.常用正则匹配
+4. 常用正则匹配
   零和非零开头的数字：^(0|[1-9][0-9]*)$
   非零开头的最多带两位小数的数字：^([1-9][0-9]*)+(.[0-9]{1,2})?$ 
   带1-2位小数的正数或负数：^(\-)?\d+(\.\d{1,2})?$ 
@@ -267,84 +276,114 @@ var p = new Person();
   国内电话号码(0511-4405222、021-87888822)：\d{3}-\d{8}|\d{4}-\d{7} 
   身份证号(15位、18位数字)：^\d{15}|\d{18}$ 
 
-*/
 
-/*
-数组的方法:https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Indexed_collections
+## [数组的方法](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Indexed_collections)
   Array 对象具有下列方法：（例子对应序号）
-  1.concat() 连接两个数组并返回一个新的数组。
-  2.join(deliminator = ',') 将数组的所有元素连接成一个字符串。
-  3.push() 在数组末尾添加一个或多个元素，并返回数组操作后的长度。
-  4.pop() 从数组移出最后一个元素，并返回该元素。
-  5.shift() 从数组移出第一个元素，并返回该元素。
-  6.unshift() 在数组开头添加一个或多个元素，并返回数组的新长度。
-  7.slice(start_index, upto_index) 从数组提取一个片段，并作为一个新数组返回。
-  8.splice(index, count_to_remove, addElement1, addElement2, ...)从数组移出一些元素，（可选）并替换它们。
-  9.reverse() 颠倒数组元素的顺序：第一个变成最后一个，最后一个变成第一个。
-  10.sort() 给数组元素排序。
-  11.indexOf(searchElement[, fromIndex]) 在数组中搜索searchElement 并返回第一个匹配的索引。
-  12.lastIndexOf(searchElement[, fromIndex]) 和 indexOf 差不多，但这是从结尾开始，并且是反向搜索。
-  13.forEach(callback[, thisObject]) 在数组每个元素项上执行callback。
-  14.map(callback[, thisObject]) 在数组的每个单元项上执行callback函数，并把返回包含回调函数返回值的新数组（译者注：也就是遍历数组，并通过callback对数组元素进行操作，并将所有操作结果放入数组中并返回该数组）。
-  15.filter(callback[, thisObject]) 返回一个包含所有在回调函数上返回为true的元素的新数组（译者注：callback在这里担任的是过滤器的角色，当元素符合条件，过滤器就返回true，而filter则会返回所有符合过滤条件的元素）。
-  16.every(callback[, thisObject]) 当数组中每一个元素在callback上被返回true时就返回true（译者注：同上，every其实类似filter，只不过它的功能是判断是不是数组中的所有元素都符合条件，并且返回的是布尔值）。
-  17.some(callback[, thisObject]) 只要数组中有一项在callback上被返回true，就返回true（译者注：同上，类似every，不过前者要求都符合筛选条件才返回true，后者只要有符合条件的就返回true）。
-  18.reduce(callback[, initialValue]) 使用回调函数 callback(firstValue, secondValue) 把数组列表计算成一个单一值（译者注：他数组元素两两递归处理的方式把数组计算成一个值）
-  19.reduceRight(callback[, initalvalue]) 和 reduce()相似，但这从最后一个元素开始的。
+1. concat() 连接两个数组并返回一个新的数组。
+2. join(deliminator = ',') 将数组的所有元素连接成一个字符串。
+3. push() 在数组末尾添加一个或多个元素，并返回数组操作后的长度。
+4. pop() 从数组移出最后一个元素，并返回该元素。
+5. shift() 从数组移出第一个元素，并返回该元素。
+6. unshift() 在数组开头添加一个或多个元素，并返回数组的新长度。
+7. slice(start_index, upto_index) 从数组提取一个片段，并作为一个新数组返回。
+8. splice(index, count_to_remove, addElement1, addElement2, ...)从数组移出一些元素，（可选）并替换它们。
+9. reverse() 颠倒数组元素的顺序：第一个变成最后一个，最后一个变成第一个。
+10. sort() 给数组元素排序。
+11. indexOf(searchElement[, fromIndex]) 在数组中搜索searchElement 并返回第一个匹配的索引。
+12. lastIndexOf(searchElement[, fromIndex]) 和 indexOf 差不多，但这是从结尾开始，并且是反向搜索。
+13. forEach(callback[, thisObject]) 在数组每个元素项上执行callback。
+14. map(callback[, thisObject]) 在数组的每个单元项上执行callback函数，并把返回包含回调函数返回值的新数组（译者注：也就是遍历数组，并通过callback对数组元素进行操作，并将所有操作结果放入数组中并返回该数组）。
+15. filter(callback[, thisObject]) 返回一个包含所有在回调函数上返回为true的元素的新数组（译者注：callback在这里担任的是过滤器的角色，当元素符合条件，过滤器就返回true，而filter则会返回所有符合过滤条件的元素）。
+16. every(callback[, thisObject]) 当数组中每一个元素在callback上被返回true时就返回true（译者注：同上，every其实类似filter，只不过它的功能是判断是不是数组中的所有元素都符合条件，并且返回的是布尔值）。
+17. some(callback[, thisObject]) 只要数组中有一项在callback上被返回true，就返回true（译者注：同上，类似every，不过前者要求都符合筛选条件才返回true，后者只要有符合条件的就返回true）。
+18. reduce(callback[, initialValue]) 使用回调函数 callback(firstValue, secondValue) 把数组列表计算成一个单一值（译者注：他数组元素两两递归处理的方式把数组计算成一个值）
+19. reduceRight(callback[, initalvalue]) 和 reduce()相似，但这从最后一个元素开始的。
 
-*/
-//例1
+## 例1
+
+```JavaScript 
 var myArray = new Array("1", "2", "3");
 myArray = myArray.concat("a", "b", "c"); // ["1", "2", "3", "a", "b", "c"]
-//例2
-ar myArray = new Array("Wind", "Rain", "Fire");
+```
+## 例2
+```JavaScript
+var myArray = new Array("Wind", "Rain", "Fire");
 var list = myArray.join(" - ");//"Wind - Rain - Fire"
-//例3
+```
+## 例3
+```JavaScript
 var myArray = new Array("1", "2");
 myArray.push("3"); // ["1", "2", "3"]
-//例4
+
+```
+## 例4
+```JavaScript
 var myArray = new Array("1", "2", "3");
 var last = myArray.pop();// ["1", "2"], last = "3"
-//例5
+```
+## 例5
+```JavaScript
 var myArray = new Array ("1", "2", "3");
 var first = myArray.shift(); // ["2", "3"], first is "1"
-//例6
-var myArray = new Array ("1", "2", "3");
+```
+## 例6
+```JavaScriptvar myArray = new Array ("1", "2", "3");
 myArray.unshift("4", "5"); //["4", "5", "1", "2", "3"]
-//例7
+```
+## 例7
+```JavaScript
 var myArray = new Array ("a", "b", "c", "d", "e");
 myArray = myArray.slice(1, 4); // [ "b", "c", "d"]
-//例8
+```
+## 例8
+
+```JavaScript
 var myArray = new Array ("1", "2", "3", "4", "5");
 myArray.splice(1, 3, "a", "b", "c", "d"); // ["1", "a", "b", "c", "d", "5"]
-//例9
+```
+## 例9
+```JavaScript 
 var myArray = new Array ("1", "2", "3");
 myArray.reverse(); // [ "3", "2", "1" ]
-//例10
+```
+## 例10
+```JavaScript
 var myArray = new Array("Wind", "Rain", "Fire");
 myArray.sort(); // myArray = [ "Fire", "Rain", "Wind" ]
-//例11
+```
+## 例11
+```JavaScript
 var a = ['a', 'b', 'a', 'b', 'a'];
 console.log(a.indexOf('b')); // logs 1
 console.log(a.indexOf('b', 2)); // logs 3
 console.log(a.indexOf('z')); // logs -1
-//例12
+```
+## 例12
+```JavaScript
 var a = ['a', 'b', 'c', 'd', 'a', 'b'];
 console.log(a.lastIndexOf('b')); // logs 5
 console.log(a.lastIndexOf('b', 4)); // logs 1
 console.log(a.lastIndexOf('z')); // logs -1
-//例13
+```
+## 例13
+```JavaScript
 var a = ['a', 'b', 'c'];
 a.forEach(function(element) { console.log(element);} ); // a  b  c
-//例14
+```
+## 例14
+```JavaScript
 var a1 = ['a', 'b', 'c'];
 var a2 = a1.map(function(item) { return item.toUpperCase(); });
 console.log(a2); // logs A,B,C
-//例15
+```
+## 例15
+```JavaScript
 var a1 = ['a', 10, 'b', 20, 'c', 30];
 var a2 = a1.filter(function(item) { return typeof item == 'number'; });
 console.log(a2); // logs 10,20,30
-//例16
+```
+## 例16
+```JavaScript
 function isNumber(value){
   return typeof value == 'number';
 }
@@ -352,7 +391,9 @@ var a1 = [1, 2, 3];
 console.log(a1.every(isNumber)); // logs true
 var a2 = [1, '2', 3];
 console.log(a2.every(isNumber)); // logs false
-//例17
+```
+## 例17
+```JavaScript
 function isNumber(value){
   return typeof value == 'number';
 }
@@ -362,59 +403,61 @@ var a2 = [1, '2', 3];
 console.log(a2.some(isNumber)); // logs true
 var a3 = ['1', '2', '3'];
 console.log(a3.some(isNumber)); // logs false
-//例18
+```
+## 例18
+```JavaScript
 var a = [10, 20, 30];
 var total = a.reduce(function(first, second) { return first + second; }, 0);
 console.log(total) // Prints 60
+```
+## 2017.12.28
 
-//2017.12.28
-/*
-带键的集合:https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Keyed_Collections
+## [带键的集合](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Keyed_Collections)
 
-一、映射
-1.Map对象:一个Map对象就是一个简单的键值对映射集合，可以按照数据插入时的顺序遍历所有的元素。
+### 映射
+1. Map对象:一个Map对象就是一个简单的键值对映射集合，可以按照数据插入时的顺序遍历所有的元素。
 		  例1代码演示了使用Map进行的一些基本操作，你可以使用for...of循环来得到所有的[key, value]。
 
-2.Object和Map的比较：（1）一般地，objects会被用于将字符串类型映射到数值。Object允许设置键值对、根据键获取值、删除键、检测某个键是否存在。而Map具有更多的优势。
+2. Object和Map的比较：（1）一般地，objects会被用于将字符串类型映射到数值。Object允许设置键值对、根据键获取值、删除键、检测某个键是否存在。而Map具有更多的优势。
 					 （2）Object的键均为Strings类型，在Map里键可以是任意类型。
 					 （3）必须手动计算Object的尺寸，但是可以很容易地获取使用Map的尺寸。
 					 （4）Map的遍历遵循元素的插入顺序。
 					 （5）Object有原型，所以映射中有一些缺省的键。（可以理解为map = Object.create(null)）。
-这三条提示可以帮你决定用Map还是Object：
+  这三条提示可以帮你决定用Map还是Object：
 					（1）如果键在运行时才能知道，或者所有的键类型相同，所有的值类型相同，那就使用映射。
 					（2）如果需要将原始值存储为键，则使用映射，因为对象将每个键视为字符串，不管它是一个数字值、布尔值还是任何其他原始值。
 					（3）如果需要对个别元素进行操作，使用对象。
-3.WeakMap对象:WeakMap对象也是键值对的集合。它的键必须是对象类型，值可以是任意类型。
+3. WeakMap对象:WeakMap对象也是键值对的集合。它的键必须是对象类型，值可以是任意类型。
 			  它的键被弱保持，也就是说，当其键所指对象没有其他地方引用的时候，它会被GC回收掉。WeakMap提供的接口与Map相同。
 
 			  与Map对象不同的是，WeakMap的键是不可枚举的。不提供列出其键的方法。列表是否存在取决于垃圾回收器的状态，是不可预知的。
 
-二、集合
-1.Set对象:Set对象是一组值的集合，这些值是不重复的，可以按照添加顺序来遍历。
+### 集合
+1. Set对象:Set对象是一组值的集合，这些值是不重复的，可以按照添加顺序来遍历。
 		  例2演示了Set的基本操作
 
-2.数组和集合的转换：可以使用Array.from或展开操作符来完成集合到数组的转换。
+2. 数组和集合的转换：可以使用Array.from或展开操作符来完成集合到数组的转换。
 					同样，Set的构造器接受数组作为参数，可以完成从Array到Set的转换。
 					需要重申的是，Set对象中的值不重复，所以数组转换为集合时，所有重复值将会被删除。
 
-3.Array和Set的对比：一般情况下，在JavaScript中使用数组来存储一组元素，而新的集合对象有这些优势：
+3. Array和Set的对比：一般情况下，在JavaScript中使用数组来存储一组元素，而新的集合对象有这些优势：
 					数组中用于判断元素是否存在的indexOf 函数效率低下。
 					Set对象允许根据值删除元素，而数组中必须使用基于下标的 splice 方法。
 					数组的indexOf方法无法找到NaN值。
 					Set对象存储不重复的值，所以不需要手动处理包含重复值的情况。
 
-4.WeakSet对象：WeakSet对象是一组对象的集合。WeakSet中的对象不重复且不可枚举。
+4. WeakSet对象：WeakSet对象是一组对象的集合。WeakSet中的对象不重复且不可枚举。
 			   与Set对象的主要区别有：WeakSets中的值必须是对象类型，不可以是别的类型
 			   WeakSet的“weak”指的是，对集合中的对象，如果不存在其他引用，那么该对象将可被垃圾回收。
 			   于是不存在一个当前可用对象组成的列表，所以WeakSets不可枚举
 
-三、Map的键和Set的值的等值判断
+### Map的键和Set的值的等值判断
 	判断使用与===相似的规则。
 	-0和+0相等。
 	NaN与自身相等（与===有所不同）。
 
-*/
-//例1
+## 例1
+```JavaScript
 var sayings = new Map();
 sayings.set('dog', 'woof');
 sayings.set('cat', 'meow');
@@ -433,8 +476,9 @@ for (var [key, value] of sayings) {
 
 sayings.clear();
 sayings.size; // 0
-
-//例2
+```
+## 例2
+```JavaScript
 var mySet = new Set();
 mySet.add(1);
 mySet.add("some text");
@@ -447,24 +491,25 @@ mySet.size; // 2
 for (let item of mySet) console.log(item);
 // 1
 // "some text"
+```
+## 2017.12.29
 
-//2017.12.29
-/*
-对象：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Working_with_Objects
-一、枚举一个对象的所有属性（例1）
-1.for...in 循环
+## 对象：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Working_with_Objects
+### 枚举一个对象的所有属性（例1）
+1. for...in 循环
 	该方法依次访问一个对象及其原型链中所有可枚举的属性。
-2.Object.keys(o)
+2. Object.keys(o)
 	该方法返回一个对象 o 自身包含（不包括原型中）的所有属性的名称的数组。
-3.Object.getOwnPropertyNames(o)
+3. Object.getOwnPropertyNames(o)
 	该方法返回一个数组，它包含了对象 o 所有拥有的属性（无论是否可枚举）的名称。
 
-二、对象模型的细节：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Details_of_the_Object_Model
+### 对象模型的细节：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Details_of_the_Object_Model
 
-三、继承与原型链：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Inheritance_and_the_prototype_chain
+### 继承与原型链：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Inheritance_and_the_prototype_chain
 
-*/
-//例1
+
+## 例1
+```JavaScript
 function listAllProperties(o){     
 	var objectToInspect;     
 	var result = [];
@@ -475,5 +520,6 @@ function listAllProperties(o){
 	
 	return result; 
 }
+```
 
 
