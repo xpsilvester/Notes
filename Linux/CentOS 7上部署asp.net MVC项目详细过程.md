@@ -52,7 +52,7 @@ MariaDB的操作命令跟Mysql一样
 
 ### 二、Jexus和Mono的安装配置可参照
 
-[CentOS 6.6上部署asp.net MVC项目详细过程](https://www.zybuluo.com/xpsilvester/note/1097210)
+[CentOS 6.6上部署asp.net MVC项目详细过程](https://xpsilvester.com/2018/04/05/CentOS%206.6%E4%B8%8A%E9%83%A8%E7%BD%B2asp.net%20MVC%E9%A1%B9%E7%9B%AE%E8%AF%A6%E7%BB%86%E8%BF%87%E7%A8%8B/)
 
 
 ### 三、一些常见问题及操作
