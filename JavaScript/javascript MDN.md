@@ -596,7 +596,7 @@ function listAllProperties(o){
 ### [Date对象](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date)
 
 ## Date 对象方法
-```
+```JavaScript
 //new Date 返回当日的日期和时间
 var date = new Date() //现在的时间 Fri Nov 02 2018 09:45:50 GMT+0800 (中国标准时间)
 date = new Date(1518517931477) //自定义的时间（根据毫秒数1518517931477决定） Tue Feb 13 2018 18:32:11 GMT+0800 (中国标准时间)
