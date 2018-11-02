@@ -593,5 +593,34 @@ function listAllProperties(o){
 	return result; 
 }
 ```
+### [Date对象](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date)
+
+## Date 对象方法
+```
+//new Date 返回当日的日期和时间
+var date = new Date() //现在的时间 Fri Nov 02 2018 09:45:50 GMT+0800 (中国标准时间)
+date = new Date(1518517931477) //自定义的时间（根据毫秒数1518517931477决定） Tue Feb 13 2018 18:32:11 GMT+0800 (中国标准时间)
+//getDate() 从 Date 对象返回一个月中的某一天 (1 ~ 31)
+date.getDate() // 13 (13号)
+//getDay() 从 Date 对象返回一周中的某一天 (0 ~ 6)
+date.getDay() // 2 (周二)
+//getMonth() 从 Date 对象返回月份 (0 ~ 11)
+date.getMonth() // 1 (二月，注意显示的时候要+1,索引从0开始)
+//getFullYear() 从 Date 对象以四位数字返回年份
+date.getFullYear() // 2018 (2018年)
+//getHours() 返回 Date 对象的小时 (0 ~ 23)
+date.getHours() //18 (18点)
+//getMinutes() 返回 Date 对象的分钟 (0 ~ 59)
+date.getMinutes() // 32 (32分)
+//getSeconds() 返回 Date 对象的秒数 (0 ~ 59)
+date.getSeconds() // 11 (秒)
+//getMilliseconds() 返回 Date 对象的毫秒(0 ~ 999)
+date.getMilliseconds() // 477 (477毫秒)
+//getTime() 返回 1970 年 1 月 1 日至今的毫秒数
+date.getTime() // 1518517931477 (1970 年 1 月 1 日至今的毫秒数)
+//getTimezoneOffset() 返回本地时间与格林威治标准时间 (GMT) 的分钟差
+date.getTimezoneOffset() // -480 (相差-480分钟)
+```
+
 
 
