@@ -601,6 +601,8 @@ function listAllProperties(o){
 var date = new Date() //现在的时间 Fri Nov 02 2018 09:45:50 GMT+0800 (中国标准时间)
 date = new Date(1518517931477) //自定义的时间（根据毫秒数1518517931477决定） Tue Feb 13 2018 18:32:11 GMT+0800 (中国标准时间)
 
+/*=======以Tue Feb 13 2018 18:32:11 GMT+0800 (中国标准时间)为例============*/
+
 //getDate() 从 Date 对象返回一个月中的某一天 (1 ~ 31)
 date.getDate() // 13 (13号)
 
@@ -631,7 +633,136 @@ date.getTime() // 1518517931477 (1970 年 1 月 1 日至今的毫秒数)
 //getTimezoneOffset() 返回本地时间与格林威治标准时间 (GMT) 的分钟差
 date.getTimezoneOffset() // -480 (相差-480分钟)
 
+//getUTCDate() 根据世界时从 Date 对象返回月中的一天 (1 ~ 31)
+date.getUTCDate() // 13 (13号)
 
+//getUTCDay() 根据世界时从 Date 对象返回周中的一天 (0 ~ 6)
+date.getUTCDay() // 2 (周二)
+
+//getUTCMonth() 根据世界时从 Date 对象返回月份 (0 ~ 11)
+date.getUTCMonth() // 1 (二月，注意显示的时候要+1,索引从0开始)
+
+//getUTCFullYear() 根据世界时从 Date 对象返回四位数的年份
+date.getUTCFullYear() // 2018 (2018年)
+
+//getUTCHours() 根据世界时返回 Date 对象的小时 (0 ~ 23)
+date.getUTCHours() // 10 (世界时间 10 点)
+
+//getUTCMinutes() 根据世界时返回 Date 对象的分钟 (0 ~ 59)
+date.getUTCMinutes() //32 (32分)
+
+//getUTCSeconds() 根据世界时返回 Date 对象的秒钟 (0 ~ 59)
+date.getUTCSeconds() // 11 (秒)
+
+//getUTCMilliseconds() 根据世界时返回 Date 对象的毫秒(0 ~ 999)
+date.getUTCMilliseconds() // 477 (477毫秒)
+
+//parse() 返回1970年1月1日午夜到指定日期（字符串）的毫秒数
+Date.parse("Jul 8, 2005") //1120752000000 从 1970/01/01 到 2005/07/08 的毫秒数
+
+//setDate() 设置 Date 对象中月的某一天 (1 ~ 31)
+var d = new Date()
+d.setDate(15) //Thu Nov 15 2018 10:35:14 GMT+0800 (中国标准时间) 通过 setDate() 方法把当前月的天设置为 15
+
+//setMonth() 设置 Date 对象中月份 (0 ~ 11)
+var d=new Date()
+d.setMonth(0) //Tue Jan 02 2018 10:50:00 GMT+0800 (中国标准时间) 通过 setMonth() 方法把对象 d 的月字段设置为 0 （一月）
+
+//setFullYear() 设置 Date 对象中的年份（四位数字）
+var d = new Date()
+d.setFullYear(1992,10,3) //Tue Nov 03 1992 10:52:12 GMT+0800 (中国标准时间) 通过 setFullYear() 把日期设置为 November 3, 1992
+
+//setHours() 设置 Date 对象中的小时 (0 ~ 23)
+var d = new Date()
+d.setHours(15,35,1) //Fri Nov 02 2018 15:35:01 GMT+0800 (中国标准时间) 通过 setHours() 方法把时间设置为 15:35:01
+
+//setMinutes() 设置 Date 对象中的分钟 (0 ~ 59)
+var d = new Date()
+d.setMinutes(1) //Fri Nov 02 2018 10:01:31 GMT+0800 (中国标准时间) 通过 setMinutes() 方法把当前时间的分钟字段设置为 01
+
+//setSeconds() 设置 Date 对象中的秒钟 (0 ~ 59)
+var d = new Date()
+d.setSeconds(1) //Fri Nov 02 2018 10:57:01 GMT+0800 (中国标准时间) 通过 setSeconds() 方法把当前时间的秒字段设置为 01
+
+//setMilliseconds() 设置 Date 对象中的毫秒 (0 ~ 999)
+var d = new Date()
+d.setMilliseconds(1) //Fri Nov 02 2018 10:58:41 GMT+0800 (中国标准时间) 通过 setMilliseconds() 方法把当前时间的毫秒字段设置为 001
+
+//setTime() 以毫秒设置 Date 对象
+var d = new Date()
+d.setTime(77771564221) //Mon Jun 19 1972 11:12:44 GMT+0800 (中国标准时间) 向 1970/01/01 添加 77771564221 毫秒
+
+//setUTCDate() 根据世界时设置 Date 对象中月份的一天 (1 ~ 31)
+var d = new Date()
+d.setUTCDate(15) //Thu Nov 15 2018 11:07:37 GMT+0800 (中国标准时间) 通过 setUTCDate() 方法把当前月的天字段设置为 15
+
+//setUTCFullYear() 根据世界时设置 Date 对象中的年份（四位数字）
+var d = new Date()
+d.setUTCFullYear(1992,10,3) //Tue Nov 03 1992 11:10:15 GMT+0800 (中国标准时间) 通过 setUTCFullYear() 方法把日期设置为 November 3, 1992
+
+//setUTCHours() 根据世界时设置 Date 对象中的小时 (0 ~ 23)
+var d = new Date();
+d.setUTCHours(23); //Sat Nov 03 2018 07:12:02 GMT+0800 (中国标准时间) 通过 setUTCHours() 方法将 UTC 小时设置为 23
+
+//setUTCMinutes() 根据世界时设置 Date 对象中的分钟 (0 ~ 59)
+var d = new Date()
+d.setUTCMinutes(1) //Fri Nov 02 2018 11:01:32 GMT+0800 (中国标准时间) 通过 setUTCMinutes() 方法把当前时间的分钟字段设置为 01
+
+//setUTCSeconds() 根据世界时设置 Date 对象中的秒钟 (0 ~ 59)
+var d = new Date()
+d.setUTCSeconds(1) //Fri Nov 02 2018 11:15:01 GMT+0800 (中国标准时间) 通过 setUTCSeconds() 把当前时间的秒字段设置为 01
+
+//setUTCMilliseconds() 根据世界时设置 Date 对象中的毫秒 (0 ~ 999)
+var d = new Date()
+d.setUTCMilliseconds(1) //Fri Nov 02 2018 11:16:32 GMT+0800 (中国标准时间) 通过 setUTCMilliseconds() 方法把当前时间的毫秒字段设置为 001
+
+//toSource() 返回该对象的源代码
+function employee(name,job,born)
+{
+this.name=name;
+this.job=job;
+this.born=born;
+}
+var bill=new employee("Bill Gates","Engineer",1985);
+bill.toSource(); //({name:"Bill Gates", job:"Engineer", born:1985}) 
+
+//toString() 把 Date 对象转换为字符串
+var d = new Date()
+d.toString() //Fri Nov 02 2018 11:19:24 GMT+0800 (中国标准时间) 把今天的日期转换为字符串
+
+//toTimeString() 把 Date 对象的时间部分转换为字符串
+var date = new Date()
+date.toTimeString() //11:20:59 GMT+0800 (中国标准时间)
+
+//toDateString() 把 Date 对象的日期部分转换为字符串
+date.toDateString() //Fri Nov 02 2018 
+
+//toUTCString() 根据世界时，把 Date 对象转换为字符串
+date.toUTCString() //Fri, 02 Nov 2018 03:20:59 GMT
+
+//toLocaleString() 根据本地时间格式，把 Date 对象转换为字符串
+date.toLocaleString() //2018/11/2 上午11:20:59 
+
+//toLocaleTimeString() 根据本地时间格式，把 Date 对象的时间部分转换为字符串
+date.toLocaleTimeString() //上午11:20:59
+
+//toLocaleDateString() 根据本地时间格式，把 Date 对象的日期部分转换为字符串
+date.toLocaleDateString() //2018/11/2
+
+//UTC() 根据世界时返回 1970 年 1 月 1 日 到指定日期的毫秒数
+var minutes = 1000 * 60
+var hours = minutes * 60
+var days = hours * 24
+var years = days * 365
+var t = Date.UTC(2005,7,8)
+var y = t/years
+document.write("It's been: " + y + " years from 1970/01/01")
+document.write(" to 2005/07/08!")
+//It's been: 35.62465753424657 years from 1970/01/01 to 2005/07/08!
+
+//valueOf() 返回 Date 对象的原始值
+var date = new Date()
+date.valueOf() //1541129307885
 ```
 
 
