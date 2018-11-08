@@ -453,6 +453,54 @@ var a = [10, 20, 30];
 var total = a.reduce(function(first, second) { return first + second; }, 0);
 console.log(total) // Prints 60
 ```
+
+* 数组的遍历方法
+## 例19
+```JavaScript
+var arr=[1,2,3,4];
+//使用forEach遍历
+arr.forEach(function(val, index) {
+  console.log(val, index);
+});
+/*输出
+  1 0
+  2 1
+  3 2
+  4 3
+*/
+//使用for..in..遍历
+for(var i in arr){
+	console.log(i,":",arr[i])
+}
+/*输出
+0 : 1
+1 : 2
+2 : 3
+3 : 4
+*/
+//
+//使用for-of遍历
+for(var value of arr){
+	console.log(value)
+}
+/*
+  1
+  2
+  3
+  4
+*/
+//使用for遍历
+for(var k=0;k<arr.length;k++){
+  console.log(k,":",arr[k])
+}
+/*输出
+0 ":" 1
+1 ":" 2
+2 ":" 3
+3 ":" 4
+*/
+```
+
 ## 2017.12.28
 
 ## [带键的集合](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Keyed_Collections)
@@ -575,12 +623,56 @@ for (let item of mySet) console.log(item);
 * Object.getOwnPropertyNames(o)
 	该方法返回一个数组，它包含了对象 o 所有拥有的属性（无论是否可枚举）的名称。
 
+* Reflect.ownKeys(obj)
+  该方法返回一个数组,包含对象自身的所有属性,不管属性名是Symbol或字符串,也不管是否可枚举。
+
+## 例1
+```JavaScript
+var obj = {'0':'a','1':'b','2':'c'};
+//for...in
+for(var i in obj){
+  console.log(i,":",obj[i]);
+}
+/*输出
+  0 : a
+  1 : b
+  2 : c
+*/
+//Object.keys(o)
+Object.keys(obj).forEach(function(key){
+	console.log(key,obj[key])
+})
+/*输出
+  0 a
+  1 b
+  2 c
+*/
+//Object.getOwnPropertyNames(o)
+Object.getOwnPropertyNames(obj).forEach(function(key){
+	console.log(key,obj[key]);
+})
+/*输出
+  0 a
+  1 b
+  2 c
+*/
+//Reflect.ownKeys(obj)
+Reflect.ownKeys(obj).forEach(function(key){
+	console.log(key,obj[key])
+})
+/*输出
+  0 a
+  1 b
+  2 c
+*/
+```
+
 ### [对象模型的细节](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Details_of_the_Object_Model)
 
 ### [继承与原型链](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)
 
 
-## 例1
+## 例2
 ```JavaScript
 function listAllProperties(o){     
 	var objectToInspect;     
