@@ -51,3 +51,9 @@ yum remove pam-devel    #移除 pam-devel
 rm -rf /var/log/httpd/access   #删除/var/log/httpd/access目录以及其下所有文件、文件夹
 rm -f /var/log/httpd/access.log    #将会强制删除/var/log/httpd/access.log这个文件
 ```
+
+### 10、mkdir命令
+用于新建文件夹
+```Shell 
+mkdir /usr/v2ray   #在/usr/目录下创建v2ray文件夹
+```
