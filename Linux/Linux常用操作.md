@@ -89,7 +89,7 @@ ps -ef|grep 2593 #查看2593进程的父进程
 kill -9 25605 #关掉pid=25605的进程
 ```
 
-### 14、CentOS7 安装Nginx
+### 14、CentOS7 安装nginx
 直接运行yum install -y nginx 好像装不了，原来官方yum没有Nginx的源
 ```Shell
 rpm -Uvh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm #先添加源地址
@@ -97,5 +97,12 @@ yum search nginx #看看是否已经添加源成功
 yum install -y nginx #安装Nginx
 systemctl start nginx.service #启动nginx，如果无法启动大多是因为80端口被占用，用ss -lnp|grep 80找出占用进程并kill掉，再次启动
 systemctl enable nginx.service #设置nginx开机启动
+
+#其他相关命令
+systemctl stop nginx.service #停止nginx服务
+systemctl disable nginx.service #停止开机自启动
+systemctl status nginx.service #查看服务当前状态
+systemctl restart nginx.service　#重新启动服务
+systemctl list-units --type=service #查看所有已启动的服务
 ```
 
