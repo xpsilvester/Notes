@@ -106,3 +106,29 @@ systemctl restart nginx.service　#重新启动服务
 systemctl list-units --type=service #查看所有已启动的服务
 ```
 
+### 15、netstat 命令
+用于显示各种网络相关信息，如网络连接，路由表，接口状态 (Interface Statistics)，masquerade 连接，多播成员 (Multicast Memberships) 等等
+```Shell
+yum install -y net-tools  #安装netstat
+netstat -a      # 列出所有端口
+netstat -at     # 列出所有TCP端口
+netstat -au     # 列出所有UDP端口
+netstat -ant    # 查看服务端口
+
+netstat -l   # 只显示监听端口
+netstat -lt  # 显示监听TCP端口
+netstat -lu  # 显示监听UDP端口
+netstat -lx  # 显示监听UNIX端口
+
+netstat -s     # 显示所有端口的统计信息
+netstat -st    # 显示所有TCP的统计信息
+netstat -su    # 显示所有UDP的统计信息
+
+netstat -p   #显示 PID 和进程名称
+netstat -r   #显示核心路由信息
+
+netstat -antp | grep ssh #查看ssh端口和服务
+netstat -antp | grep 22  #查看22端口和服务
+```
+
+
