@@ -26,4 +26,7 @@ ln -s /usr/node/node-v10.13.0-linux-x64/bin/node   /usr/local/bin/
 #### /usr/node/node-v10.13.0-linux-x64/为安装包解压出来的文件夹
 #### 到这里应该已经完成了，随意到目录下运行命令node -v,看看输出
 
+## 相关文章
+##### 1.[Linux CentOS7 搭建node服务详细教程](https://www.jianshu.com/p/5999d8c58b2f)
+
 
