@@ -75,3 +75,27 @@ firewall-cmd --zone=public --remove-port=80/tcp --permanent  #关闭一个端口
 firewall-cmd --reload  #重新载入 （！重要，防火墙操作后要重新载入才能生效）
 
 ```
+
+### 12、ss命令
+用于查看端口占用和对应进程
+```Shell
+ss -lnp|grep 80 #查看当前占用80端口的进程
+ps -ef|grep 2593 #查看2593进程的父进程
+```
+
+### 13、Kill 命令
+使用kill命令结束进程：kill xxx
+```Shell
+kill -9 25605 #关掉pid=25605的进程
+```
+
+### 14、CentOS7 安装Nginx
+直接运行yum install -y nginx 好像装不了，原来官方yum没有Nginx的源
+```Shell
+rpm -Uvh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm #先添加源地址
+yum search nginx #看看是否已经添加源成功
+yum install -y nginx #安装Nginx
+systemctl start nginx.service #启动nginx，如果无法启动大多是因为80端口被占用，用ss -lnp|grep 80找出占用进程并kill掉，再次启动
+systemctl enable nginx.service #设置nginx开机启动
+```
+
