@@ -95,7 +95,8 @@ kill -9 25605 #关掉pid=25605的进程
 rpm -Uvh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm #先添加源地址
 yum search nginx #看看是否已经添加源成功
 yum install -y nginx #安装Nginx
-systemctl start nginx.service #启动nginx，如果无法启动大多是因为80端口被占用，用ss -lnp|grep 80找出占用进程并kill掉，再次启动
+systemctl start nginx.service #启动nginx
+# (如果无法启动大多是因为80端口被占用，用ss -lnp|grep 80找出占用进程并kill掉，再次启动)
 systemctl enable nginx.service #设置nginx开机启动
 
 #其他相关命令
