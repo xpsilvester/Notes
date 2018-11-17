@@ -1,5 +1,5 @@
 # 申请免费SSL证书
-Chrome对不是https的网站很不友好，所以很有必要未自己的网站申请SSL证书，在自已域名的http前面再加上个s。以下操作是在CentOS 7下进行的。
+Chrome对不是https的网站很不友好，所以很有必要为自己的网站申请SSL证书，在自已域名的http前面再加上个s。以下操作是在CentOS 7下进行的。
 
 ### 1.安装Python2.7以上版本
 ```Shell
