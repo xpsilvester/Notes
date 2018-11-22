@@ -132,4 +132,47 @@ netstat -antp | grep ssh #查看ssh端口和服务
 netstat -antp | grep 22  #查看22端口和服务
 ```
 
+### 16、cat 命令
+cat命令是linux下的一个文本输出命令，通常是用于观看某个文件的内容的
+cat主要有三大功能：
+```Shell
+# 一次显示整个文件。
+cat filename
+
+# 从键盘创建一个文件。
+cat > filename # 只能创建新文件,不能编辑已有文件
+
+# 将几个文件合并为一个文件。
+cat file1 file2 > file
+```
+### 17.grep 命令
+```Shell
+# 在当前目录中，查找后缀有 file 字样的文件中包含 test 字符串的文件，
+# 并打印出该字符串的行
+grep test *file 
+
+# 查找指定目录/etc/acpi 及其子目录（如果存在子目录的话）下
+# 所有文件中包含字符串"update"的文件，并打印出该字符串所在行的内容
+grep -r update /etc/acpi  # 以递归的方式查找“etc/acpi”
+
+
+# 忽略子目录
+grep -d skip update /etc/acpi
+
+# 反向查找。查找文件名中包含 test 的文件中不包含test 的行
+grep -v test *test*
+
+# 把test.txt文件中abc okm筛选出来
+grep "abc\|okm" test.txt
+
+# 把带abc的行筛选出来，不区分大小写
+grep -i "abc" test.txt
+
+# 把出现abc整个单词的筛选出来
+grep -w "abc" test.txt
+
+# 把出现abc整个单词筛选出来，不区分大小写
+grep -wi "abc" test.txt
+```
+
 
