@@ -175,4 +175,18 @@ grep -w "abc" test.txt
 grep -wi "abc" test.txt
 ```
 
+### 17.SSR 命令
+```Shell
+git clone https://github.com/flyzy2005/ss-fly
+ss-fly/ss-fly.sh -ssr
+/etc/init.d/shadowsocks start # 启动
+/etc/init.d/shadowsocks stop # 停止
+/etc/init.d/shadowsocks restart # 重启
+/etc/init.d/shadowsocks status # 状态
+/etc/shadowsocks.json # 配置文件路径
+/var/log/shadowsocks.log # 日志文件路径
+/usr/local/shadowsocks # 代码安装目录
+./shadowsocksR.sh uninstall # 卸载ssr
+```
+
 
