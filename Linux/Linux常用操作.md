@@ -145,7 +145,7 @@ cat > filename # 只能创建新文件,不能编辑已有文件
 # 将几个文件合并为一个文件。
 cat file1 file2 > file
 ```
-### 17.grep 命令
+### 17、grep 命令
 ```Shell
 # 在当前目录中，查找后缀有 file 字样的文件中包含 test 字符串的文件，
 # 并打印出该字符串的行
@@ -175,7 +175,7 @@ grep -w "abc" test.txt
 grep -wi "abc" test.txt
 ```
 
-### 17.SSR 命令
+### 18、SSR 命令
 ```Shell
 git clone https://github.com/flyzy2005/ss-fly
 ss-fly/ss-fly.sh -ssr
@@ -187,6 +187,16 @@ ss-fly/ss-fly.sh -ssr
 /var/log/shadowsocks.log # 日志文件路径
 /usr/local/shadowsocks # 代码安装目录
 ./shadowsocksR.sh uninstall # 卸载ssr
+```
+
+### 19、Swap 命令
+```Shell
+# Swap意思是交换分区，通常我们说的虚拟内存，是从硬盘中划分出的一个分区。
+# 当物理内存不够用的时候，内核就会释放缓存区（buffers/cache）里一些长时间不用的程序，然后将这些程序临时放到Swap中，也就是说如果物理内存和缓存区内存不够用的时候，才会用到Swap。
+
+# swap清理(前提条件，空闲的内存必须比已经使用的swap空间大)
+swapoff -a 
+swapon -a
 ```
 
 
