@@ -857,5 +857,63 @@ var date = new Date()
 date.valueOf() //1541129307885
 ```
 
+### [柯里化](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date)
+
+## Currying 柯里化
+
+```JavaScript
+function argsArray(argsObject) {
+    return Array.prototype.slice.call(argsObject, 0);
+}
+function curry(f, n) {
+    var args = argsArray(arguments);
+    if (typeof n === 'undefined')
+        args[1] = f.length;
+    if (n === args.length - 2)
+        return f.apply(undefined, args.slice(2));
+    return function() {
+        return curry.apply(undefined, args.concat(argsArray(arguments)));
+    };
+}
+//第一种优化
+function curry(f,n = 0,...arr){
+    n = n == 0 ? f.length : n;
+    if(arr.length == n){
+        return f(...arr)
+    }
+    return function(...arr2){
+        return curry(...[f,n,...arr,...arr2])
+    }
+}
+//第二种优化
+const curry = ( fn, arr = []) => (...args) => ( a => a.length === fn.length? fn(...a) : curry(fn, a))([...arr, ...args])
+
+
+// 实现一个add方法，使计算结果能够满足如下预期：
+// add(1)(2)(3) = 6
+// add(1, 2, 3)(4) = 10
+// add(1)(2)(3)(4)(5) = 15
+
+function add(...arr){
+    // 第一次执行时，定义一个数组专门用来存储所有的参数
+    let _arr = [...arr]
+    
+    // 在内部声明一个函数，利用闭包的特性保存_args并收集所有的参数值
+    let _add = (...arr2)=>{
+        _arr = [..._arr,...arr2]
+        return _add
+    }
+    // 利用toString隐式转换的特性，当最后执行时隐式转换，并计算最终的值返回
+    _add.toString = () => _arr.reduce((prev,curr)=> prev + curr)
+
+    return _add
+}
+
+//add(1)(2)(3).toString() = 6;
+//add(1, 2, 3)(4).toString() = 10;
+//add(1)(2)(3)(4)(5).toString() = 15;
+//add(1, 2, 3)(4, 5)(6).toString() = 21;
+```
+
 
 
