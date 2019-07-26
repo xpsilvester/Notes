@@ -857,7 +857,7 @@ var date = new Date()
 date.valueOf() //1541129307885
 ```
 
-### [柯里化](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date)
+### [柯里化](https://codepen.io/Universalist/post/currying-functions-in-javascript)
 
 ## Currying 柯里化
 
