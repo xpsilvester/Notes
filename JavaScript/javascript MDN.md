@@ -895,15 +895,13 @@ const curry = ( fn, arr = []) => (...args) => ( a => a.length === fn.length? fn(
 // add(1)(2)(3)(4)(5) = 15
 
 function add(...arr){
-    // 第一次执行时，定义一个数组专门用来存储所有的参数
     let _arr = [...arr]
     
-    // 在内部声明一个函数，利用闭包的特性保存_args并收集所有的参数值
     let _add = (...arr2)=>{
         _arr = [..._arr,...arr2]
         return _add
     }
-    // 利用toString隐式转换的特性，当最后执行时隐式转换，并计算最终的值返回
+    
     _add.toString = () => _arr.reduce((prev,curr)=> prev + curr)
 
     return _add
