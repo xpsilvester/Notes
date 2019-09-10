@@ -6,7 +6,7 @@
 
 ```js
 //数组
-slice()、concat、Array.from()
+slice()、concat()、Array.from()
 
 //对象
 Object.assign()
