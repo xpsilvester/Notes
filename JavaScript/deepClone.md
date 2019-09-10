@@ -66,8 +66,8 @@ target.target = target;
 ```
 #### 3.防止循环递归版
 ```js
-//Map版
-function clone(target,map=new Map()){
+//WeakMap版
+function clone(target,map=new WeakMap()){
     //先判断是否有下一层内容
     if(typeof target === 'object'){
         //判断对象还是数组
