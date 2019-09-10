@@ -6,3 +6,5 @@ JS笔记
 #### JsAlgorithm JavaScript基本算法
 
 #### design JavaScript设计模式
+
+#### deepClone 深拷贝实现
