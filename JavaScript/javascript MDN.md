@@ -956,6 +956,74 @@ getFileByPath('./files/1.txt')
   })
 ```
 
+## [Generator](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Generator)
+
+Generator函数是ES6提供的一种异步编程解决方案，可以解决回调地狱、异步流控等问题
+
+```js
+//上班流程控制：起床 --> 洗漱 --> 出门 --> 到公司打卡
+
+//起床
+let rise = (success)=>{
+  setTimeout(()=>{
+    console.log('起床')
+    success() //回调
+  },500)
+}
+
+//洗漱
+let wash = (success)=>{
+  setTimeout(()=>{
+    console.log('洗漱')
+    success() //回调
+  },500)
+}
+
+//出门
+let out = (success)=>{
+  setTimeout(()=>{
+    console.log('出门')
+    success() //回调
+  },500)
+}
+
+//到公司打卡
+let clock = (success)=>{
+  setTimeout(()=>{
+    console.log('到公司打卡')
+    success() //回调
+  },500)
+}
+
+//流程控制
+let run = (fn)=>{
+  let gen = fn()
+  let next = ()=>{
+
+    let result = gen.next()
+
+    if(!result.done){
+      result.value(next) //next作为入参，即本工序成功后，执行下一工序
+    }else{
+      return
+    }
+  }
+  next()
+}
+
+//具体流程
+function* task(){
+  yield rise;
+  yield wash;
+  yield out;
+  yield clock;
+}
+
+//执行
+run(task)
+
+```
+
 
 
 
