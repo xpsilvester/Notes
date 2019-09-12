@@ -1,7 +1,6 @@
 ## 学习JavaScript MDN上的语法
 参考地址：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript
 
-## 2017.12.21
 
 ## [语法和数据类型](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide)
 * 变量声明提升(Variable hoisting)
@@ -225,7 +224,6 @@ function Person(){
 var p = new Person();
 
 ```
-## 2017.12.25
 
 ## [正则表达式](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions)
 
@@ -501,7 +499,6 @@ for(var k=0;k<arr.length;k++){
 */
 ```
 
-## 2017.12.28
 
 ## [带键的集合](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Keyed_Collections)
 
@@ -912,6 +909,55 @@ function add(...arr){
 //add(1)(2)(3)(4)(5).toString() = 15;
 //add(1, 2, 3)(4, 5)(6).toString() = 21;
 ```
+
+## [Promise](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+
+Promise 对象用于表示一个异步操作的最终完成 (或失败), 及其结果值.
+
+```js
+//PromisTest.js ----- 运行: node PromisTest.js
+//根目录files文件夹中有 1.txt 、 2.txt 、 3.txt 三个文件
+//依次异步读取文件信息
+const fs = require('fs')
+
+//读取文件方法
+function getFileByPath(fpath) {
+  //返回一个Promise对象
+  return new Promise(function (resolve, reject) {
+    fs.readFile(fpath, 'utf-8', (err, dataStr) => {
+
+      if (err) return reject(err)
+      resolve(dataStr)
+
+    })
+  })
+}
+
+//链式调用Promise
+//读取文件1.txt
+getFileByPath('./files/1.txt')
+  .then(function (data) {
+    console.log(data)
+
+    // 读取文件2.txt
+    return getFileByPath('./files/2.txt')
+  })
+  .then(function (data) {
+    console.log(data)
+
+    // 读取文件3.txt
+    return getFileByPath('./files/3.txt')
+  })
+  .then(function (data) {
+    console.log(data)
+  })
+  .catch(function (err) { // catch 的作用： 如果前面有任何的 Promise 执行失败，则立即终止所有 promise 的执行，并 马上进入 catch 去处理 Promise中 抛出的异常；
+    console.log('这是自己的处理方式：' + err.message)
+  })
+```
+
+
+
 
 
 
