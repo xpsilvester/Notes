@@ -22,7 +22,9 @@ JS的常用算法练习
 
 [10.快速排序 -- 平均时间复杂度O(nlog2n)](#快速排序)
 
-[11.三数之和](#三数之和)
+[11.两数之和](#两数之和)
+
+[12.三数之和](#三数之和)
 ## 初级算法
 ### 线性查找-时间复杂度O(n)--相当于算法界中的HelloWorld
 ```JavaScript
@@ -411,7 +413,34 @@ function quickSort(arr,l,r){//对从arr[l]到arr[r]的元素进行排序
 }
 quickSort(arr5,0,6);
 console.log(arr5);
+
 ```
+## 两数之和
+
+#### 给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。
+
+```js
+//给定 nums = [2, 7, 11, 15], target = 9
+
+//因为 nums[0] + nums[1] = 2 + 7 = 9
+//所以返回 [0, 1]
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+var twoSum = function(nums, target) {
+    let a = {}
+    for(let i=0;i<nums.length;i++){
+        let temp = target - nums[i]
+        if(a[temp] != undefined) return [a[temp],i];
+        a[nums[i]] = i
+    }
+    return []
+};
+
+```
+
 
 ## 三数之和
 #### 给定一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？找出所有满足条件且不重复的三元组。答案中不可以包含重复的三元组。
