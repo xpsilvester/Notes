@@ -199,4 +199,16 @@ swapoff -a
 swapon -a
 ```
 
+### 20、Tail 命令
+```Shell
+# tail 命令可用于查看文件的内容，有一个常用的参数 -f 常用于查阅正在改变的日志文件。
+# tail -f filename 会把 filename 文件里的最尾部的内容显示在屏幕上，并且不断刷新，只要 filename 更新就可以看到最新的文件内容。
+
+tail -n 50 /var/tax.log # 查看最后50行
+tail notes.log # 要显示 notes.log 文件的最后 10 行
+tail -f notes.log # 要跟踪名为 notes.log 的文件的增长情况
+tail +20 notes.log # 显示文件 notes.log 的内容，从第 20 行至文件末尾
+tail -c 10 notes.log # tail -c 10 notes.log
+```
+
 
