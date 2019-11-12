@@ -18,13 +18,15 @@ JS的常用算法练习
 
 [8.用数组实现的队列：利用数组中的push和shift方法可以使队列的实现显得非常简单、从定义一个Queue构造函数开始实现队列](#用数组实现的队列)
 
-[9.栈的实现](#栈的实现)
+[9.JS使用队列对数组排列，基数排序算法](#JS使用队列对数组排列，基数排序算法)
 
-[10.快速排序 -- 平均时间复杂度O(nlog2n)](#快速排序)
+[10.栈的实现](#栈的实现)
 
-[11.两数之和](#两数之和)
+[11.快速排序 -- 平均时间复杂度O(nlog2n)](#快速排序)
 
-[12.三数之和](#三数之和)
+[12.两数之和](#两数之和)
+
+[13.三数之和](#三数之和)
 ## 初级算法
 ### 线性查找-时间复杂度O(n)--相当于算法界中的HelloWorld
 ```JavaScript
@@ -341,6 +343,88 @@ ui.isempty();//true
 */
 
 ```
+
+## JS使用队列对数组排列，基数排序算法
+
+```JavaScript
+/*
+* 使用队列对数组排列，基数排序
+*对于0~99的数字，基数排序将数组集扫描两次。
+* 第一次按个位上的数字进行排序，
+* 第二次按十位上的数字进行排序
+* */
+function Queue(){
+  this.dataStore = [];//存放队列的数组，初始化为空
+  this.enqueue = enqueue;//向队列尾部添加一个元素
+  this.dequeue = dequeue;//删除队首的元素
+  this.theFront = theFront;//读取队首的元素
+  this.back = back;//对取队尾的元素
+  this.toStrings = toStrings;//显示队列内的所有元素
+  this.empty = empty;//判断队列是否为空
+}
+function enqueue(element){
+  this.dataStore.push(element);
+}
+function dequeue(){
+  return this.dataStore.shift();
+}
+function theFront(){
+  return this.dataStore[0];
+}
+function back(){
+  return this.dataStore[this.dataStore.length-1];
+}
+function toStrings(){
+  return this.dataStore;
+}
+function empty(){
+  if(this.dataStore.length == 0){
+    return true;
+  }else{
+    return false;
+  }
+}
+/*基数排序
+* nums :需要排序的数组
+* queues ：数组，里面元素是队列
+* n ：队列的格式，这里为10个
+* digit ：传入1，则先按个位上的数字排序；传入10，则按十位上的数字排序
+ * */
+function distribute(nums,queues,n,digit){
+  for(var i = 0;i < n;i++){
+    if(digit == 1){
+      queues[nums[i]%10].enqueue(nums[i]);
+    }else if(digit == 10){
+      queues[Math.floor(nums[i]/10)].enqueue(nums[i]);
+    }else{
+    }
+  }
+}
+function collect(queues,nums){
+  var i = 0;
+  for(var j = 0;j < 10;j++){
+    while(!queues[j].empty()){
+      nums[i++] = queues[j].dequeue();
+    }
+  }
+}
+/*测试程序*/
+var queues = [];
+for(var i = 0;i < 10;i++){
+  queues[i] = new Queue();
+}
+var nums = [];
+for(var i = 0;i < 10;i++){
+  nums[i] = Math.floor(Math.random()*101);
+}
+console.log("开始的nums： "+nums);//24,72,90,84,49,69,8,30,50,0 (都是随机数，仅供参考)
+distribute(nums,queues,10,1);
+collect(queues,nums);
+distribute(nums,queues,10,10);
+collect(queues,nums);
+console.log("排序后的nums： "+nums);//0,8,24,30,49,50,69,72,84,90 (都是随机数，仅供参考)
+```
+
 
 ## 栈的实现
 ### 从定义一个stack构造函数开始
