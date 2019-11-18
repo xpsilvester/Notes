@@ -22,11 +22,13 @@ JS的常用算法练习
 
 [10.栈的实现](#栈的实现)
 
-[11.快速排序 -- 平均时间复杂度O(nlog2n)](#快速排序)
+[11.二叉树的实现](#二叉树的实现)
 
-[12.两数之和](#两数之和)
+[12.快速排序 -- 平均时间复杂度O(nlog2n)](#快速排序)
 
-[13.三数之和](#三数之和)
+[13.两数之和](#两数之和)
+
+[14.三数之和](#三数之和)
 ## 初级算法
 ### 线性查找-时间复杂度O(n)--相当于算法界中的HelloWorld
 ```JavaScript
@@ -464,6 +466,190 @@ lk.clear();
 lk.length();//0  
 
 ```
+
+## 二叉树的实现
+### 具体代码如下
+
+```JavaScript
+//Node节点
+function Node(data,left,right){
+	this.data = data;
+	this.left = left;
+	this.right = right;
+	this.show = show;
+}
+
+//展示当前节点数据
+function show(){
+	return this.data;
+}
+
+//树结构
+function BST(){
+	this.root = null;
+	this.insert = insert;
+	this.inOrder = inOrder;
+	this.getMin = getMin;
+	this.getMax = getMax;
+	this.find = find;
+	this.remove = remove;
+}
+
+//插入节点操作
+function insert(data){
+	let n = new Node(data,null,null);
+	if(this.root == null){
+		this.root = n;
+	}else{
+		let current = this.root;
+		let parent;
+		while(current){
+			parent = current;
+			if(data < current.data){
+				current = current.left;
+				if(current == null){
+					parent.left = n;
+					break;
+				}
+			}else{
+				current = current.right;
+				if(current == null){
+					parent.right = n
+					break
+				}
+			}
+		}
+	}
+}
+
+//中序遍历
+function inOrder(node){
+	if(!(node == null)){
+		inOrder(node.left);
+		console.log(node.show());
+		inOrder(node.right)
+	}
+}
+
+//先序遍历
+function preOrder(node){
+	if(!(node == null)){
+		console.log(node.show());
+		preOrder(node.left);
+		preOrder(node.right);
+	}
+}
+
+//后序遍历
+function postOrder(node){
+	if(!(node == null)){
+		postOrder(node.left);
+		postOrder(node.right);
+		console.log(node.show())
+	}
+}
+
+//二叉树查找最小值
+function getMin(){
+	let current = this.root;
+	while(!(current.left == null)){
+		current = current.left
+	}
+	return current.data
+}
+
+//二叉树查找最大值
+function getMax(){
+	let current = this.root;
+	while(!(current.right == null)){
+		current = current.right
+	}
+	return current.data
+}
+
+//查找给定值
+function find(data){
+	let current = this.root;
+	while(current != null){
+		if(current.data == data){
+			return current;
+		}else if(data < current.data){
+			current = current.left
+		}else {
+			current = current.right
+		}
+	}
+	return null;
+}
+
+//移除节点
+function remove(data){
+	root = removeNode(this.root,data)
+}
+
+//获取右子树最小值
+function getSmallest(node){
+	if(node.left == null){
+		return node;
+	}else{
+		return getSmallest(node.left)
+	}
+}
+
+//移除节点操作
+function removeNode(node,data){
+	if(node == null){
+		return null;
+	}
+	if(data == node.data){
+		//没有子节点的节点
+		if(node.left == null && node.right == null){
+			return null;
+		}
+		//没有左子节点的节点
+		if(node.left == null){
+			return node.right;
+		}
+		//没有右子节点的节点
+		if(node.right == null){
+			return node.left;
+		}
+		// 有2个子节点的节点
+		let tempNode = getSmallest(node.right);
+		node.data = tempNode.data
+		node.right = removeNode(node.right,tempNode.data);
+		return node;
+	}else if(data < node.data){
+		node.left = removeNode(node.left,data);
+		return node;
+	}else{
+		node.right = removeNode(node.right,data);
+		return node;
+	}
+}
+
+let nums = new BST();
+nums.insert(23);
+nums.insert(45);
+nums.insert(16);
+nums.insert(37);
+nums.insert(3);
+nums.insert(99);
+nums.insert(22);
+
+let min = nums.getMin();
+console.log(min);
+
+let max = nums.getMax();
+console.log(max);
+
+let value = nums.find("45");
+console.log(value);
+
+nums.remove(23);
+
+```
+
 
 ## 快速排序
 ### 交换排序和递归--平均复杂度O(nlog2n)
