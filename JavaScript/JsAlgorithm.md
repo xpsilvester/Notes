@@ -24,11 +24,13 @@ JS的常用算法练习
 
 [11.二叉树的实现](#二叉树的实现)
 
-[12.快速排序 -- 平均时间复杂度O(nlog2n)](#快速排序)
+[12.图的实现](#图的实现)
 
-[13.两数之和](#两数之和)
+[13.快速排序 -- 平均时间复杂度O(nlog2n)](#快速排序)
 
-[14.三数之和](#三数之和)
+[14.两数之和](#两数之和)
+
+[15.三数之和](#三数之和)
 ## 初级算法
 ### 线性查找-时间复杂度O(n)--相当于算法界中的HelloWorld
 ```JavaScript
@@ -648,6 +650,86 @@ console.log(value);
 
 nums.remove(23);
 
+```
+
+## 图的实现
+```JavaScript
+function Graph(v){
+	this.vertices = v; //顶点的数量
+	this.edges = 0
+	this.adj = []
+	for(let i=0;i<this.vertices;++i){
+		this.adj[i] = []; //保存与顶点i相邻的顶点列表
+	}
+	this.addEdge = addEdge
+	this.showGraph = showGraph
+	this.dfs = dfs
+	this.bfs = bfs
+	this.marked = [] //保存未访问过的顶点
+	for(let i=0;i<this.vertices;++i){
+		this.marked[i] = false
+	}
+}
+
+function addEdge(v,w){
+	this.adj[v].push(w);
+	this.adj[w].push(v);
+	this.edges++;
+}
+
+function showGraph(){
+	for(let i=0;i<this.vertices;++i){
+		let str = '';
+		str += i + ' -> ';
+		for(let j= 0;j<this.vertices;++j){
+			if(this.adj[i][j] != undefined){
+				str += this.adj[i][j]
+			}
+		}
+		console.log(str)
+	}
+}
+
+//深度优先搜索
+function dfs(v){
+	this.marked[v] = true;
+	if(this.adj[v] != undefined){
+		console.log('Visited vertex: ' + v)
+	}
+	for(let w of this.adj[v]){
+		if(!this.marked[w]){
+			this.dfs(w)
+		}
+	}
+}
+
+//广度优先搜索
+function bfs(s){
+	let queue = []
+	this.marked[s] = true
+	queue.push(s) //添加到队尾
+	while(queue.length > 0){
+		let v = queue.shift(); //从队首移除
+		if(v != undefined){
+			console.log('Visited vertex: ' + v)
+		}
+		for(let w of this.adj[v]){
+			if(!this.marked[w]){
+				this.marked[w] = true;
+				queue.push(w)
+			}
+		}
+	}
+}
+
+let g = new Graph(5);
+g.addEdge(0,1);
+g.addEdge(0,2)
+g.addEdge(1,3);
+g.addEdge(2,4);
+g.showGraph();
+g.dfs(0)
+g.bfs(0)
 ```
 
 
