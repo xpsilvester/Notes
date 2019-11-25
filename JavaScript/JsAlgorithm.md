@@ -683,7 +683,7 @@ function showGraph(){
 		str += i + ' -> ';
 		for(let j= 0;j<this.vertices;++j){
 			if(this.adj[i][j] != undefined){
-				str += this.adj[i][j]
+				str += this.adj[i][j] + ' '
 			}
 		}
 		console.log(str)
