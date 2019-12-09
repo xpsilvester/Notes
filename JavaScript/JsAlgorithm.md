@@ -35,6 +35,8 @@ JS的常用算法练习
 [16.两数相加](#两数相加)
 
 [17.合并两个有序链表](#合并两个有序链表)
+
+[18.最大子序和](#最大子序和)
 ## 初级算法
 ### 线性查找-时间复杂度O(n)--相当于算法界中的HelloWorld
 ```JavaScript
@@ -947,6 +949,36 @@ var mergeTwoLists = function(l1, l2) {
     return prevHead.next;
 };
 ```
+
+## 最大子序和
+#### 给定一个整数数组 nums ，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。
+示例：
+```
+输入: [-2,1,-3,4,-1,2,1,-5,4],
+输出: 6
+解释: 连续子数组 [4,-1,2,1] 的和最大，为 6。
+```
+
+```JavaScript
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var maxSubArray = function(nums) {
+    let ans = nums[0];
+    let sum = 0;
+    for(let i=0;i<nums.length;i++){
+        if(sum > 0){
+            sum += nums[i]
+        }else{
+            sum = nums[i]
+        }
+        ans = Math.max(ans,sum)
+    }
+    return ans
+};
+```
+
 
 
 
