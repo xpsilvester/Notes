@@ -39,6 +39,8 @@ JS的常用算法练习
 [18.最大子序和](#最大子序和)
 
 [19.背包问题](#背包问题)
+
+[20.八皇后问题](#八皇后问题)
 ## 初级算法
 ### 线性查找-时间复杂度O(n)--相当于算法界中的HelloWorld
 ```JavaScript
@@ -1068,6 +1070,42 @@ function knapsack3(capacity, objectArr) {
 
 console.log(knapsack3(capacity, objectArr)); // 23
 ```
+
+## 八皇后问题
+
+#### 八皇后问题，是一个古老而著名的问题，是回溯算法的典型案例。该问题是国际西洋棋棋手马克斯·贝瑟尔于1848年提出：在8×8格的国际象棋上摆放八个皇后，使其不能互相攻击，即任意两个皇后都不能处于同一行、同一列或同一斜线上，问有多少种摆法。
+
+```JavaScript
+function queen(arr,cur){
+    let a = arr.concat();
+    if(cur==a.length){
+        console.log(a);
+        return;
+    }
+    for(let i=0;i<a.length;i++){
+        a[cur] = i;
+        let flag = true;
+
+        //与之前路径对比，看是否符合落子，相当于check
+        for(let j=0;j<cur;j++){
+            let ab = i-a[j];
+            if(a[j] == i || (ab > 0 ? ab:-ab) == cur-j ){//是否正对 || 斜对角线
+                flag = false;
+                break;
+            }
+        }
+        if(flag){
+            queen(a,cur+1)
+        }
+    }
+}
+
+queen([1,1,1,1,1,1,1,1],0) 
+```
+
+#### 实战：[LeetCode:51. N皇后](https://leetcode-cn.com/problems/n-queens/)
+
+
 
 
 
