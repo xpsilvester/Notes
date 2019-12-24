@@ -352,6 +352,19 @@ function parseParam(url) {
 
   return paramsObj;
 }
+
+function urlParam(url){
+    const param = {};
+    let decodeUrl = decodeURIComponent(url);
+    decodeUrl.replace(/([^&=?]+)=([^&]+)/g,(m,$1,$2)=> {
+        if(param.hasOwnProperty($1)){
+            param[$1] = [].concat(param[$1], $2)
+        }else{
+            param[$1] = $2
+        }
+    });
+    return param;
+}
 ```
 
 #### 模板引擎实现
