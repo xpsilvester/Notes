@@ -315,6 +315,8 @@ var p = new Person();
 
   身份证号(15位、18位数字)：^\d{15}|\d{18}$ 
 
+  删除字符串中所有相邻重复的项：'aabbaaaaccdeee'.replace(/(.)\1*/g, '$1');  // abacde  (.)记住任意字符 \1*出现了一次以上 ，'$1'替换成第一个字符
+
 ### [正则匹配应用](https://segmentfault.com/a/1190000020370458)
 
 #### 解析 URL Params 为对象
