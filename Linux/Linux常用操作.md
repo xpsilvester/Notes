@@ -11,11 +11,13 @@ cd ../path         # 切换到上层目录中的path目录中，“..”表示�
 用于查看文件与目录的命令   
 ```Shell 
 /home/abc ls    #查看/home/abc目录下的文件
+ll -h           #查看文件大小
 ```
 ### 3、grep命令
 用于分析一行的信息，若当中有我们所需要的信息，就将该行显示出来
 ```Shell 
-rpm- qa | grep mysql     #是指不区分大小写的列出含mysql字符的已经安装的rpm包软件
+rpm -qa | grep mysql     #是指不区分大小写的列出含mysql字符的已经安装的rpm包软件
+ps -ef | grep nginx      #查找nginx的启动目录
 ```
 ### 4、find命令
 用于查找的功能find [PATH] [option] [action]  
@@ -105,6 +107,8 @@ systemctl disable nginx.service #停止开机自启动
 systemctl status nginx.service #查看服务当前状态
 systemctl restart nginx.service　#重新启动服务 /usr/sbin/nginx -s reload 
 systemctl list-units --type=service #查看所有已启动的服务
+ps -ef | grep nginx      #查找nginx的启动目录
+nginx的启动目录 -t        #测试nginx配置是否正确，顺便可以看到nginx.conf的位置
 ```
 
 ### 15、netstat 命令
@@ -211,4 +215,27 @@ tail +20 notes.log # 显示文件 notes.log 的内容，从第 20 行至文件�
 tail -c 10 notes.log # tail -c 10 notes.log
 ```
 
+### 21、[CentOS7 安装 mongondb](https://www.cnblogs.com/wanghy898/p/10901092.html)
+
+```shell
+# 下载mongondb安装包
+curl -O https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-3.2.9.tgz
+# 解压
+tar -zxvf mongodb-linux-x86_64-3.2.9.tgz
+# 将解压过后的包移动到指定目录
+mv mongodb-linux-x86_64-3.2.9/ /usr/local/mongodb
+# 创建数据文件夹和日志文件等
+mkdir -p  /usr/local/mongodb/data
+touch /usr/local/mongodb/mongod.log
+touch /usr/local/mongodb/mongodb.conf
+
+# 启动方式
+cd /usr/local/mongodb/bin
+# 通过参数启动
+./mongod --dbpath=/usr/local/mongodb/data --logpath=/usr/local/mongodb/mongod.log --logappend  --port=27017 --fork
+
+# 停止
+./mongod -shutdown -dbpath=/usr/local/mongodb/data
+
+```
 
