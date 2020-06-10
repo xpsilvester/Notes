@@ -19,7 +19,7 @@ yum install sqlite-devel
 cd /usr/local/src
 wget https://www.python.org/ftp/python/2.7.12/Python-2.7.12.tar.xz
 #解压Python2.7.12
-tar -zxvf Python-2.7.12.tar.xz
+tar -xJvf Python-2.7.12.tar.xz
 #编译python
 cd Python-2.7.12/
 ./configure --prefix=/usr/local/python2.7
@@ -37,6 +37,9 @@ git clone https://github.com/letsencrypt/letsencrypt
 cd letsencrypt
 #生成证书 --email后是你的邮箱 -d后面是你的域名（可添加多个）
 ./letsencrypt-auto certonly --standalone --email xpsilvester@gmail.com -d xpsilvester.com -d www.xpsilvester.com
+
+# 90天后过期，更新证书
+./letsencrypt-auto renew --standalone --email xpsilvester@gmail.com -d xpsilvester.com -d www.xpsilvester.com
 ```
 如果显示以下内容，说明已经安装成功
 ```Shell
@@ -57,7 +60,7 @@ IMPORTANT NOTES:
 ```
 
 ### 3.Nginx相关配置
-在完成Let's Encrypt证书的生成之后，我们会在"/etc/letsencrypt/live/zhaoheqiang.me/"域名目录下有4个文件就是生成的密钥证书文件。
+在完成Let's Encrypt证书的生成之后，我们会在"/etc/letsencrypt/live/xpsilvester.com/"域名目录下有4个文件就是生成的密钥证书文件。
 
 cert.pem - Apache服务器端证书
 chain.pem - Apache根证书和中继证书
@@ -89,7 +92,7 @@ http{
         ssl on;
         #key路径
         ssl_certificate /etc/letsencrypt/live/www.xpsilvester.com/fullchain.pem;
- ssl_certificate_key /etc/letsencrypt/live/www.xpsilvester.com/privkey.pem;
+        ssl_certificate_key /etc/letsencrypt/live/www.xpsilvester.com/privkey.pem;
         ssl_session_timeout 5m;
         ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
         ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;
