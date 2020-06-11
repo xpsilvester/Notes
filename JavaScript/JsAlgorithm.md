@@ -2,7 +2,7 @@
 JS的常用算法练习  
 
 [1.初级算法-线性查找-时间复杂度O(n)](#初级算法)
-  
+
 
 [2.二分查找(又称折半查找) - 适用于已排好序的线性结构 - 时间复杂度O(logN)](#二分查找)
 
@@ -168,7 +168,7 @@ document.write("</br>");
 ```
 ## 插入算法
 ### 时间复杂度O(n^2)
-   
+
    假定当前元素之前的元素已经排好序，先把自己的位置空出来，然后前面比自己大的元素依次向后移，直到空出一个"坑"，然后把目标元素插入"坑"中每趟将一个待排序的元素作为关键字，按照其关键字值的大小插入到已经排好的部分序列的适当位置，直到插入完成
 
 ```JavaScript
@@ -821,6 +821,7 @@ var twoSum = function(nums, target) {
  * @param {number[]} nums
  * @return {number[][]}
  */
+//方法一：
 var threeSum = function(nums) {
     let res = []
       let length = nums.length;
@@ -846,8 +847,64 @@ var threeSum = function(nums) {
         }
       }
       return res
-
 };
+
+//方法二：
+var threeSum = function(nums) {
+    //排序
+    nums = nums.sort((a,b) => a-b);
+    let res = [],
+        len = nums.length;
+
+    for(let i=0;i<len -2;i++){
+        let j = i+1, k = len -1;
+
+        //固定元素大于0退出
+        if(nums[i] > 0){
+            break
+        }
+        //固定元素遇到重复跳过
+        if(nums[i] == nums[i-1]){
+            continue;
+        }
+
+        //左指针小于右指针，右指针不要小于0
+        while(j < k && nums[k] >= 0){
+            //三数之和
+            let sum = nums[i] + nums[j] + nums[k];
+            
+            //等于0
+            //加入结果数组
+            //让左右指针继续移动
+            if(sum === 0){
+                res.push([nums[i],nums[j],nums[k]])
+                j++;
+                k--;
+                //左指针遇重复跳过
+                while(j < k && nums[j] == nums[j-1]){
+                    j++
+                }
+                //右指针遇重复跳过
+                while(j < k && nums[k] == nums[k+1]){
+                    k--
+                }
+            }else if(sum > 0){ //大于0 ，右指针左移
+                k--
+                //右指针遇重复跳过
+                while(j < k && nums[k] == nums[k+1]){
+                    k--
+                }
+            }else{
+                j++
+                 //左指针遇重复跳过
+                while(j < k && nums[j] == nums[j-1]){
+                    j++
+                }
+            }
+        }
+    }
+    return res
+}
 ```
 
 ## 两数相加
