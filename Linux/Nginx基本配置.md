@@ -104,6 +104,7 @@ http {
         location /api {
             add_header 'Access-Control-Allow-Origin' '*';
             proxy_pass http://localhost:8099/;
+            rewrite ^/api/(.*) /$1 break; #重写url
         }
 
         #error_page  404              /404.html;
