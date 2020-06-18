@@ -175,6 +175,9 @@ grep -i "abc" test.txt
 # 把出现abc整个单词的筛选出来
 grep -w "abc" test.txt
 
+# 把出现abc整个单词的筛选出来 并搜索相应时间的信息
+grep -w "abc" '2020-06-17' test.txt
+
 # 把出现abc整个单词筛选出来，不区分大小写
 grep -wi "abc" test.txt
 ```
