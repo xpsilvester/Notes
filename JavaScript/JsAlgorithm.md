@@ -560,7 +560,23 @@ function postOrder(node){
 		console.log(node.show())
 	}
 }
-
+//层序遍历(广度优先搜索)：队列
+function levelOrder(node){
+  const printArr = []
+  if (!root) return printArr
+  const list = []
+  list.push({ node: root, level: 0 })
+  while (list.length > 0) {
+    const { node, level } = list.shift()
+    if (!printArr[level]) {
+      printArr[level] = []
+    }
+    printArr[level].push(node.val)
+    node.left && list.push({ node: node.left, level: level + 1 })
+    node.right && list.push({ node: node.right, level: level + 1 })
+  }
+  return printArr
+}
 //二叉树查找最小值
 function getMin(){
 	let current = this.root;
