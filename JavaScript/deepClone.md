@@ -309,12 +309,3 @@ function clone(target, map = new WeakMap()) {
 1.[浅拷贝与深拷贝（JavaScript）](https://www.jianshu.com/p/2188dcd91090)
 
 2.[如何写出一个惊艳面试官的深拷贝?](https://segmentfault.com/a/1190000020255831)
-
-
-
-
-
-
-
-
-
