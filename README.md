@@ -1,4 +1,6 @@
-# 前端学习过程中的一些笔记
+# 前端知识点总结
+
+前端学习过程中的一些笔记，总结了一些常见的前端知识点。
 
 ## [JavaScript知识点总结](https://github.com/xpsilvester/Notes/tree/master/JavaScript) 
 
