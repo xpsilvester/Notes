@@ -2,7 +2,7 @@
 
 ## [JavaScript知识点总结](https://github.com/xpsilvester/Notes/tree/master/JavaScript) 
 
-- [MDN文档笔记](https://github.com/xpsilvester/Notes/blob/master/JavaScript/javascript MDN.md)
+- [MDN文档笔记](https://github.com/xpsilvester/Notes/blob/master/JavaScript/MDN.md)
 - [深拷贝](https://github.com/xpsilvester/Notes/blob/master/JavaScript/deepClone.md)
 
 ## [CSS知识点总结](https://github.com/xpsilvester/Notes/tree/master/CSS)
@@ -25,9 +25,9 @@
 - [Linux常用操作](https://github.com/xpsilvester/Notes/blob/master/Linux/Linux常用操作.md)
 - [Nginx基本配置](https://github.com/xpsilvester/Notes/blob/master/Linux/Nginx基本配置.md)
 - [申请免费SSL证书](https://github.com/xpsilvester/Notes/blob/master/Linux/申请免费SSL证书.md)
-- [CentOS 7上部署NodeJS](https://github.com/xpsilvester/Notes/blob/master/Linux/CentOS 7上部署NodeJS.md)
-- [CentOS 6.6上部署asp.net MVC项目详细过程](https://github.com/xpsilvester/Notes/blob/master/Linux/CentOS 6.6上部署asp.net MVC项目详细过程.md)
-- [CentOS 7上部署asp.net MVC项目详细过程](https://github.com/xpsilvester/Notes/blob/master/Linux/CentOS 7上部署asp.net MVC项目详细过程.md)
+- [CentOS 7上部署NodeJS](https://github.com/xpsilvester/Notes/blob/master/Linux/CentOS7上部署NodeJS.md)
+- [CentOS 6.6上部署asp.net MVC项目详细过程](https://github.com/xpsilvester/Notes/blob/master/Linux/CentOS6.6上部署asp.net MVC项目详细过程.md)
+- [CentOS 7上部署asp.net MVC项目详细过程](https://github.com/xpsilvester/Notes/blob/master/Linux/CentOS7上部署asp.net MVC项目详细过程.md)
 
 ## [C#相关知识](https://github.com/xpsilvester/Notes/tree/master/C%23)
 
