@@ -38,6 +38,6 @@
 
 ## [计算机网络相关知识](https://github.com/xpsilvester/Notes/tree/master/Network)
 
-## [Playcanvas知识记录](https://github.com/xpsilvester/Notes/tree/master/Playcanvas)
+## [Playcanvas知识记录](https://github.com/xpsilvester/Notes/blob/master/Playcanvas/Playcanvas.md)
 
 ## [数据库相关知识](https://github.com/xpsilvester/Notes/tree/master/SQL)
