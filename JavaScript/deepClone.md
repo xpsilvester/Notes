@@ -305,6 +305,36 @@ function clone(target, map = new WeakMap()) {
 }
 ```
 
+#### 6.最终版3
+
+```js
+function deepClone(obj, hash = new WeakMap()) {
+    if(obj instanceof RegExp) return new RegExp(obj);
+    if(obj instanceof Date) return new Date(obj);
+    if(obj === null || typeof obj !== 'object') return obj;
+    if(hash.has(obj)) {
+        return hash.get(obj);
+    }
+    //obj为Array，相当于new Array()
+    //obj为Object，相当于new Object()
+    let constr = new obj.constructor();
+    hash.set(obj,constr);
+    for(let key in obj) {
+        if(obj.hasOwnProperty(key)) {
+            constr[key] = deepClone(obj[key],hash);
+        }
+    }
+    return constr;
+}
+var o1 = new Object();
+var o2 = new Object();
+o1.next = o2;
+o2.next = o1;
+var target = [ 0, null, undefined, NaN, [1,2], {name: 'a',obj: { a: 1}}, function a(){ return 1; }, new Date("2020-01-01"), new RegExp(/aaa/), o1 ];
+```
+
+#### 7.[实现高性能深拷贝](https://mp.weixin.qq.com/s?__biz=MzUyNDYxNDAyMg==&mid=2247484996&idx=1&sn=49659ac3cc35f70e50aae53b5481e4e3&chksm=fa2be6adcd5c6fbb13f9f747d2f06243176dd0cf12f8cec799b7a658345689a3607021e08268&mpshare=1&scene=1&srcid=0425Hq5Gkx02s2vSO9YrRcRj&sharer_sharetime=1587993845543&sharer_shareid=8ad97f294191a7ea11f78290f1adc42d&key=cb4038a97957fa3abdf57107176eedf721754e8f72e333ffb2054c71c5c9dad6e7239f31b83fc379903520ebb353682245188b182197d9ebf79aed328a634c4f2aa9ea26363ef3891d07a5c8c8fcb8ef&ascene=1&uin=MTU2NjUyODM0OA%3D%3D&devicetype=Windows+10&version=62080079&lang=zh_CN&exportkey=A%2FJPkCwr4WQm1UuxnGl4noQ%3D&pass_ticket=j82BhRSLz4KaQwy9OvnAIwnmISX1IsG4fM3QWXonN%2FuyoKxN085UWXtBmLISKdHR)
+
 #### 参考资料
 1.[浅拷贝与深拷贝（JavaScript）](https://www.jianshu.com/p/2188dcd91090)
 
