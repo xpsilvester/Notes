@@ -15,6 +15,10 @@
 
 ## [JavaScript常见算法总结](https://github.com/xpsilvester/Notes/blob/master/Algorithm/JsAlgorithm.md)
 
+## [React和Vue相关知识点总结](https://github.com/xpsilvester/Notes/tree/master/Vue_React)
+
+- [React和Vue对比](https://github.com/xpsilvester/Notes/blob/master/Vue_React/react_vs_vue.md)
+
 ## [NodeJS相关知识](https://github.com/xpsilvester/Notes/tree/master/Node)
 
 ## [Webpack相关知识](https://github.com/xpsilvester/Notes/tree/master/Webpack)
