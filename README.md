@@ -21,6 +21,8 @@
 
 ## [NodeJS相关知识](https://github.com/xpsilvester/Notes/tree/master/Node)
 
+- [Npm相关的基础知识](https://juejin.im/post/5ef7e0066fb9a07e976bc89e)
+
 ## [Webpack相关知识](https://github.com/xpsilvester/Notes/tree/master/Webpack)
 
 ## [前端项目相关总结](https://github.com/xpsilvester/Notes/tree/master/Project)
