@@ -45,6 +45,8 @@ JS的常用算法练习
 
 [22.寻找数组中的第K个大数](#第K个大数)
 
+[23.“最值”型问题典范：如何优雅地找硬币](#如何优雅地找硬币)
+
 ## 初级算法
 ### 线性查找-时间复杂度O(n)--相当于算法界中的HelloWorld
 ```JavaScript
@@ -1390,6 +1392,49 @@ const findKthLargest = function(nums, k) {
 };
 ```
 
+## 如何优雅地找硬币
+
+```
+给定不同面额的硬币 coins 和一个总金额 amount。
+编写一个函数来计算可以凑成总金额所需的最少的硬币个数。
+如果没有任何一种硬币组合能组成总金额，返回 -1。
+```
+
+```
+示例1：
+输入: coins = [1, 2, 5], amount = 11
+输出: 3
+解释: 11 = 5 + 5 + 1
+```
+
+```
+示例2：
+输入: coins = [2], amount = 3
+输出: -1
+```
+
+```js
+const coinChange = function(coins, amount) {
+    const f = [];
+    f[0] = 0;
+    for(let i=1;i<=amount;i++){
+        //假设f[i] 组合数为无限大
+        f[i] = Infinity;
+        for(let j=0;j<coins.length;j++){
+            //coins[j]: 面币额，i：目标总额 ，f[i-coins[j]] 不加当前数额之前的小组合数
+            if(i - coins[j] >= 0){
+                f[i] = Math.min(f[i],f[i-coins[j]]+1)
+            }
+        }
+    }
+    //如果对应组合数是无限大，则无解
+    if(f[amount] === Infinity){
+        return -1;
+    }
+    return f[amount]
+}
+coinChange([1, 2, 5],11)
+```
 
 
 
