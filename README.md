@@ -7,6 +7,7 @@
 - [MDN文档笔记](https://github.com/xpsilvester/Notes/blob/master/JavaScript/MDN.md)
 - [深拷贝](https://github.com/xpsilvester/Notes/blob/master/JavaScript/deepClone.md)
 - [想自学JS吗？想提升JS底层原理吗？76张脑图带你彻底搞懂原生JS](https://juejin.im/post/5ebb68796fb9a0435432df8e#heading-20)
+- [JavaScript数据类型相关](https://github.com/xpsilvester/Notes/blob/master/JavaScript/jsType.md)
 
 ## [CSS知识点总结](https://github.com/xpsilvester/Notes/tree/master/CSS)
 
