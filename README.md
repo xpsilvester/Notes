@@ -22,6 +22,7 @@
 ## [React和Vue相关知识点总结](https://github.com/xpsilvester/Notes/tree/master/Vue_React)
 
 - [React和Vue对比](https://github.com/xpsilvester/Notes/blob/master/Vue_React/react_vs_vue.md)
+- [30分钟精通React Hooks](https://juejin.im/post/5be3ea136fb9a049f9121014)
 
 ## [NodeJS相关知识](https://github.com/xpsilvester/Notes/tree/master/Node)
 
