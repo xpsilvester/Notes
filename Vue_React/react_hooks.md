@@ -10,3 +10,5 @@
 ## [Vue Composition API 和 React Hooks 对比](https://juejin.im/post/5f070f916fb9a07e8a199c76)
 
 ## [immer.js 实战讲解文档](https://segmentfault.com/a/1190000017270785)
+
+## [React Hooks 第二期：发请求这件小事](https://zhuanlan.zhihu.com/p/72596932)
