@@ -35,6 +35,7 @@
 ## [前端项目相关总结](https://github.com/xpsilvester/Notes/tree/master/Project)
 
 - [前端监控方案](https://github.com/xpsilvester/Notes/blob/master/Project/前端监控方案.md)
+- [前端性能优化指标](https://juejin.im/post/5f0b056de51d45349917bf16)
 
 ## [Linux相关知识](https://github.com/xpsilvester/Notes/tree/master/Linux)
 
