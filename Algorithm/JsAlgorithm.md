@@ -47,6 +47,8 @@ JS的常用算法练习
 
 [23.“最值”型问题典范：如何优雅地找硬币](#如何优雅地找硬币)
 
+[24.最长上升子序列](#最长上升子序列)
+
 ## 初级算法
 ### 线性查找-时间复杂度O(n)--相当于算法界中的HelloWorld
 ```JavaScript
@@ -1392,7 +1394,7 @@ const findKthLargest = function(nums, k) {
 };
 ```
 
-## 如何优雅地找硬币
+## 最长上升子序列如何优雅地找硬币
 
 ```
 给定不同面额的硬币 coins 和一个总金额 amount。
@@ -1436,11 +1438,42 @@ const coinChange = function(coins, amount) {
 coinChange([1, 2, 5],11)
 ```
 
+## 最长上升子序列
 
+```
+题目描述：给定一个无序的整数数组，找到其中最长上升子序列的长度。
 
+示例:
+输入: [10,9,2,5,3,7,101,18]
+输出: 4
+解释: 最长的上升子序列是 [2,3,7,101]，它的长度是 4。
+```
 
+```js
+const lengthOfLIS = function(nums) {
+    let len = nums.length;
+    if(!len){
+        return 0
+    }
 
+    let dp = (new Array(len)).fill(1);
 
+    let maxLen = 1;
+
+    for(let i=0;i<len;i++){
+        for(let j=0;j<i;j++){
+            if(nums[j] < nums[i]){
+                dp[i] = Math.max(dp[i],dp[j] + 1)
+            }
+        }
+
+        if(dp[i] > maxLen){
+            maxLen = dp[i]
+        }
+    }
+    return maxLen;
+}
+```
 
 
 
