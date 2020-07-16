@@ -31,6 +31,21 @@
 ## [NodeJS相关知识](https://github.com/xpsilvester/Notes/tree/master/Node)
 
 - [Npm相关的基础知识](https://juejin.im/post/5ef7e0066fb9a07e976bc89e)
+- [node.js题目](https://juejin.im/post/5d2fc598e51d4577596487a3)
+- [nodejs基本原理总结](https://cloud.tencent.com/developer/article/1483753)
+- [nodejs 全局变量和全局对象](https://www.cnblogs.com/gpzhen/p/7216004.html)
+- [Node.js 全栈秒杀系统](https://zhuanlan.zhihu.com/p/114363815)
+- [Koa 框架教程](http://www.ruanyifeng.com/blog/2017/08/koa.html)
+- [从头实现一个koa框架](https://zhuanlan.zhihu.com/p/35040744)
+- [👏Koa源码解析，带你实现一个迷你版Koa](https://juejin.im/post/5edf0b51f265da771b2fef10)
+- [理解 Node.js 的 GC 机制](https://www.cnblogs.com/chaohangz/p/10963565.html)
+- [nodejs的v8引擎垃圾回收机制学习](https://blog.csdn.net/qinghua9/article/details/38117715)
+- [NodeJS性能调优之GC调优](https://www.jianshu.com/p/1edea2f6fd4d)
+- [试玩NodeJS多进程](https://blog.csdn.net/hongchh/article/details/79898816)
+- [nodejs进程进化及多进程架构原理](https://www.cnblogs.com/tugenhua0707/p/11141076.html)
+- [nodeJS多进程](https://segmentfault.com/a/1190000004621734)
+- [node.js cluster多进程、负载均衡和平滑重启](https://www.cnblogs.com/kenkofox/p/5431643.html)
+- [高并发下的Node.js与负载均衡](https://www.cnblogs.com/tingshuo/archive/2013/01/17/2864280.html)
 
 ## [Webpack相关知识](https://github.com/xpsilvester/Notes/tree/master/Webpack)
 
