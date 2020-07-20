@@ -49,6 +49,8 @@ JS的常用算法练习
 
 [24.最长上升子序列](#最长上升子序列)
 
+[25.最长回文子串](#最长回文子串)
+
 ## 初级算法
 ### 线性查找-时间复杂度O(n)--相当于算法界中的HelloWorld
 ```JavaScript
@@ -1472,6 +1474,66 @@ const lengthOfLIS = function(nums) {
         }
     }
     return maxLen;
+}
+```
+
+## 最长回文子串
+
+题目描述：给定一个字符串 s，找到 s 中最长的回文子串。你可以假设 s 的最大长度为 1000。
+
+```
+示例 1：
+输入: "babad"
+输出: "bab"
+注意: "aba" 也是一个有效答案。
+
+示例 2：
+输入: "cbbd"
+输出: "bb"
+```
+
+```js
+const longestPalindrome = function(s) {
+    const dp = [];
+    // 缓存字符串长度
+    const len = s.length
+    // 初始化状态二维数组
+    for (let i = 0; i < len; i ++) {
+        dp[i] = [];
+    };
+    
+    // 初始化最长回文子串的两个端点值
+    let st = 0, end=0
+    // 初始化最长回文子串的初始值为1
+    for(let i=0;i<len;i++) {
+        dp[i][i] = 1
+    }
+    // 对相邻的子串做处理
+    for(let i=0;i<len-1;i++){
+        if(s[i]===s[i+1]) {
+            dp[i][i+1] = 1
+            st = i 
+            end = i+1
+        }
+    }
+    
+    // n 代表子串的长度，从3开始递增
+    for(let n=3;n<=len;n++) {
+        // 下面的两层循环，用来实现状态转移方程
+        for(let i=0;i<=len-n;i++) {
+            let j = i+n-1
+            if(dp[i+1][j-1]) {
+                if(s[i]===s[j]){
+                    // 若定位到更长的回文子串，则更新目标子串端点的索引值
+                    dp[i][j] = 1
+                    st = i 
+                    end = j
+                }
+            }
+        }
+    }
+    // 最后依据端点值把子串截取出来即可
+    return s.substring(st,end+1);
 }
 ```
 
