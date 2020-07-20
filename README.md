@@ -26,6 +26,7 @@
 - [React和Vue对比](https://github.com/xpsilvester/Notes/blob/master/Vue_React/react_vs_vue.md)
 - [React Hooks 知识点总结](https://github.com/xpsilvester/Notes/blob/master/Vue_React/react_hooks.md)
 - [Vue项目优化方案](https://juejin.im/post/5f0f1a045188252e415f642c)
+- [Vue项目常见问题](https://juejin.im/post/5f144cfbf265da22b05b01db)
 
 ## [移动端开发相关知识](https://github.com/xpsilvester/Notes/tree/master/Mobile/h5.md)
 
