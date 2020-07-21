@@ -20,6 +20,7 @@
 
 - [JavaScript常见算法](https://github.com/xpsilvester/Notes/blob/master/Algorithm/JsAlgorithm.md)
 - [TypeScript实现二叉搜索树](https://juejin.im/post/5f03621fe51d4534b0054959)
+- [Array、Object、Function、String的一些计算操作](https://juejin.im/post/5f12a11b6fb9a07e777eaca5)
 
 ## [React和Vue相关知识点总结](https://github.com/xpsilvester/Notes/tree/master/Vue_React)
 
