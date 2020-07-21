@@ -328,6 +328,29 @@ const Hook =()=>{
 }
 ```
 
+### useImperativeHandle
+
+```js
+useImperativeHandle(ref, createHandle, [deps])
+```
+
+`useImperativeHandle` 可以让你在使用 `ref` 时自定义暴露给父组件的实例值。在大多数情况下，应当避免使用 ref 这样的命令式代码。`useImperativeHandle` 应当与 [`forwardRef`](https://react.docschina.org/docs/react-api.html#reactforwardref) 一起使用：
+
+```js
+function FancyInput(props, ref) {
+  const inputRef = useRef();
+  useImperativeHandle(ref, () => ({
+    focus: () => {
+      inputRef.current.focus();
+    }
+  }));
+  return <input ref={inputRef} ... />;
+}
+FancyInput = forwardRef(FancyInput);
+```
+
+在本例中，渲染 `<FancyInput ref={inputRef} />` 的父组件可以调用 `inputRef.current.focus()`。
+
 ## 自定义 Hook
 
 **自定义 Hook 是一个函数，其名称以 “`use`” 开头，函数内部可以调用其他的 Hook。** 
@@ -408,3 +431,5 @@ const isOnline = useFriendStatus(id);
 - [immer.js 实战讲解文档](https://segmentfault.com/a/1190000017270785)
 - [React Hooks 第二期：发请求这件小事](https://zhuanlan.zhihu.com/p/72596932)
 - [React Hooks 使用总结](https://juejin.im/post/5f0ecd71f265da22d017fda4#heading-17)
+- [TypeScript 中使用React Hook](https://juejin.im/post/5ce0134b5188256a220235eb)
+- [3分钟掌握hook在typescript中的姿势](https://blog.csdn.net/flytam/article/details/103464787)
