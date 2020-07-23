@@ -54,6 +54,8 @@
 
 ## [Webpack相关知识](https://github.com/xpsilvester/Notes/tree/master/Webpack)
 
+- [你可能不知道的9条Webpack优化策略](https://juejin.im/post/5f1657a3e51d45346d31063a)
+
 ## [前端项目相关总结](https://github.com/xpsilvester/Notes/tree/master/Project)
 
 - [前端监控方案](https://github.com/xpsilvester/Notes/blob/master/Project/前端监控方案.md)
