@@ -8,6 +8,7 @@
 - [深拷贝](https://github.com/xpsilvester/Notes/blob/master/JavaScript/deepClone.md)
 - [想自学JS吗？想提升JS底层原理吗？76张脑图带你彻底搞懂原生JS](https://juejin.im/post/5ebb68796fb9a0435432df8e#heading-20)
 - [JavaScript数据类型相关](https://github.com/xpsilvester/Notes/blob/master/JavaScript/jsType.md)
+- [DOM操作常用API](https://juejin.im/post/5f184a356fb9a07e9c59f26f)
 - [JavaScript设计模式](https://juejin.im/post/5d58ca046fb9a06ad0056cc7)
 - [JavaScript原型链相关](https://github.com/xpsilvester/Notes/blob/master/JavaScript/prototype.md)
 
