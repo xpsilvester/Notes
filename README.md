@@ -44,6 +44,7 @@
 - [Koa 框架教程](http://www.ruanyifeng.com/blog/2017/08/koa.html)
 - [从头实现一个koa框架](https://zhuanlan.zhihu.com/p/35040744)
 - [👏Koa源码解析，带你实现一个迷你版Koa](https://juejin.im/post/5edf0b51f265da771b2fef10)
+- [手把手和你一起学习Koa源码（一）——目录结构](https://juejin.im/post/5f0aa152e51d4534bf67c5cc)
 - [理解 Node.js 的 GC 机制](https://www.cnblogs.com/chaohangz/p/10963565.html)
 - [nodejs的v8引擎垃圾回收机制学习](https://blog.csdn.net/qinghua9/article/details/38117715)
 - [NodeJS性能调优之GC调优](https://www.jianshu.com/p/1edea2f6fd4d)
