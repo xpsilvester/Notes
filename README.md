@@ -58,6 +58,10 @@
 
 - [你可能不知道的9条Webpack优化策略](https://juejin.im/post/5f1657a3e51d45346d31063a)
 
+## [Electron相关](https://www.electronjs.org/)
+
+- [今天教你烤一份香喷喷的Electron](https://juejin.im/post/5efe7c5fe51d4534a1237861)
+
 ## [前端项目相关总结](https://github.com/xpsilvester/Notes/tree/master/Project)
 
 - [前端监控方案](https://github.com/xpsilvester/Notes/blob/master/Project/前端监控方案.md)
