@@ -32,6 +32,7 @@
 - [React Hooks 知识点总结](https://github.com/xpsilvester/Notes/blob/master/Vue_React/react_hooks.md)
 - [Vue项目优化方案](https://juejin.im/post/5f0f1a045188252e415f642c)
 - [Vue项目常见问题](https://juejin.im/post/5f144cfbf265da22b05b01db)
+- [10分钟彻底搞懂单页面应用路由](https://juejin.im/post/5f211b05f265da22e77c38fa)
 
 ## [移动端开发相关知识](https://github.com/xpsilvester/Notes/tree/master/Mobile/h5.md)
 
@@ -66,6 +67,8 @@
 ## [前端项目相关总结](https://github.com/xpsilvester/Notes/tree/master/Project)
 
 - [前端监控方案](https://github.com/xpsilvester/Notes/blob/master/Project/前端监控方案.md)
+- [智能小程序档案馆——埋点统计](https://juejin.im/post/5be3f2f2f265da614f6fcbcc)
+- [页面通信、DOM监听、懒加载、首屏加载](https://juejin.im/post/5f2157fe6fb9a07e5d76f108)
 - [前端性能优化指标](https://juejin.im/post/5f0b056de51d45349917bf16)
 - [Element-UI表格二次封装](https://juejin.im/post/5f1d92cb5188252e884e986f)
 - [封装 axios 拦截器实现用户无感刷新 access_token](https://juejin.im/post/5f1ba98ae51d4534b73a9d7a)
