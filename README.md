@@ -25,6 +25,7 @@
 - [Array、Object、Function、String的一些计算操作](https://juejin.im/post/5f12a11b6fb9a07e777eaca5)
 - [JavaScript的一些工具函数](https://juejin.im/post/5f15444df265da22c9671b03)
 - [JavaScript 异步编程](https://juejin.im/post/5f16a19b6fb9a07e6e116e41)
+- [JavaScript字符串相关算法](https://github.com/xpsilvester/Notes/blob/master/Algorithm/JsChar.md)
 
 ## [React和Vue相关知识点总结](https://github.com/xpsilvester/Notes/tree/master/Vue_React)
 
