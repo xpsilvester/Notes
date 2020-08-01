@@ -26,6 +26,7 @@
 - [JavaScript的一些工具函数](https://juejin.im/post/5f15444df265da22c9671b03)
 - [JavaScript 异步编程](https://juejin.im/post/5f16a19b6fb9a07e6e116e41)
 - [JavaScript字符串相关算法](https://github.com/xpsilvester/Notes/blob/master/Algorithm/JsChar.md)
+- [「一劳永逸」送你21道高频JavaScript手写题](https://juejin.im/post/6855129007852093453#heading-22)
 
 ## [React和Vue相关知识点总结](https://github.com/xpsilvester/Notes/tree/master/Vue_React)
 
