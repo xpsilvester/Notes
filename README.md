@@ -61,7 +61,9 @@
 ## [Webpack相关知识](https://github.com/xpsilvester/Notes/tree/master/Webpack)
 
 - [你可能不知道的9条Webpack优化策略](https://juejin.im/post/5f1657a3e51d45346d31063a)
+- [初学者应该看的 Webpack 完整指南（2020）](https://juejin.im/post/6855129007785328653)
 - [Webpack常见问题系列一](https://juejin.im/post/6855892470790782984#heading-18)
+- [Webpack 原理浅析](https://juejin.im/post/6854818576470933512)
 
 ## [Electron相关](https://www.electronjs.org/)
 
