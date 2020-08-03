@@ -18,6 +18,11 @@
 - [CSS常见问题](https://github.com/xpsilvester/Notes/blob/master/CSS/CSS常见问题.md)
 - [CSS外部字体引入并实现压缩及自动化](https://github.com/xpsilvester/Notes/blob/master/CSS/CSS外部字体引入并实现压缩及自动化.md)
 
+## TypeScript 知识点总结
+
+- [TypeScript文档](https://www.tslang.cn/docs/home.html)
+- [从零开始配置 TypeScript 项目](https://juejin.im/post/6856410900577026061)
+
 ## [JavaScript常见算法总结](https://github.com/xpsilvester/Notes/tree/master/Algorithm)
 
 - [JavaScript常见算法](https://github.com/xpsilvester/Notes/blob/master/Algorithm/JsAlgorithm.md)
