@@ -102,6 +102,7 @@
 ## [计算机网络相关知识](https://github.com/xpsilvester/Notes/tree/master/Network)
 
 - [HTTP中的OPTIONS请求](https://juejin.im/post/6855989328876617736)
+- [15 张精美动图全面讲解 CORS](https://juejin.im/post/6856556746706518024)
 
 ## [Playcanvas知识记录](https://github.com/xpsilvester/Notes/blob/master/Playcanvas/Playcanvas.md)
 
