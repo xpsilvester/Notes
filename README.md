@@ -99,10 +99,11 @@
 - [C#常见问题](https://github.com/xpsilvester/Notes/blob/master/C%23/C%23常见问题.md)
 - [C#实现自动化压缩CSS外部字体](https://github.com/xpsilvester/Notes/blob/master/C%23/C%23实现自动化压缩CSS外部字体.md)
 
-## [计算机网络相关知识](https://github.com/xpsilvester/Notes/tree/master/Network)
+## [前端网络相关知识](https://github.com/xpsilvester/Notes/tree/master/Network)
 
 - [HTTP中的OPTIONS请求](https://juejin.im/post/6855989328876617736)
 - [15 张精美动图全面讲解 CORS](https://juejin.im/post/6856556746706518024)
+- [axios核心原理](https://juejin.im/post/6856706569263677447)
 
 ## [Playcanvas知识记录](https://github.com/xpsilvester/Notes/blob/master/Playcanvas/Playcanvas.md)
 
