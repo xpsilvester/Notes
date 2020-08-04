@@ -108,3 +108,5 @@
 ## [Playcanvas知识记录](https://github.com/xpsilvester/Notes/blob/master/Playcanvas/Playcanvas.md)
 
 ## [数据库相关知识](https://github.com/xpsilvester/Notes/tree/master/SQL)
+
+- [MySQL命令，一篇文章替你全部搞定](https://juejin.im/post/6844903599915401230)
