@@ -110,3 +110,4 @@
 ## [数据库相关知识](https://github.com/xpsilvester/Notes/tree/master/SQL)
 
 - [MySQL命令，一篇文章替你全部搞定](https://juejin.im/post/6844903599915401230)
+- [Redis 入门](https://juejin.im/post/6844903639765483533#heading-59)
