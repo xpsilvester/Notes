@@ -1,4 +1,4 @@
-# 前端知识点总结
+# Web开发知识点总结
 
 前端学习过程中的一些笔记，总结了一些常见的前端知识点。
 
@@ -105,6 +105,10 @@
 - [「查缺补漏」巩固你的HTTP知识体系](https://juejin.im/post/6857287743966281736)
 - [15 张精美动图全面讲解 CORS](https://juejin.im/post/6856556746706518024)
 - [axios核心原理](https://juejin.im/post/6856706569263677447)
+
+## 后端相关知识
+
+- [没用过消息队列？一文带你体验RabbitMQ收发消息](https://juejin.im/post/6856571028496351239)
 
 ## [Playcanvas知识记录](https://github.com/xpsilvester/Notes/blob/master/Playcanvas/Playcanvas.md)
 
