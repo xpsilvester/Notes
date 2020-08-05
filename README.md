@@ -109,6 +109,7 @@
 ## 后端相关知识
 
 - [没用过消息队列？一文带你体验RabbitMQ收发消息](https://juejin.im/post/6856571028496351239)
+- [Java集合](https://juejin.im/post/6856550047338332168)
 
 ## [Playcanvas知识记录](https://github.com/xpsilvester/Notes/blob/master/Playcanvas/Playcanvas.md)
 
