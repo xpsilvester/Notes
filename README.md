@@ -38,7 +38,9 @@
 - [React和Vue对比](https://github.com/xpsilvester/Notes/blob/master/Vue_React/react_vs_vue.md)
 - [React Hooks 知识点总结](https://github.com/xpsilvester/Notes/blob/master/Vue_React/react_hooks.md)
 - [Vue项目优化方案](https://juejin.im/post/5f0f1a045188252e415f642c)
+- [Vue项目性能优化总结](https://juejin.im/post/6857856269488193549)
 - [Vue项目常见问题](https://juejin.im/post/5f144cfbf265da22b05b01db)
+- [图解 Vue 响应式原理](https://juejin.im/post/6857669921166491662)
 - [10分钟彻底搞懂单页面应用路由](https://juejin.im/post/5f211b05f265da22e77c38fa)
 
 ## [移动端开发相关知识](https://github.com/xpsilvester/Notes/tree/master/Mobile/h5.md)
@@ -105,6 +107,7 @@
 - [「查缺补漏」巩固你的HTTP知识体系](https://juejin.im/post/6857287743966281736)
 - [15 张精美动图全面讲解 CORS](https://juejin.im/post/6856556746706518024)
 - [axios核心原理](https://juejin.im/post/6856706569263677447)
+- [一文读懂 Web 安全](https://juejin.im/post/6854573221241749512)
 
 ## 后端相关知识
 
