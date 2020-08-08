@@ -42,6 +42,7 @@
 - [Vue项目常见问题](https://juejin.im/post/5f144cfbf265da22b05b01db)
 - [图解 Vue 响应式原理](https://juejin.im/post/6857669921166491662)
 - [10分钟彻底搞懂单页面应用路由](https://juejin.im/post/5f211b05f265da22e77c38fa)
+- [React受控组件与非受控组件](https://github.com/xpsilvester/Notes/blob/master/Vue_React/controllComponent.md))
 
 ## [移动端开发相关知识](https://github.com/xpsilvester/Notes/tree/master/Mobile/h5.md)
 
