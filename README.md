@@ -87,6 +87,7 @@
 - [封装 axios 拦截器实现用户无感刷新 access_token](https://juejin.im/post/5f1ba98ae51d4534b73a9d7a)
 - [「Vue项目」我是如何解决滚动组件&联动效果](https://juejin.im/post/5f1cd0b85188252e3a45f484)
 - [「可视化搭建系统」——从设计到架构，探索前端的领域和意义](https://juejin.im/post/5f1e98c05188252e5522dc0c)
+- [技术探索：60 天急速自研-前端埋点监控跟踪系统大浪子](https://juejin.im/post/6844903954199887880)
 
 ## [Linux相关知识](https://github.com/xpsilvester/Notes/tree/master/Linux)
 
