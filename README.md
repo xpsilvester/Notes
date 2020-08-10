@@ -74,6 +74,7 @@
 - [初学者应该看的 Webpack 完整指南（2020）](https://juejin.im/post/6855129007785328653)
 - [Webpack常见问题系列一](https://juejin.im/post/6855892470790782984#heading-18)
 - [Webpack 原理浅析](https://juejin.im/post/6854818576470933512)
+- [Webpack配置全解析（优化篇）](https://juejin.im/post/6858905382861946894)
 
 ## [Electron相关](https://www.electronjs.org/)
 
