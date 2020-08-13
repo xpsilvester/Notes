@@ -47,6 +47,7 @@
 - [10分钟彻底搞懂单页面应用路由](https://juejin.im/post/5f211b05f265da22e77c38fa)
 - [React受控组件与非受控组件](https://github.com/xpsilvester/Notes/blob/master/Vue_React/controllComponent.md)
 - [React Fiber 源码解析](https://juejin.im/post/6859528127010471949)
+- [React17新特性：启发式更新算法](https://juejin.im/post/6860275004597239815)
 
 ## [移动端开发相关知识](https://github.com/xpsilvester/Notes/tree/master/Mobile/h5.md)
 
