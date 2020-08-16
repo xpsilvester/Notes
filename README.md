@@ -22,6 +22,7 @@
 
 ## TypeScript 知识点总结
 
+- [TypeScript入门教程](https://ts.xcatliu.com/)
 - [TypeScript文档](https://www.tslang.cn/docs/home.html)
 - [从零开始配置 TypeScript 项目](https://juejin.im/post/6856410900577026061)
 - [TypeScript学习笔记](https://github.com/xpsilvester/Notes/blob/master/TypeScript/TypeScriptNotes.md)
