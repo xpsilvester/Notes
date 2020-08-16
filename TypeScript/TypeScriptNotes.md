@@ -283,6 +283,280 @@ X兼容Y : X (目标类型) = Y (源类型)
 - `TypeScript`能够在特定的区块中保证变量属于某种确定的类型。
 - 可以在此区块中放心地引用此类型的属性，或者调用此类型的方法。
 
+## TypeScript高级类型
+
+所谓高级类型，是typescript为了保证语言的灵活性，所使用的一下语言特性。这些特性有助于我们应对复杂多变的开发场景。
+
+### 交叉类型
+
+将多个类型合并成一个类型，新的类型将具有所有类型的特性，所以交叉类型特别适用对象混入的场景。
+
+```tsx
+interface DogInterface{
+    run():void
+}
+interface CatInterface{
+    jump():void
+}
+let pet:DogInterface & CatInterface={
+    run(){},
+    jump(){}
+}
+```
+
+### 联合类型
+
+声明的类型并不确定，可以为多个类型中的一个
+
+```tsx
+let a:number| string='111';
+ //限定变量的取值
+let ba:'a' | 'b' | 'c';  //字符串的字面量联合类型
+let ca:1|2|3 ;  //数字的联合类型
+```
+
+对象的联合类型
+
+```tsx
+interface DogInterface{
+    run():void
+}
+interface CatInterface{
+    jump():void
+}
+class Dog implements DogInterface{   //类实现接口
+   run(){}
+   eat(){}
+}
+ class Cat implements CatInterface{
+    jump(){}
+    eat(){}
+}
+enum Master {Boy,Girl};
+ function getPet(master:Master){
+    let pet=master===Master.Boy?new Dog() : new Cat();   //pet被推断为Dog和Cat的联合类型
+    //如果一个对象是联合类型，在类型未确定的时候，他就只能访问所有类型的共有成员，所以能访问eat()
+    pet.eat();
+    pet.run();  //报错
+    return pet;
+}
+```
+
+### 索引类型
+
+```tsx
+let obj = {
+    a: 1,
+    b: 2,
+    c: 3
+}
+// 获取对象中的指定属性的值集合
+function getValues(obj: any, keys: string[]) {
+    return keys.map(key => obj[key])
+}
+// 抽取指定属性的值
+console.log(getValues(obj, ['a','b']))  // [1, 2]
+// 抽取obj中没有的属性:
+console.log(getValues(obj, ['e','f']))  // [undefined, undefined]
+```
+
+虽然obj中并不包含e, f属性,但typescript编译器并未报错。此时使用typescript索引类型,对这种模式做类型约束。
+
+#### keyof
+
+keyof是索引类型查询操作符。
+
+假设T是一个类型，那么keyof T产生的类型是T的属性名称字符串字面量类型构成的联合类型。
+
+特别说明:T是数据类型，并非数据本身。
+
+看例子：
+
+```tsx
+// 定义一个接口Obj含有属性a,b
+interface obj {
+    a: number
+    b: string
+}
+// 定义变量key,类型为keyof Obj
+let key: keyof obj
+```
+
+T是一个类型，T[K] 表示类型T中属性K的类型
+
+```tsx
+interface obj {
+  a: number
+  b: string
+}
+// 定义变量key,类型为keyof Obj
+let key: keyof obj
+
+let value:obj['a']
+```
+
+所以上面的代码可以这样改造
+
+```tsx
+function getValues<T, K extends keyof T>(obj: T, keys: K[]): T[K][] {
+    return keys.map(key => obj[key])
+}
+
+let obj = {
+    a: 1,
+    b: 2,
+    c: 3
+}
+
+// 抽取指定属性的值
+console.log(getValues(obj, ['a','b']))  // [1, 2]
+// 抽取obj中没有的属性:
+console.log(getValues(obj, ['e','f']))  // [undefined, undefined]
+```
+
+### 映射类型
+
+typescript 允许将一个类型映射成另外一个类型
+
+#### Readonly
+
+Readonly是 typescript 内置的泛型接口，可以将一个接口的所有属性映射为只读:
+
+```tsx
+// 定义接口Obj
+interface Obj {
+    a: number
+    b: string
+    c: boolean
+}
+// 使用类型别名定义类型ReadonlyObj
+type ReadonlyObj = Readonly<Obj>    // Readonly是TS内置的泛型接口
+```
+
+node_module/typescript/lib/lib.es5.d.ts 中可以看到 typescript 内部是如何实现 Readonly 的
+
+```tsx
+type Readonly<T> = {
+    readonly [P in keyof T]: T[P];
+};
+```
+
+从源码可以看出Readonly是一个可索引类型的泛型接口
+
+1. 索引签名为P in keyof T : 其中keyof T就是一个一个索引类型的查询操作符,表示类型T所有属性的联合类型
+
+2. P in :相当于执行了一个for in操作,会把变量P依次绑定到T的所有属性上
+
+3. 索引签名的返回值就是一个索引访问操作符 : T[P] 这里代表属性P所指定的类型
+
+4. 最后再加上Readonly就把所有的属性变成了只读,这就是Readonly的实现原理
+
+#### Partial
+
+将一个接口的所有属性映射为可选：
+
+```tsx
+interface Obj {
+  a: number
+  b: string
+  c: boolean
+}
+type PartialObj = Partial<Obj>
+```
+
+#### Record
+
+Record会利用已有的类型，创建新属性的映射类型
+
+```tsx
+interface Obj {
+  a: number
+  b: string
+  c: boolean
+}
+type RecordObj = Record<'x' | 'y', Obj>
+```
+
+第一个参数是预定义的新属性,比如x,y；第二个参数就是已知类型
+
+### 条件类型
+
+条件类型是一种由条件表达式所决定的类型 。条件类型使类型具有了不唯一性,同样增加了语言的灵活性
+
+```tsx
+T extends U ? X : Y
+若类型T可被赋值给类型U,那么结果类型就是X类型,否则就是Y类型
+```
+
+```tsx
+// 条件类型
+type TypeName<T> = 
+    T extends string ? 'string' :
+    T extends number ? 'number' :
+    T extends boolean ? 'boolean' :
+    T extends undefined ? 'undefined' :
+    T extends Function ? 'Function' :
+    'object'
+
+// 定义类型T1为条件类型,传入参数string,指定t1为string类型
+type T1 = TypeName<string>  // T1为 string
+// 定义类型T2为条件类型,传入参数string[]
+type T2 = TypeName<string[]>  // T2为 object
+```
+
+看下面例子
+
+```tsx
+type TypeName<T> = 
+    T extends string ? 'string' :
+    T extends number ? 'number' :
+    T extends boolean ? 'boolean' :
+    T extends undefined ? 'undefined' :
+    T extends Function ? 'Function' :
+    'object'
+
+type T3 = TypeName<string | string[]>
+```
+
+t3 会被 解析成 "string" | "object"
+
+原因就是 联合类型在extend 的时候会进行如下转换。
+
+```tsx
+(A | B) extends U ? X : Y  ---->  (A extends U ? X : Y) | (B extends U ? X : Y) 
+```
+
+利用上边这个特性可以实现对类型的过滤
+
+如果T可以被赋值给U,结果类型为never类型,否则为T类型
+
+```tsx
+type Diff<T, U> = T extends U ? never : T
+type T4 = Diff<'a' | 'b' | 'c', 'a' | 'e'>
+```
+
+也可以实现从类型T中移除不需要的类型,如undefined和null
+
+定义一个NotNull,从T中过滤掉undefined和null
+
+```tsx
+type Diff<T, U> = T extends U ? never : T
+
+type NotNull<T> = Diff<T, undefined | null>
+
+type T5 = NotNull<string | number | undefined | null>
+```
+
+上边实现的Diff和NotNull类型,是已经在TS内置的类库中被实现的内置类型。Diff的内置类型叫做Exclude<T, U>。NotNull的内置类型叫做NonNullable<T>
+
+```tsx
+type T6 = Extract<'a' | 'b' | 'c', 'a' | 'e'>   // type T6 = "a"
+
+type T7 = Exclude<'a' | 'b' | 'c', 'a' | 'e'>   // type T7 = "b" | "c"
+```
+
+
+
 ## 思维导图
 
 ![思维导图](https://raw.githubusercontent.com/xpsilvester/Notes/master/images/tsbase.jpg)
