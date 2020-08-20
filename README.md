@@ -133,6 +133,7 @@
 ## [数据库相关知识](https://github.com/xpsilvester/Notes/tree/master/SQL)
 
 - [MySQL命令，一篇文章替你全部搞定](https://juejin.im/post/6844903599915401230)
+- [MySQL中limit分页大偏移量的原因分析与优化方案](https://juejin.im/post/6862530465472741384)
 - [Redis 入门](https://juejin.im/post/6844903639765483533#heading-59)
 
 [Markdown 文章排版](https://www.mdnice.com/)
