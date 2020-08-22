@@ -74,6 +74,7 @@
 - [node.js cluster多进程、负载均衡和平滑重启](https://www.cnblogs.com/kenkofox/p/5431643.html)
 - [高并发下的Node.js与负载均衡](https://www.cnblogs.com/tingshuo/archive/2013/01/17/2864280.html)
 - [Node.js开发经验总结](https://juejin.im/post/6858910962339856397)
+- [Node.js 如何处理 ES6 模块](http://www.ruanyifeng.com/blog/2020/08/how-nodejs-use-es6-module.html)
 
 ## [Webpack相关知识](https://github.com/xpsilvester/Notes/tree/master/Webpack)
 
