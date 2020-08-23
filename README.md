@@ -14,6 +14,7 @@
 - [JavaScript原型链相关](https://github.com/xpsilvester/Notes/blob/master/JavaScript/prototype.md)
 - [抽象语法树（AST）](https://juejin.im/post/5f1fe4b0f265da22ce3957b4)
 - [编写高质量可维护的代码之优化逻辑判断](https://juejin.im/post/6859125809655840776)
+- [JavaScript事件详解](https://github.com/xpsilvester/Notes/blob/master/JavaScript/dom.md)
 
 ## [CSS知识点总结](https://github.com/xpsilvester/Notes/tree/master/CSS)
 
