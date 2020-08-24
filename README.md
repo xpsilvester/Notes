@@ -108,6 +108,7 @@
 
 - [Linux常用操作](https://github.com/xpsilvester/Notes/blob/master/Linux/Linux常用操作.md)
 - [Nginx基本配置](https://github.com/xpsilvester/Notes/blob/master/Linux/Nginx基本配置.md)
+- [前端工程师不可不知的Nginx知识](https://juejin.im/post/6864085814571335694)
 - [申请免费SSL证书](https://github.com/xpsilvester/Notes/blob/master/Linux/申请免费SSL证书.md)
 - [CentOS 7上部署NodeJS](https://github.com/xpsilvester/Notes/blob/master/Linux/CentOS7上部署NodeJS.md)
 - [CentOS 6.6上部署asp.net MVC项目详细过程](https://github.com/xpsilvester/Notes/blob/master/Linux/CentOS6.6上部署asp.netMVC项目详细过程.md)
