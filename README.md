@@ -124,6 +124,7 @@
 
 - [HTTP中的OPTIONS请求](https://juejin.im/post/6855989328876617736)
 - [「查缺补漏」巩固你的HTTP知识体系](https://juejin.im/post/6857287743966281736)
+- [HTTP cookie指南](https://github.com/qq449245884/xiaozhi/issues/260)
 - [15 张精美动图全面讲解 CORS](https://juejin.im/post/6856556746706518024)
 - [axios核心原理](https://juejin.im/post/6856706569263677447)
 - [一文读懂 Web 安全](https://juejin.im/post/6854573221241749512)
