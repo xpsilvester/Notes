@@ -49,6 +49,7 @@
 - [图解 Vue 响应式原理](https://juejin.im/post/6857669921166491662)
 - [Vue源码解析，keep-alive是如何实现缓存的？](https://juejin.im/post/6862206197877964807)
 - [Vue模板编译原理](https://juejin.im/post/6863241580753616903)
+- [【Vue进阶】——如何实现组件属性透传？](https://juejin.im/post/6865451649817640968)
 - [React受控组件与非受控组件](https://github.com/xpsilvester/Notes/blob/master/Vue_React/controllComponent.md)
 - [React Hooks 知识点总结](https://github.com/xpsilvester/Notes/blob/master/Vue_React/react_hooks.md)
 - [React Fiber 源码解析](https://juejin.im/post/6859528127010471949)
