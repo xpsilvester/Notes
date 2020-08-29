@@ -4,7 +4,21 @@
 
 ## Excel的读取
 
-Excel的读取主要是前端读取数据再向后端发请求，页面显示上用的是`Antd`中的`Upload `组件，前端读取功能用的是`xlsx`,相关的核心代码如下（具体代码可参考：[App.tsx](https://github.com/xpsilvester/React-TypeScript-Antd-Koa/blob/master/src/App.tsx)）：
+Excel的读取主要是前端读取数据再向后端发请求，页面显示上用的是`Antd`中的`Upload `组件，前端读取功能用的是`xlsx`,
+
+页面显示如下：
+
+![页面显示](https://raw.githubusercontent.com/xpsilvester/Notes/master/images/excelview.jpg)
+
+Excel结构如下：
+
+![Excel](https://raw.githubusercontent.com/xpsilvester/Notes/master/images/excellist.jpg)
+
+选择文件上传，查看控制台结果如下，说明已经读取到了数据：
+
+![读取数据](https://raw.githubusercontent.com/xpsilvester/Notes/master/images/exceldata.jpg)
+
+相关的核心代码如下（具体代码可参考：[App.tsx](https://github.com/xpsilvester/React-TypeScript-Antd-Koa/blob/master/src/App.tsx)）：
 
 ```tsx
 import React from 'react';
