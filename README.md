@@ -40,6 +40,7 @@
 - [JavaScript 异步编程](https://juejin.im/post/5f16a19b6fb9a07e6e116e41)
 - [JavaScript字符串相关算法](https://github.com/xpsilvester/Notes/blob/master/Algorithm/JsChar.md)
 - [「一劳永逸」送你21道高频JavaScript手写题](https://juejin.im/post/6855129007852093453#heading-22)
+- [尾调用与尾递归优化](https://www.cnblogs.com/J1ac/p/9326444.html)
 
 ## [React和Vue相关知识点总结](https://github.com/xpsilvester/Notes/tree/master/Vue_React)
 
