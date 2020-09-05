@@ -70,9 +70,13 @@ fenximokuai("./index.js");
 
 `@babel/parser`:https://babeljs.io/docs/en/babel-parser
 
-```js
-//安装@babel/parser
+```bash
+# 安装@babel/parser
 npm install @babel/parser --save
+```
+
+```js
+
 //bundle.js
 const fs = require("fs");
 const parser = require("@babel/parser");
