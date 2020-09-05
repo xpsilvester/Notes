@@ -95,6 +95,7 @@
 - [Webpack 模块打包原理](https://juejin.im/post/6844903802382860296)
 - [Webpack配置全解析（优化篇）](https://juejin.im/post/6858905382861946894)
 - [「一劳永逸」由浅入深配置webpack4](https://juejin.im/post/6859888538004783118)
+- [手动实现Webpack](https://github.com/xpsilvester/Notes/tree/master/Webpack/Bundle.md)
 
 ## [Electron相关](https://www.electronjs.org/)
 
