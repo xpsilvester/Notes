@@ -21,6 +21,7 @@
 
 - [CSS常见问题](https://github.com/xpsilvester/Notes/blob/master/CSS/CSS常见问题.md)
 - [CSS外部字体引入并实现压缩及自动化](https://github.com/xpsilvester/Notes/blob/master/CSS/CSS外部字体引入并实现压缩及自动化.md)
+- [「一劳永逸」48张小图带你领略flex布局之美](https://juejin.im/post/6866914148387651592)
 
 ## TypeScript 知识点总结
 
@@ -52,6 +53,7 @@
 - [Vue源码解析，keep-alive是如何实现缓存的？](https://juejin.im/post/6862206197877964807)
 - [Vue模板编译原理](https://juejin.im/post/6863241580753616903)
 - [【Vue进阶】——如何实现组件属性透传？](https://juejin.im/post/6865451649817640968)
+- [详解 Vue SSR 服务器端渲染](https://segmentfault.com/a/1190000015964813)
 - [React受控组件与非受控组件](https://github.com/xpsilvester/Notes/blob/master/Vue_React/controllComponent.md)
 - [React Hooks 知识点总结](https://github.com/xpsilvester/Notes/blob/master/Vue_React/react_hooks.md)
 - [烤透 React Hook](https://juejin.im/post/6867745889184972814)
