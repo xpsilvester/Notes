@@ -100,6 +100,9 @@
 - [「一劳永逸」由浅入深配置webpack4](https://juejin.im/post/6859888538004783118)
 - [手动实现Webpack](https://github.com/xpsilvester/Notes/tree/master/Webpack/Bundle.md)
 - [手写webpack核心原理](https://juejin.im/post/6854573217336541192)
+- [Webpack4: Tree-shaking 深度解析](https://juejin.im/post/6844903777229635598)
+- [Tree-Shaking性能优化实践 - 原理篇](https://juejin.im/post/6844903544756109319)
+- [Tree-Shaking性能优化实践 - 实践篇](https://juejin.im/post/6844903544760336398)
 
 ## [Electron相关](https://www.electronjs.org/)
 
