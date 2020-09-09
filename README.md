@@ -56,6 +56,7 @@
 - [【Vue进阶】——如何实现组件属性透传？](https://juejin.im/post/6865451649817640968)
 - [详解 Vue SSR 服务器端渲染](https://segmentfault.com/a/1190000015964813)
 - [使用Vue3.0，我收获了哪些知识点（一）](https://juejin.im/post/6869521076771094536)
+- [面向未来的前端构建工具-vite](https://juejin.im/post/6869915676501835783)
 - [React受控组件与非受控组件](https://github.com/xpsilvester/Notes/blob/master/Vue_React/controllComponent.md)
 - [React Hooks 知识点总结](https://github.com/xpsilvester/Notes/blob/master/Vue_React/react_hooks.md)
 - [烤透 React Hook](https://juejin.im/post/6867745889184972814)
