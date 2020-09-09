@@ -123,6 +123,7 @@
 - [技术探索：60 天急速自研-前端埋点监控跟踪系统大浪子](https://juejin.im/post/6844903954199887880)
 - [React + TypeScript + Antd + Koa 实现Excel导入导出功能](https://github.com/xpsilvester/Notes/blob/master/Project/React-TypeScript-Antd-Koa.md)
 - [可能是你见过最完善的微前端解决方案](https://zhuanlan.zhihu.com/p/78362028)
+- [Docker+Nginx+Jenkins实现前端自动化部署](https://juejin.im/post/6869736425953165319)
 
 ## [Linux相关知识](https://github.com/xpsilvester/Notes/tree/master/Linux)
 
