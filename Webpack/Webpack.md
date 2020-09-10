@@ -146,3 +146,69 @@ module.exports = {
 };
 ```
 
+## Webpack4常规打包配置
+
+```js
+const path = require('path');
+const root_path = path.resolve(__dirname);
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const webpack = require('webpack');
+
+module.exports = {
+  // mode: 'production',
+  //mode: "development",
+  // devServer: {
+  //   contentBase: '../',
+  //   hot: true,
+  //   port: 9000,
+  //   open: true
+  // },
+  entry: {  //配置多个入口文件打包成多个代码块
+    solar: path.resolve(root_path, 'src/js/solar.js'),
+    norecommand: path.resolve(root_path, 'src/js/norecommand.js'),
+    equipment: path.resolve(root_path, 'src/js/equipment.js'),
+    recommand: path.resolve(root_path, 'src/js/recommand.js')
+  },
+  output: {
+    filename: '[name].min.js',
+    path: path.resolve(root_path, 'dist/js')
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        loader: 'babel-loader',
+        exclude: path.resolve(root_path, 'node_modules'),
+        include: root_path
+      },
+      {
+        test: /\.scss/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader', 'sass-loader']
+        })
+      }
+    ]
+  },
+  watch:true, //监控代码变化
+  watchOptions:{
+    poll:50,   //  每秒询问我 100次
+    aggregateTimeout:500,   // 防抖  我一直输入代码 他不更新 当我停止后他才更新 
+    ignored:/node_modules/ // 不需要监控的文件
+  },
+  plugins: [
+    // new HtmlWebpackPlugin({
+    //   title: 'Hot Module Replacement'
+    // }),
+    //new webpack.NamedModulesPlugin(),
+    //new webpack.HotModuleReplacementPlugin(),
+    new ExtractTextPlugin({
+      filename: '../css/[name].min.css',
+      allChunks: true
+    })
+  ]
+}
+```
+
