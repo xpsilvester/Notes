@@ -28,6 +28,7 @@
 
 - [TypeScript入门教程](https://ts.xcatliu.com/)
 - [TypeScript文档](https://www.tslang.cn/docs/home.html)
+- [TS 学习指南](https://juejin.im/post/6872111128135073806)
 - [从零开始配置 TypeScript 项目](https://juejin.im/post/6856410900577026061)
 - [TypeScript学习笔记](https://github.com/xpsilvester/Notes/blob/master/TypeScript/TypeScriptNotes.md)
 - [如何用 Typescript 写一个完整的 Vue 应用程序](https://juejin.im/post/6860703641037340686)
