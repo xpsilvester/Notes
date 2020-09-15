@@ -45,6 +45,7 @@
 - [「一劳永逸」送你21道高频JavaScript手写题](https://juejin.im/post/6855129007852093453#heading-22)
 - [尾调用与尾递归优化](https://www.cnblogs.com/J1ac/p/9326444.html)
 - [「算法与数据结构」一张脑图带你看动态规划算法之美](https://juejin.im/post/6872115031501340679)
+- [TypeScript实现贪心算法与回溯算法](https://juejin.im/post/6872022498326609933)
 
 ## [React和Vue相关知识点总结](https://github.com/xpsilvester/Notes/tree/master/Vue_React)
 
