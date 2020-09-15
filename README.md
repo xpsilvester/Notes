@@ -64,6 +64,7 @@
 - [React Hooks 知识点总结](https://github.com/xpsilvester/Notes/blob/master/Vue_React/react_hooks.md)
 - [烤透 React Hook](https://juejin.im/post/6867745889184972814)
 - [手写 React Hooks](https://juejin.im/post/6872223515580481544)
+- [快速了解 React Hooks 原理](https://segmentfault.com/a/1190000019966124)
 - [React Fiber 源码解析](https://juejin.im/post/6859528127010471949)
 - [React17新特性：启发式更新算法](https://juejin.im/post/6860275004597239815)
 - [[万字长文] 分享我的 ToyReact 学习与实现](https://juejin.im/post/6864843574148923406)
