@@ -17,6 +17,7 @@
 - [编写高质量可维护的代码之优化逻辑判断](https://juejin.im/post/6859125809655840776)
 - [JavaScript事件详解](https://github.com/xpsilvester/Notes/blob/master/JavaScript/dom.md)
 - [html5之Range对象详解](https://www.jianshu.com/p/ad2f818cc3b0)
+- [Event loop、requestIdleCallback 和 requestAnimationFrame](https://www.cnblogs.com/rsapaper/p/12799175.html)
 
 ## [CSS知识点总结](https://github.com/xpsilvester/Notes/tree/master/CSS)
 
