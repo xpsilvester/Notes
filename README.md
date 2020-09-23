@@ -4,6 +4,7 @@
 
 ## [JavaScript知识点总结](https://github.com/xpsilvester/Notes/tree/master/JavaScript) 
 
+- [JavaScript 20 年](https://github.com/doodlewind/jshistory-cn)
 - [MDN文档笔记](https://github.com/xpsilvester/Notes/blob/master/JavaScript/MDN.md)
 - [深拷贝](https://github.com/xpsilvester/Notes/blob/master/JavaScript/deepClone.md)
 - [想自学JS吗？想提升JS底层原理吗？76张脑图带你彻底搞懂原生JS](https://juejin.im/post/5ebb68796fb9a0435432df8e#heading-20)
