@@ -39,6 +39,7 @@
 
 - [Web开发应该知道的数据结构🍊](https://juejin.im/post/6866970001409064967)
 - [JavaScript常见算法](https://github.com/xpsilvester/Notes/blob/master/Algorithm/JsAlgorithm.md)
+- [JavaScript实现堆排序](https://segmentfault.com/a/1190000015487916)
 - [TypeScript实现二叉搜索树](https://juejin.im/post/5f03621fe51d4534b0054959)
 - [Array、Object、Function、String的一些计算操作](https://juejin.im/post/5f12a11b6fb9a07e777eaca5)
 - [JavaScript的一些工具函数](https://juejin.im/post/5f15444df265da22c9671b03)
