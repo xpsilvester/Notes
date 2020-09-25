@@ -72,6 +72,7 @@
 - [快速了解 React Hooks 原理](https://segmentfault.com/a/1190000019966124)
 - [React Fiber 源码解析](https://juejin.im/post/6859528127010471949)
 - [React17新特性：启发式更新算法](https://juejin.im/post/6860275004597239815)
+- [React 架构的演变 - 从同步到异步](https://juejin.im/post/6875681311500025869)
 - [[万字长文] 分享我的 ToyReact 学习与实现](https://juejin.im/post/6864843574148923406)
 - [10分钟彻底搞懂单页面应用路由](https://juejin.im/post/5f211b05f265da22e77c38fa)
 - [前端基础设施-封装项目路由模块](https://juejin.im/post/6865250965419720717)
