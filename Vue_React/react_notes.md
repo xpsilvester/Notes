@@ -70,3 +70,70 @@ const ref = React.createRef();
 - React Fiber 的目标是提高其对动画，布局和手势等领域的适用性。它的主体特征是增量渲染：能够将渲染工作分割成块，并将其分散到多个帧中。
 - 其他主要功能包括在进行更新时暂停，中止或重新使用工作的能力，为不同类型的更新分配优先权的能力和新的并发原语。
 
+## 12.什么是受控组件、非受控组件?
+
+- 受控组件：在随后的用户输入中，能够控制表单中输入元素的组件被称为受控组件，即每个状态更改都有一个相关联的处理程序。
+
+  例如，我们使用下面的 handleChange 函数将输入框的值转换成大写：
+
+  ```js
+  handleChange(event) {
+    this.setState({value: event.target.value.toUpperCase()
+  })
+  ```
+
+- 非受控组件：非受控组件是在内部存储其自身状态的组件，当需要时，可以使用 ref 查询 DOM 并查找其当前值。这有点像传统的 HTML。
+  在下面的 UserProfile 组件中，我们通过 ref 引用`name`输入框：
+
+  ```jsx
+  class UserProfile extends React.Component {
+    constructor(props) {
+      super(props)
+      this.handleSubmit = this.handleSubmit.bind(this)
+      this.input = React.createRef()
+    }
+    handleSubmit(event) {
+      alert('A name was submitted: ' + this.input.current.value)
+      event.preventDefault()
+    }
+    render() {
+      return (
+        <form onSubmit={this.handleSubmit}>
+          <label>
+            {'Name:'}
+            <input type="text" ref={this.input} />
+          </label>
+          <input type="submit" value="Submit" />
+        </form>
+      );
+    }
+  }
+  ```
+
+  在大多数情况下，建议使用受控组件来实现表单。
+
+## 13.[什么是React中的状态提升？](https://zh-hans.reactjs.org/docs/lifting-state-up.html)
+
+- React的状态提升就是用户对子组件操作，子组件不改变自己的状态，通过自己的props把这个操作改变的数据传递给父组件，改变父组件的状态，从而改变受父组件控制的所有子组件的状态，这也是React单项数据流的特性决定的。官方的原话是：**共享 state(状态) 是通过将其移动到需要它的组件的最接近的共同祖先组件来实现的。 这被称为“状态提升(Lifting State Up)”。**
+
+## 14.组件生命周期的不同阶段是什么?
+
+组件生命周期有三个阶段：
+
+- **Mounting:** 组件挂载到DOM阶段。在`constructor()`中完成了React数据的初始化，相关的生命周期方法有`getDerivedStateFromProps()`, `render()`, 和 `componentDidMount()`
+- **Updating:** 组件更新阶段。这个阶段主要通过改变`props`和`setState()`、`forceUpdate()`方法进行更新。相关的生命周期方法有`getDerivedStateFromProps()`, `shouldComponentUpdate()`, `render()`, `getSnapshotBeforeUpdate()`,`componentDidUpdate()`
+- **Unmounting:**组件卸载阶段。这个阶段完成组件的卸载和数据的销毁。涉及的生命周期方法为`componentWillUnmount()`
+
+值得一提的是，在更改应用的DOM时，React内部具有阶段性概念。它们分别如下：
+
+- **Render** ：组件会进行无副作用的渲染，适用于Pure components，在此阶段，react可以暂停、中止。
+- **Pre-commit** ：在组件实际应用到DOM之前，允许React通过`getSnapshotBeforeUpdate()`读取DOM。
+- **Commit** ：React进行DOM更新，并分别执行最终的生命周期`componentDidMount()`来进行挂载，`componentDidUpdate()`更新和`componentWillUnmount()`卸载。
+
+React 16.3+阶段如图所示：
+
+![React 16.3+](..\images\phases16.3.jpg)
+
+在React 16.3之前如图所示：
+
+![before](..\images\phasesbefore16.3.png)
