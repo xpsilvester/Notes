@@ -122,7 +122,7 @@ const ref = React.createRef();
 
 - **Mounting:** 组件挂载到DOM阶段。在`constructor()`中完成了React数据的初始化，相关的生命周期方法有`getDerivedStateFromProps()`, `render()`, 和 `componentDidMount()`
 - **Updating:** 组件更新阶段。这个阶段主要通过改变`props`和`setState()`、`forceUpdate()`方法进行更新。相关的生命周期方法有`getDerivedStateFromProps()`, `shouldComponentUpdate()`, `render()`, `getSnapshotBeforeUpdate()`,`componentDidUpdate()`
-- **Unmounting:**组件卸载阶段。这个阶段完成组件的卸载和数据的销毁。涉及的生命周期方法为`componentWillUnmount()`
+- **Unmounting:** 组件卸载阶段。这个阶段完成组件的卸载和数据的销毁。涉及的生命周期方法为`componentWillUnmount()`
 
 值得一提的是，在更改应用的DOM时，React内部具有阶段性概念。它们分别如下：
 
