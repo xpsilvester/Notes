@@ -169,3 +169,24 @@ React 16.3+阶段如图所示：
 - 高阶组件是一个函数，能够接受一个组件并返回一个新的组件。
 - 可以用于组件复用。
 - 大部分使用`mixin`和`class extends`的地方，高阶组件都是更好的方案——毕竟组合优于继承。
+
+## 17.如何为高阶组件(HOC)创建props代理？
+
+- 可以通过组件的代理模式实现：
+
+```jsx
+function HOC(WrappedComponent) {
+  return class Test extends Component {
+    render() {
+      const newProps = {
+        title: 'New Header',
+        footer: false,
+        showFeatureX: false,
+        showFeatureY: true
+      }
+
+      return <WrappedComponent {...this.props} {...newProps} />
+    }
+  }
+}
+```
