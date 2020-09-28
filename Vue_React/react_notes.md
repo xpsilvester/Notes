@@ -137,3 +137,35 @@ React 16.3+阶段如图所示：
 在React 16.3之前如图所示：
 
 ![before](..\images\phasesbefore16.3.png)
+
+## 15.React有哪些生命周期方法？
+
+在16.3之前：
+
+- **componentWillMount:**  在渲染前调用, 组件初始化时只调用，以后组件更新不调用，整个生命周期只调用一次，此时可以修改state。
+- **componentDidMount:** 在第一次渲染后调用，只在客户端。之后组件已经生成了对应的DOM结构，可以通过this.getDOMNode()来进行访问。 如果你想和其他JavaScript框架一起使用，可以在这个方法中调用setTimeout, setInterval或者发送AJAX请求等操作(防止异步操作阻塞UI)。
+- **componentWillReceiveProps:** 在组件接收到一个新的 prop (更新后)时被调用。这个方法在初始化render时不会被调用。
+- **shouldComponentUpdate:**  react性能优化非常重要的一环。组件接受新的state或者props时调用，我们可以设置在此对比前后两个props和state是否相同，如果相同则返回false阻止更新，因为相同的属性状态一定会生成相同的dom树，这样就不需要创造新的dom树和旧的dom树进行diff算法对比，节省大量性能，尤其是在dom结构复杂的时候。在初始化时或者使用forceUpdate时不被调用。可以在确认不需要更新组件时使用。
+- **componentWillUpdate:** 在组件接收到新的props或者state但还没有render时被调用。在初始化时不会被调用。（当shouldComponentUpdate返回true时调用）
+- **componentDidUpdate:** 在组件完成更新后立即调用。在初始化时不会被调用。此时可以获取dom节点。
+- **componentWillUnmount:** 组件将要卸载时调用，一些事件监听和定时器需要在此时清除。
+
+16.3+版本：
+
+- **getDerivedStateFromProps:**  将传入的props映射到state上面，这个函数会在每次re-rendering之前被调用。**即使你的props没有任何变化，而是父state发生了变化，导致子组件发生了re-render，这个生命周期函数依然会被调用**。 这个生命周期函数是为了替代`componentWillReceiveProps`存在的，所以在你需要使用`componentWillReceiveProps`的时候，就可以考虑使用`getDerivedStateFromProps`来进行替代了。
+
+- **componentDidMount:**  在第一次渲染后调用，只在客户端。之后组件已经生成了对应的DOM结构，可以通过this.getDOMNode()来进行访问。 如果你想和其他JavaScript框架一起使用，可以在这个方法中调用setTimeout, setInterval或者发送AJAX请求等操作(防止异步操作阻塞UI)。
+
+- **shouldComponentUpdate:**  react性能优化非常重要的一环。组件接受新的state或者props时调用，我们可以设置在此对比前后两个props和state是否相同，如果相同则返回false阻止更新，因为相同的属性状态一定会生成相同的dom树，这样就不需要创造新的dom树和旧的dom树进行diff算法对比，节省大量性能，尤其是在dom结构复杂的时候。在初始化时或者使用forceUpdate时不被调用。可以在确认不需要更新组件时使用。
+
+- **getSnapshotBeforeUpdate:** 在render之前调用，state已更新，可以用来获取render之前的dom状态。
+
+- **componentDidUpdate:** 在组件完成更新后立即调用。在初始化时不会被调用。此时可以获取dom节点。（当shouldComponentUpdate返回false时不会调用）
+
+- **componentWillUnmount:** 组件将要卸载时调用，一些事件监听和定时器需要在此时清除。 
+
+## 16.[什么是高阶组件(HOC)？](https://react.docschina.org/docs/higher-order-components.html)
+
+- 高阶组件是一个函数，能够接受一个组件并返回一个新的组件。
+- 可以用于组件复用。
+- 大部分使用`mixin`和`class extends`的地方，高阶组件都是更好的方案——毕竟组合优于继承。
