@@ -190,3 +190,118 @@ function HOC(WrappedComponent) {
   }
 }
 ```
+
+## 18.什么是children prop？
+
+- 在典型的React数据流模型中，props 是组件对外的接口。props 作为父子组件沟通的桥梁，为组件的通信和传值提供了重要手段。
+
+- this.props 对象的属性与组件的属性一一对应，但其中有一个比较特殊的参数：this.props.children。它表示组件所有的子节点。
+
+- 在组件内部使用 this.props.children，可以拿到用户在组件里面放置的内容。
+
+```js
+const MyDiv = React.createClass({
+  render: function() {
+    return <div>{this.props.children}</div>
+  }
+})
+
+ReactDOM.render(
+  <MyDiv>
+    <span>{'Hello'}</span>
+    <span>{'World'}</span>
+  </MyDiv>,
+  node
+)
+```
+
+## 19.[如何理解react中的super(),super(props)？](https://www.cnblogs.com/itgezhu/p/11199313.html)
+
+- ES6中，子类是没有自己的 this 对象的，它只能继承自父类的 this 对象，然后对其进行加工，而super( )就是将父类中的this对象继承给子类的。没有 super，子类就得不到 this 对象。
+
+- super(props)的作用就是在父类的构造函数中给props赋值一个对象this.props=props这样就能在它的下面定义你要用到的属性了，然而其他的由于没有传参就直接赋值为undefind
+
+```js
+//Passing props:
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props)
+
+    console.log(this.props) // prints { name: 'John', age: 42 }
+  }
+}
+//Not passing props:
+class MyComponent2 extends React.Component {
+  constructor(props) {
+    super()
+
+    console.log(this.props) // prints undefined
+
+    // but props parameter is still available
+    console.log(props) // prints { name: 'John', age: 42 }
+  }
+
+  render() {
+    // no difference outside constructor
+    console.log(this.props) // prints { name: 'John', age: 42 }
+  }
+}
+```
+
+## 20.[什么是Reconciliation](https://zhuanlan.zhihu.com/p/107669756)
+
+- 每次render的时候，React都会产生一棵由React元素组成的树，这个树形结构就是所谓的虚拟DOM，下次render的时候又会产生新的一颗树，对比这两棵树的不同的过程，就是调和，即Reconciliation。
+
+## 21.[React中Suspense及lazy()懒加载及代码分割原理和使用的理解](https://blog.csdn.net/deng1456694385/article/details/88999842)
+
+- lazy()方法是用来对项目代码进行分割,懒加载用的.只有当组件被加载,内部的资源才会导入。
+
+- lazy()方法不支持直接exports，仅仅支持 default exports。
+
+## 21.[什么是portals ？](https://www.jianshu.com/p/fef9b2135512)
+
+- 插槽(Portals)能将子节点渲染到父组件的 DOM 层次之外
+
+- 第一个参数（child）是任何可渲染的 React 子元素，例如一个元素，字符串或 片段(fragment)。第二个参数（container）则是一个 DOM 元素。
+
+## 22.[react16之错误边界(Error Boundaries)](https://zhuanlan.zhihu.com/p/151861708)
+
+- 可以通过用错误边界捕获来自react组件的错误
+
+- 某些UI崩溃，不至于整个webapp崩溃
+
+- 必须是class组件
+
+- 如果一个 class 组件中定义了`static getDerivedStateFromError()`或`componentDidCatch()`这两个生命周期方法中的任意一个（或两个）时，那么这个组件就变成一个错误边界。当抛出错误后，使用`static getDerivedStateFromError()`渲染备用 UI ，使用`componentDidCatch()`打印错误信息。
+
+```jsx
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { hasError: false }
+  }
+
+  componentDidCatch(error, info) {
+    // You can also log the error to an error reporting service
+    logErrorToMyService(error, info)
+  }
+
+  static getDerivedStateFromError(error) {
+     // Update state so the next render will show the fallback UI.
+     return { hasError: true };
+   }
+
+  render() {
+    if (this.state.hasError) {
+      // You can render any custom fallback UI
+      return <h1>{'Something went wrong.'}</h1>
+    }
+    return this.props.children
+  }
+}
+
+<ErrorBoundary>
+  <MyWidget />
+</ErrorBoundary>
+```
+
