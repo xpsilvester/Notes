@@ -305,3 +305,46 @@ class ErrorBoundary extends React.Component {
 </ErrorBoundary>
 ```
 
+## 23.[setState何时同步何时异步？](https://www.jianshu.com/p/799b8a14ef96)
+
+- 由React控制的事件处理程序，以及生命周期函数调用setState不会同步更新state 。
+
+- React控制之外的事件中调用setState是同步更新的。比如原生js绑定的事件，setTimeout/setInterval等。
+
+- 大部分开发中用到的都是React封装的事件，比如onChange、onClick、onTouchMove等，这些事件处理程序中的setState都是异步处理的。
+
+## 24.[如何在react中使用装饰器decorators](https://blog.csdn.net/iiichigo/article/details/84572353)
+
+- Decorator 是 ES7 的一个新语法，他可以对一些对象进行装饰包装然后返回一个被包装过的对象，可以装饰的对象包括：类，属性，方法等。打个比方：你出去玩，出门前戴了一顶帽子，这是帽子就是装饰器，你自己就是被装饰的对象。
+
+- 装饰器的作用就是为已经存在的函数或对象添加额外的功能。 装饰器应用场景及理解: 装饰器本质上是一个函数,它可以让其他函数在不需要做任何代码变动的前提下增加额外功能 它经常用于有切面需求的 场景,比如:插入日志、性能测试、事务处理、缓存、权限校验等场景。
+
+```js
+@setTitle('Profile')
+class Profile extends React.Component {
+    //....
+}
+
+/*
+  title is a string that will be set as a document title
+  WrappedComponent is what our decorator will receive when
+  put directly above a component class as seen in the example above
+*/
+const setTitle = (title) => (WrappedComponent) => {
+  return class extends React.Component {
+    componentDidMount() {
+      document.title = title
+    }
+
+    render() {
+      return <WrappedComponent {...this.props} />
+    }
+  }
+}
+```
+
+## 25.[如何使用React.memo()来优化函数组件的性能](https://segmentfault.com/a/1190000018563418)
+
+- React.memo(...)是React v16.6引进来的新属性。它的作用和React.PureComponent类似，是用来控制函数组件的重新渲染的。React.memo(...) 其实就是函数组件的React.PureComponent。
+
+- React.memo会返回一个纯化(purified)的组件MemoFuncComponent，这个组件将会在JSX标记中渲染出来。当组件的参数props和状态state发生改变时，React将会检查前一个状态和参数是否和下一个状态和参数是否相同，如果相同，组件将不会被渲染，如果不同，组件将会被重新渲染。
