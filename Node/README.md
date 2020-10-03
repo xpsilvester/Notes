@@ -75,6 +75,29 @@ Node虽然没有提供多线程用于计算，但是有两种方法可以充分�
 - require引入的实际时module.exports，而如果对module.exports重新赋值时，就切断了它与原来对象的联系exports不会一起改变
 - 通常使用exports = module.exports = somethings 修复，使它们指向同一个对象
 
+## [异步I/O](https://www.cnblogs.com/tangzhirong/p/6910776.html)
+
+### Node的异步I/O模型
+
+主要分为**事件循环、观察者、请求对象、执行回调**是四个核心概念。
+
+- **事件循环**：进程启动时，Node会创建一个类似while（true）的循环，判断是否有事件需要处理，若有，取出事件并执行回调函数。
+- **观察者**：观察者是用来判断是否有事件需要处理。事件循环中有一到多个观察者，判断过程会向观察者询问是否有需要处理的事件。这个过程类似于饭店的厨师与前台服务员的关系。厨师每做完一轮菜，就会向前台服务员询问是否有要做的菜，如果有就继续做，没有的话就下班了。这一过程中，前台服务员就相当于观察者，她收到的顾客点单就是回调函数。 注：事件循环是一个典型的**生产者/消费者模型**。异步I/O、网络请求是生产者，而事件循环则从观察者那里取出事件并处理。
+- **请求对象**：实际上，从JavaScript发起调用到内核执行完I/O操作的过渡过程中，存在一种中间产物，叫做请求对象。
+- **执行回调**：组装好请求对象，送入I/O线程池等待执行，实际上完成了异步I/O的第一部分，回调通知是第二部分。当线程池中有可用线程的时候调用uv_fs_thread_proc方法执行。该方法会根据传入的类型调用相应的底层函数，以uv_fs_open为例，实际会调用到fs__open方法。调用完毕之后，会将获取的结果设置在req->result上。然后调用PostQueuedCompletionStatus通知我们的IOCP*对象操作已经完成，并将线程归还给线程池。
+
+### [浏览器与Node的事件循环(Event Loop)有何区别?](https://juejin.im/post/5c337ae06fb9a049bc4cd218)
+
+Node端，microtask 在事件循环的各个阶段之间执行
+* timers 阶段：这个阶段执行timer（setTimeout、setInterval）的回调
+* I/O callbacks 阶段：处理一些上一轮循环中的少数未执行的 I/O 回调
+* idle, prepare 阶段：仅node内部使用
+* poll 阶段：获取新的I/O事件, 适当的条件下node将阻塞在这里
+* check 阶段：执行 setImmediate() 的回调
+* close callbacks 阶段：执行 socket 的 close 事件回调
+
+浏览器端，microtask 在事件循环的 macrotask 执行完之后执行
+
 ### [雪崩问题](#利用事件队列解决雪崩问题)
 
 #### 利用事件队列解决雪崩问题
