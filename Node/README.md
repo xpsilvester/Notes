@@ -337,9 +337,86 @@ res.on('end', function () {
 
 buffer在文件io和网络io中具有广泛应用，不管是什么对象，一旦进入到网络传输中，都需要转换为buffer，然后以二进制进行数据传输。因此，提供io效率，可以从buffer转换入手。
 
-## 网络编程
+## [网络编程](https://www.jianshu.com/p/0c77d59ec2d0)
 
 ![network](https://images2015.cnblogs.com/blog/449064/201601/449064-20160113225947507-1610291086.png)
+
+### 创建TCP服务器端程序
+
+```js
+var net = require('net');
+var server = net.createServer(function (socket) {
+    // 新的连接
+    socket.on('data', function (data) {
+        socket.write("hello") ;
+    });
+    socket.on('end', function () {
+        console.log('连接断开');
+    });
+    socket.write("hello world，my dear\n");
+});
+server.listen(8124, function () {
+    console.log('server bound');
+});
+
+//为了体现listener是连接事件connection的监听器，也可以采用另外一种方式进行监听
+var server = net.createServer();
+server.on('connection', function (socket) {
+ // 新的连接
+});
+server.listen(8124);
+```
+
+### 管道操作
+
+```js
+var net = require('net');
+var server = net.createServer(function (socket) {
+socket.write('Echo server\r\n');
+socket.pipe(socket);
+});
+server.listen(1337, '127.0.0.1');
+```
+
+### 创建udp服务器端
+
+```js
+var dgram = require("dgram");
+var server = dgram.createSocket("udp4");
+server.on("message", function (msg, rinfo) {
+    console.log("server got: " + msg + " from " +
+        rinfo.address + ":" + rinfo.port);
+});
+server.on("listening", function () {
+    var address = server.address();
+    console.log("server listening " +
+        address.address + ":" + address.port);
+});
+server.bind(41234);
+```
+
+### 构建HTTP服务
+
+```js
+var http = require('http');
+http.createServer(function (req, res) {
+    res.writeHead(200, { 'Content-Type': 'text/plain' });
+    res.end('Hello World\n');
+}).listen(1337, '127.0.0.1');
+console.log('Server running at http://127.0.0.1:1337/');
+```
+
+### 构建websocket服务
+
+websocket与传统的b/s模式有如下好处：
+
+- 让b端与服务器建立tcp连接，减少连接数
+- 服务器实现了向b端推送数据的需求
+- 更轻的头协议，减少数据传输
+
+### 网络服务与安全
+
+node在网络安全方面提供了crypto、tls、https三个模块，crypto用于加密解密，例如sha1、md5等加密算法，tls用于建立一个基于TLS/SSL的tcp链接，它可以看成是net模块的加密升级版本。https用于提供一个加密版本的http，也是http的加密升级版本，甚至提供的接口和事件也跟http模块一样。
 
 ## 构建web应用
 
