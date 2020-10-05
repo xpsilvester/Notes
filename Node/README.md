@@ -1,6 +1,6 @@
 # NodeJS 笔记
 
-## Node简介
+## [Node简介](https://www.jianshu.com/p/05a68ca78f77)
 
 ### 单线程
 
@@ -26,7 +26,7 @@ Node虽然没有提供多线程用于计算，但是有两种方法可以充分�
 - 编写C/C++扩展的方式
 - 通过子进程方式
 
-## 模块机制
+## [模块机制](https://www.jianshu.com/p/20f73da34044)
 
 ### Node的模块实现
 
@@ -98,7 +98,7 @@ Node端，microtask 在事件循环的各个阶段之间执行
 
 浏览器端，microtask 在事件循环的 macrotask 执行完之后执行
 
-## [异步编程](https://www.cnblogs.com/mininice/p/4054030.html)
+## [异步编程](https://www.jianshu.com/p/a6d24bbde25b)
 
 ### 事件发布/订阅模式
 
@@ -267,3 +267,84 @@ Node使用的内存不是都通过v8分配，还有堆外内存,用于处理网�
 
 - 使用stream模块处理大文件，fs的createReadStream(),createWriteStream()
 - 在不需要进行字符串操作时，可以不借助v8，使用Buffer操作，这样不会受到v8的内存限制
+
+## [理解Buffer](https://www.jianshu.com/p/e3f14cdf78f1)
+
+![Buffer](https://images2015.cnblogs.com/blog/449064/201601/449064-20160107211644028-1641537291.png)
+
+- JavaScript 语言没有读取或操作二进制数据流的机制。 
+- `Buffer` 类被引入作为 Node.js API 的一部分，使其可以在 TCP 流或文件系统操作等场景中处理二进制数据流。
+- Buffer就是解决了V8之前应用于浏览器端偏小内存的限制，而直接在底层堆外申请大内存，但是又怕现用现申请增加CPU负载，所以采用了分块申请的形式。
+- buffer对象类似于数组，他的元素都是16进制的两位数，即0~255的数值
+
+### buffer内存分配
+
+buffer不同v8申请内存，它通过node的c++模块申请内存。因此，buffer的内存策略是由c++申请内存，然后，在js中分配内存。因为，处理大量的字节数据不能采用需要一点内存就向操作系统申请一点内存的方式，这可能造成大量的内存申请的系统调用，对操作系统有一定压力。
+
+node采用了slab的分配机制，slab其实就是一块申请好的固定内存区域，它有3种状态：
+
+- full：完全分配状态
+- partial：部分分配状态
+- empty：没有被分配状态
+
+### Buffer的转换
+
+Buffer对象可以和字符串进行相互转换，支持的编码类型有：ASCII、UTF-8、UTF-16LE/UCS-2、Base64、Binary、Hex
+
+#### 字符串转Buffer
+
+通过构造函数来完成，new Buffer(str,[encoding]);encoding默认为utf-8类型的编码和存储。
+
+#### Buffer转字符串
+
+只需要toString()即可。
+
+#### Buffer不支持的编码类型
+
+我们可以通过调用`Buffer.isEncoding(encoding)`来看是否支持某种编码。对于不支持的编码格式，可以使用iconv和iconv-lite来解决。
+
+### Buffer的拼接
+
+data事件中获取的chunk对象其实就是buffer对象。这里需要注意的是data += chunk;这句话，也就拼接buffer。其实质是data = data.toString() + chunk.toString();。这里其实对于中文的支持就会存在问题。因为，默认为utf-8的读取，因此，第四个字，只能显示一半。也就造成了乱码的产生。这个问题值得注意。
+
+为了解决上文中的乱码问题，我们应该设置一些编解码格式：
+
+```js
+readable.setEncoding(encoding)
+var rs = fs.createReadStream('test.md', { highWaterMark: 11});
+rs.setEncoding('utf8');
+```
+
+我们来看一下这个例子，它对拼接buffer做了改进：
+
+```js
+var chunks = [];
+var size = 0;
+res.on('data', function (chunk) {
+    chunks.push(chunk);
+    size += chunk.length;
+});
+res.on('end', function () {
+    var buf = Buffer.concat(chunks, size);
+    var str = iconv.decode(buf, 'utf8');
+    console.log(str);
+});
+```
+
+正确的拼接方式，是用一个数组来存储接收到的所以buffer片段，然后调用buffer.concat()合成一个buffer对象。
+
+### Buffer与性能
+
+buffer在文件io和网络io中具有广泛应用，不管是什么对象，一旦进入到网络传输中，都需要转换为buffer，然后以二进制进行数据传输。因此，提供io效率，可以从buffer转换入手。
+
+## 网络编程
+
+![network](https://images2015.cnblogs.com/blog/449064/201601/449064-20160113225947507-1610291086.png)
+
+## 构建web应用
+
+![web](https://images2015.cnblogs.com/blog/449064/201601/449064-20160118214020953-950486535.png)
+
+玩转进程
+
+![process](https://images2015.cnblogs.com/blog/449064/201601/449064-20160120210224625-991406811.png)
