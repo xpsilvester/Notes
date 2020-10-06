@@ -454,7 +454,7 @@ for (var i = 0; i < cpus.length; i++) {
 
 这里存在两个进程，master是主进程、worker是工作进程。
 
-![master-worker](https://upload-images.jianshu.io/upload_images/3112582-79abbc15340995a6.png?imageMogr2/auto-orient/strip|imageView2/2/w/611/format/webp)
+![master-worker](https://upload-images.jianshu.io/upload_images/3112582-79abbc15340995a6.png)
 
 ### 创建子进程
 
@@ -472,7 +472,7 @@ cp.execFile('worker.js', function (err, stdout, stderr) {
 cp.fork('./worker.js');
 ```
 
-![child_process api](https://upload-images.jianshu.io/upload_images/3112582-df96bbea6ee2b4bb.png?imageMogr2/auto-orient/strip|imageView2/2/w/1041/format/webp)
+![child_process api](https://upload-images.jianshu.io/upload_images/3112582-df96bbea6ee2b4bb.png)
 
 ### 进程间通信
 
@@ -497,9 +497,9 @@ process.send({ foo: 'bar' });
 
 IPC的全称是Inter-Process Communication，即进程间通信。进程间通信的目的是为了让不同的进程能够互相访问资源，并进程协调工作。父进程在实际创建子进程前，会创建IPC通道并监听它，然后才真正创建出子进程，并通过环境变量（NODE_CHANNEL_FD）告诉子进程这个IPC通信的文件描述符。子进程在启动的过程中，根据文件描述符去连接这个已存在的IPC通道，从而完成父子进程之间的连接。
 
-![ipc](https://upload-images.jianshu.io/upload_images/3112582-0c77f3df39874968.png?imageMogr2/auto-orient/strip|imageView2/2/w/425/format/webp)
+![ipc](https://upload-images.jianshu.io/upload_images/3112582-0c77f3df39874968.png)
 
-![ipc2](https://upload-images.jianshu.io/upload_images/3112582-d87533b1fa9635f7.png?imageMogr2/auto-orient/strip|imageView2/2/w/421/format/webp)
+![ipc2](https://upload-images.jianshu.io/upload_images/3112582-d87533b1fa9635f7.png)
 
 ### 句柄传递
 
@@ -539,7 +539,7 @@ process.on('message', function (m, server) {
 });
 ```
 
-![句柄1](https://upload-images.jianshu.io/upload_images/3112582-ec6313e34ca79485.png?imageMogr2/auto-orient/strip|imageView2/2/w/565/format/webp)
+![句柄1](https://upload-images.jianshu.io/upload_images/3112582-ec6313e34ca79485.png)
 
 这个可以在父进程和子进程之间来回处理了。现在这个是tcp层面的转化，我们之后选择用http层面来再次试试。
 
@@ -575,7 +575,7 @@ process.on('message', function (m, tcp) {
 
 这样一来，请求都是由子进程处理，看一下整个过程中，服务的过程发送了一次改变。主进程发送完句柄，并关闭监听之后，就变成了如下结构：
 
-![句柄2](https://upload-images.jianshu.io/upload_images/3112582-b1fd3aea0c24a19e.png?imageMogr2/auto-orient/strip|imageView2/2/w/487/format/webp)
+![句柄2](https://upload-images.jianshu.io/upload_images/3112582-b1fd3aea0c24a19e.png)
 
 ### 句柄发送与还原
 
@@ -585,7 +585,7 @@ process.on('message', function (m, tcp) {
 
 如果message.cmd值为NODE_HANDLE，它将取出message.type的值和得到的文件描述符一起还原出一个对应的对象。这个过程的示意图如下：
 
-![句柄发送与还原](https://upload-images.jianshu.io/upload_images/3112582-b76b1e5bf164c2f2.png?imageMogr2/auto-orient/strip|imageView2/2/w/439/format/webp)
+![句柄发送与还原](https://upload-images.jianshu.io/upload_images/3112582-b76b1e5bf164c2f2.png)
 
 ### 端口共同监听
 
@@ -612,7 +612,7 @@ setsockopt(tcp->io_watcher.fd, SOL_SOCKET, SO_REUSEADDR, &on, sizeof(on))
 
 #### 自动重启
 
-![自动重启](https://upload-images.jianshu.io/upload_images/3112582-b4a78383b68c23d8.png?imageMogr2/auto-orient/strip|imageView2/2/w/347/format/webp)
+![自动重启](https://upload-images.jianshu.io/upload_images/3112582-b4a78383b68c23d8.png)
 
 一旦有未捕获的异常出现，工作进程就会停止接收新的连接，当所以连接断开后，退出进程，主进程在监听到工作进程的exit后，将立即启动新的进程服务，以此保证整个集群中总是有进程再为用户服务。
 
@@ -632,11 +632,11 @@ node默认提供的机制是采用操作系统的`抢占式策略`，就是在�
 
 进程间的数据是不能共享的，但是，配置文件、session之类的数据应该是一致的。因此，一般采用第三方数据存储的方案进行功能扩展。也就利用db、文件、缓存来共享状态和数据。我们可以使用子进程定时轮询的方式来同步状态，这是用资源换功能的一种方式，会有大量的资源浪费、并发、数据延时等情况的出现。
 
-![状态共享1](https://upload-images.jianshu.io/upload_images/3112582-c467739824841a23.png?imageMogr2/auto-orient/strip|imageView2/2/w/333/format/webp)
+![状态共享1](https://upload-images.jianshu.io/upload_images/3112582-c467739824841a23.png)
 
 另外一种就是主动通知，也就是减少轮询，让轮询只在消息队列层面出现，其他功能都基于事件的调度和触发来实现。我们将这种用来发送通知和查询状态是否更改的进程叫做通知进程，这个进程应该设计为，只进行轮询和通知，不处理任何业务逻辑。
 
-![状态共享2](https://upload-images.jianshu.io/upload_images/3112582-a0b0c1b125742cde.png?imageMogr2/auto-orient/strip|imageView2/2/w/347/format/webp)
+![状态共享2](https://upload-images.jianshu.io/upload_images/3112582-a0b0c1b125742cde.png)
 
 ### cluster模块
 
@@ -668,7 +668,7 @@ if (cluster.isMaster) {
 
 cluster模块是child_process和net模块组合起来的一个功能封装，cluster启动时，会在内部启动TCP服务器（只能启动一个tcp服务），在cluster.fork()子进程时，将这个tcp服务器端socket的文件描述符发送给工作进程，如果进程是通过cluster.fork()复制出来的，那么他的环境变量里就存在NODE_UNIQUE_ID，如果工作进程中存在listen()监听网络端口的调用，它将拿到文件描述符，通过SO_REUSEADDR端口重用，从而实现多个子进程共享端口。对于，普通方式启动的进程，则不存在文件描述符传递共享等事情。在cluster模块中，一个主进程只能管理一组工作进程：
 
-![cluster](https://upload-images.jianshu.io/upload_images/3112582-3dbda371a44c7383.png?imageMogr2/auto-orient/strip|imageView2/2/w/379/format/webp)
+![cluster](https://upload-images.jianshu.io/upload_images/3112582-3dbda371a44c7383.png)
 
 对比与child_process，自行通过child_process来操作进程的场景下，程序可以同时控制多组工作进程，因为，我们可以创建多组tcp服务，使得子进程可以共享多个服务器端的socket。
 
@@ -748,7 +748,7 @@ suite('Array', function () {
 
 TDD对测试用例的组织主要采用suite和test完成，suite实现多层级描述，测试用例用test，它提供了setup和teardown两个钩子函数，setup和teardown分别在进入和退出suite时触发执行，我们来看一下TDD风格的组织示意图：
 
-![TDD](https://upload-images.jianshu.io/upload_images/3112582-f88cdc859334a726.png?imageMogr2/auto-orient/strip|imageView2/2/w/817/format/webp)
+![TDD](https://upload-images.jianshu.io/upload_images/3112582-f88cdc859334a726.png)
 
 BDD风格的测试：
 
@@ -767,7 +767,7 @@ describe('Array', function () {
 
 BDD测试用例的组织主要采用describe和it，describe可以描述多层级的结构，具体到测试用例时，用it来表述每个测试用例。此外，BDD风格还提供了before、after、beforeEach、afterEach这4个钩子方法，用于协助describe中测试用例的准备、安装、卸载和回收等工作。before和after分别在进入和退出describe时触发执行，beforeEach和afterEach则分别在describe中每一个测试用例(it)执行前和执行后触发执行。我们看一下BDD风格的组织示意图
 
-![BDD](https://upload-images.jianshu.io/upload_images/3112582-bcce45e0fa3f6f09.png?imageMogr2/auto-orient/strip|imageView2/2/w/819/format/webp)
+![BDD](https://upload-images.jianshu.io/upload_images/3112582-bcce45e0fa3f6f09.png)
 
 ##### 测试报告
 
@@ -989,7 +989,7 @@ Felix Geisendörfer是node早期的一个代码贡献者，它开发了几个mys
 
 一个项目的开发到正式发布会存在几种环境，首先是开发环境，然后是测试环境，也叫stage环境。接着是预发布环境，也称为pre-release环境，最后是生产环境，也叫product环境。部署流程如下：
 
-![部署环境](https://upload-images.jianshu.io/upload_images/3112582-f0f598d8fa186347.png?imageMogr2/auto-orient/strip|imageView2/2/w/541/format/webp)
+![部署环境](https://upload-images.jianshu.io/upload_images/3112582-f0f598d8fa186347.png)
 
 #### 部署操作
 
@@ -1007,7 +1007,7 @@ Felix Geisendörfer是node早期的一个代码贡献者，它开发了几个mys
 
 node可以通过中间件的方式实现动静分离，但是，还是那个原则，让擅长的工具做擅长的事情。因此，将图片、脚本、样式表和多媒体等静态文件都引导到专业的静态文件服务器上，让node只处理动态请求即可。这个过程可以使用nginx或者利用CDN来处理。
 
-![动静分离](https://upload-images.jianshu.io/upload_images/3112582-8bae1e166b4797af.png?imageMogr2/auto-orient/strip|imageView2/2/w/427/format/webp)
+![动静分离](https://upload-images.jianshu.io/upload_images/3112582-8bae1e166b4797af.png)
 
 #### 启用缓存
 
@@ -1114,16 +1114,16 @@ app.use('/status', function (req, res) {
 
 #### 多机器
 
-![多机器](https://upload-images.jianshu.io/upload_images/3112582-0f4ef6274f69f5b6.png?imageMogr2/auto-orient/strip|imageView2/2/w/561/format/webp)
+![多机器](https://upload-images.jianshu.io/upload_images/3112582-0f4ef6274f69f5b6.png)
 
 #### 多机房
 
 #### 容灾备份
 
-![容灾备份](https://upload-images.jianshu.io/upload_images/3112582-200397b411471922.png?imageMogr2/auto-orient/strip|imageView2/2/w/533/format/webp)
+![容灾备份](https://upload-images.jianshu.io/upload_images/3112582-200397b411471922.png)
 
 ### 异构共存
 
 node虽然神奇，但是，任何神奇的node功能，都是由操作系统的底层功能进行支持的。因此，node的异构共存，也是很简单和普遍的一件事。
 
-![异构共存](https://upload-images.jianshu.io/upload_images/3112582-e5cc3e5ffba6083b.png?imageMogr2/auto-orient/strip|imageView2/2/w/783/format/webp)
+![异构共存](https://upload-images.jianshu.io/upload_images/3112582-e5cc3e5ffba6083b.png)
