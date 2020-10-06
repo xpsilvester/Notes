@@ -1,4 +1,4 @@
-# NodeJS 笔记
+# NodeJS 知识总结
 
 ## [Node简介](https://www.jianshu.com/p/05a68ca78f77)
 
@@ -686,3 +686,444 @@ cluster模块是child_process和net模块组合起来的一个功能封装，clu
 | setup      | cluster.setupMaster()执行后触发该事件                        |
 
 虽然，我们学习了这些知识，但是在生产环境中，建议使用pm2这样的成熟工具来管理进程。另外，在node的进程管理之外，还需要用监听进程数量或监听日志的方式确保整个系统的稳定性，即使主进程出错退出，也能即使得到监控警报，使得开发者可以及时处理故障。
+
+## [测试](https://www.jianshu.com/p/b02fe775c08c)
+
+首先保证你自己提交的代码是可以测试的，那么这样的代码符合如下几个条件：
+
+- 单一职责
+- 接口抽象
+- 层次分离
+
+### 单元测试
+
+#### 断言
+
+node提供了assert模块，来实现断言。那么，断言就是用于检查程序在运行时是否满足期望的一种工具。我们看一下断言的示例代码：
+
+```js
+var assert = require('assert');
+assert.equal(Math.max(1, 100), 100);
+```
+
+一旦assert.equal不满足期望，将会抛出AssertionError异常，整个程序将会停止执行。
+
+断言规范提供的几种测试方法：
+
+| 方法           | 说明                                                         |
+| -------------- | ------------------------------------------------------------ |
+| ok             | 判断结果是否为真                                             |
+| equal          | 判断实际值与期望值是否相等                                   |
+| notEqual       | 判断实际值与期望值是否不相等                                 |
+| deepEqual      | 判断实际值与期望值是否深度相等，也就是对象或者数组的元素是否相等 |
+| notDeepEqual   | 判断实际值与期望值是否深度不相等                             |
+| strictEqual    | 判断实际值与期望值是否严格相等，相当于===                    |
+| notStrictEqual | 判断实际值与期望值是否严格相等，相当于!==                    |
+| throws         | 判断代码块是否抛出异常                                       |
+| doesNotThrow   | 判断代码块是否没有抛出异常                                   |
+| ifError        | 判断实际值是否为一个假值(null、undefined、0、''、false)，如果实际值为真，将会抛出异常 |
+
+#### 测试框架
+
+测试框架并不参与测试，它主要用于管理测试用例和生成测试报告，并能在一定的程度上提升测试用例的开发速度，提高测试用例的可维护性和可读性。我这里使用的测试框架是TJ写的mocha，通过npm install mocha -g进行全局安装。
+
+##### 测试风格
+
+测试风格主要分为：TDD（测试驱动开发）和BDD（行为驱动开发）
+
+TDD风格的测试：
+
+```js
+suite('Array', function () {
+    setup(function () {
+        // ...
+    });
+    suite('#indexOf()', function () {
+        test('should return -1 when not present', function () {
+            assert.equal(-1, [1, 2, 3].indexOf(4));
+        });
+    });
+});
+```
+
+TDD对测试用例的组织主要采用suite和test完成，suite实现多层级描述，测试用例用test，它提供了setup和teardown两个钩子函数，setup和teardown分别在进入和退出suite时触发执行，我们来看一下TDD风格的组织示意图：
+
+![TDD](https://upload-images.jianshu.io/upload_images/3112582-f88cdc859334a726.png?imageMogr2/auto-orient/strip|imageView2/2/w/817/format/webp)
+
+BDD风格的测试：
+
+```js
+describe('Array', function () {
+    before(function () {
+        // ...
+    });
+    describe('#indexOf()', function () {
+        it('should return -1 when not present', function () {
+            [1, 2, 3].indexOf(4).should.equal(-1);
+        });
+    });
+});
+```
+
+BDD测试用例的组织主要采用describe和it，describe可以描述多层级的结构，具体到测试用例时，用it来表述每个测试用例。此外，BDD风格还提供了before、after、beforeEach、afterEach这4个钩子方法，用于协助describe中测试用例的准备、安装、卸载和回收等工作。before和after分别在进入和退出describe时触发执行，beforeEach和afterEach则分别在describe中每一个测试用例(it)执行前和执行后触发执行。我们看一下BDD风格的组织示意图
+
+![BDD](https://upload-images.jianshu.io/upload_images/3112582-bcce45e0fa3f6f09.png?imageMogr2/auto-orient/strip|imageView2/2/w/819/format/webp)
+
+##### 测试报告
+
+mocha的设计可以使用原生的assert来作为具体的断言实现，也可以采用扩展库，如should.js、expect、chai等，但是，无论采用哪种断言形式，运行测试用例户，测试报告才是开发者和质量管理者最关注的东西。mocha就可以产生测试报告，使用命令：mocha --reporters即可查看
+
+##### 测试用例
+
+一个完善的功能，需要有完善的、多方面的测试用例，一个测试用例中，至少包含一个断言。我们看一下代码：
+
+```js
+describe('#indexOf()', function () {
+    it('should return -1 when not present', function () {
+        [1, 2, 3].indexOf(4).should.equal(-1);
+    });
+    it('should return index when present', function () {
+        [1, 2, 3].indexOf(1).should.equal(0);
+        [1, 2, 3].indexOf(2).should.equal(1);
+        [1, 2, 3].indexOf(3).should.equal(2);
+    });
+});
+```
+
+##### 异步测试
+
+通过mocha来解决异步测试的问题，我们看代码：
+
+```js
+it('fs.readFile should be ok', function (done) {
+    fs.readFile('file_path', 'utf-8', function (err, data) {
+        should.not.exist(err);
+        done();
+    });
+});
+```
+
+##### 超时设置
+
+mocha默认超时时间为2000毫秒，我们可以通过mocha -t <ms>来设置所有用例的超时时间，若需要更细粒度的设置超时时间，可以在测试用例it中调用this.timeout(ms)实现对单个用例的特殊设置。
+
+```js
+describe('a suite of tests', function () {
+    this.timeout(500);
+    it('should take less than 500ms', function (done) {
+        setTimeout(done, 300);
+    });
+    it('should take less than 500ms as well', function (done) {
+        setTimeout(done, 200);
+    });
+});
+```
+
+#### 测试覆盖率
+
+通过不停的给代码添加测试用例，将会不断的覆盖代码的分支和不同的情况，我们使用测试覆盖率来描述这一指标，测试覆盖率即是整体覆盖率也可以明确到具体行上。我们看一下这段代码：
+
+```js
+exports.parseAsync = function (input, callback) {
+    setTimeout(function () {
+        var result;
+        try {
+            result = JSON.parse(input);
+        } catch (e) {
+            return callback(e);
+        }
+        callback(null, result);
+    }, 10);
+};
+```
+
+我们为其添加测试部分
+
+```js
+describe('parseAsync', function () {
+    it('parseAsync should ok', function (done) {
+        lib.parseAsync('{"name": "JacksonTian"}', function (err, data) {
+            should.not.exist(err);
+            data.name.should.be.equal('JacksonTian');
+            done();
+        });
+    });
+});
+```
+
+#### mock
+
+因为，各种异常都用可能发生，不一定是我们在测试中可以想到的，比如数据库连接失败，就有可能是网络异常造成的，甚至也可能是由于管理员更改了密码造成的，由于模拟异常并不是很容易，因此，科学家们给了异常一个特殊的名词:mock，我们通过伪造被调用放来测试上层代码的健壮性等。
+
+```js
+exports.getContent = function (filename) {
+    try {
+        return fs.readFileSync(filename, 'utf-8');
+    } catch (e) {
+        return '';
+    }
+};
+```
+
+为了解决这个问题，我们通过伪造fs.readFileSync()方法抛出错误来触发异常，同时为了保证该测试用例不影响其余用例，我们需要在执行完后还原它，为此，前面提到的before和after就要用上了：
+
+```js
+describe("getContent", function () {
+    var _readFileSync;
+    before(function () {
+        _readFileSync = fs.readFileSync;
+        fs.readFileSync = function (filename, encoding) {
+            throw new Error("mock readFileSync error"));
+    };
+});
+// it();
+after(function () {
+    fs.readFileSync = _readFileSync;
+     })
+});
+```
+
+#### 私有方法的测试
+
+在模块中的没有用exports引用的都是私有方法，这部分的测试也很重要。我们可以使用rewire来进行私有模块的测试，也就是使用rewire引用模块
+
+```js
+var limit = function (num) {
+    return num < 0 ? 0 : num;
+};
+
+//测试用例
+it('limit should return success', function () {
+    var lib = rewire('../lib/index.js');
+    var litmit = lib.__get__('limit');
+    litmit(10).should.be.equal(10);
+});
+```
+
+rewire的模块引入和require一样，都会为原始文件增加参数：
+
+```js
+(function(exports, require, module, __filename, __dirname) {֖ })
+```
+
+此外，他还会注入其他的代码：
+
+```js
+(function (exports, require, module, __filename, __dirname) {
+    var method = function () { };
+    exports.__set__ = function (name, value) {
+        eval(name " = " value.toString());
+    };
+    exports.__get__ = function (name) {
+        return eval(name);
+    };
+});
+```
+
+每一个被rewire引入的模块，都会有**set**()和**get**()方法，这个就是巧妙的利用了闭包的原理，在eval()执行时，实现了对模块内部局部变量的访问，从而可以将局部变量导出给测试用例进行调用执行。
+
+#### 测试工程化与测试自动化
+
+我们通过持续集成减少手工成本。
+
+##### 工程化
+
+在linux下，推荐使用makefile来构建项目
+
+```shell
+TESTS = test /*.js
+REPORTER = spec
+TIMEOUT = 10000
+MOCHA_OPTS =
+    test:
+@NODE_ENV=test./ node_modules / mocha / bin / mocha \
+--reporter $(REPORTER) \
+--timeout $(TIMEOUT) \
+$(MOCHA_OPTS) \
+$(TESTS)
+test - cov:
+@$(MAKE) test MOCHA_OPTS = '--require blanket' REPORTER = html - cov > coverage.html
+test - all: test test - cov
+    .PHONY: test
+```
+
+开发者只需要通过make test和make test-cov就可以执行复杂的单元测试和覆盖率。（makefile的缩进是tab符合，不能用空格，记得在包描述文件中，配置blanket）
+
+##### 持续集成
+
+社区中比较流行的方式——利用`travis-ci`实现持续集成。
+
+### 性能测试
+
+性能测试包括负载测试、压力测试、基准测试、web应用网络层面的性能测试、业务指标换算。
+
+#### 基准测试
+
+基准测试要统计的就是在多少时间内执行了多少次某个方法，一般会以次数作为参照物，然后比较时间，以此判别性能的差距。
+
+#### 压力测试
+
+对网络接口做压力测试需要考察的几个指标有吞吐率、响应时间、并发数，这些指标反映了服务器的并发处理能力。可以使用ab、siege、http_load等来进行压力测试。
+
+#### 基准测试驱动开发
+
+Felix Geisendörfer是node早期的一个代码贡献者，它开发了几个mysql驱动，都是以追求性能著称，它在faster than c的幻灯片中提到了一种他所使用的开发模式，Benchmark Driven Development，也就是BDD，中文翻译是基准测试开发。
+
+#### 测试数据与业务数据的转换
+
+通常，在进行实际的功能开发之前，我们需要评估业务量，以便功能开发完成后，能够胜任实际的在线业务量，如果用户量只有几个，每天的pv只有几十个，那么网站开发几乎不需要什么优化就能胜任，如果pv上10万，甚至百万、千万，就需要运用性能测试来验证是否能满足实际业务需求了，如果不能满足，就要运用各种优化手段提升服务能力。
+
+## 产品化
+
+尽早接触node有很多好处，首先，由于node相对于很多web技术还比较年轻，这可以让开发者接触到较多的底层细节，例如http协议、进程模型、服务模型等，这些底层原理与其他现有技术并无实质性的差别。由于，node的生态尚不成熟，因此，在开发实际的产品中，还是需要很多非编码相关的工作以保证项目的进展和产品的正常运行等，这些工作包括工程化、架构、容灾备份、部署、运维等。
+
+### 项目工程化
+
+所谓项目工程化，就是项目的组织能力，具体包括目录结构、构建工具、编码规范和代码审查等。
+
+### 部署流程
+
+代码完成开发、审查、合并之后，才会进入部署流程。
+
+#### 部署环境
+
+一个项目的开发到正式发布会存在几种环境，首先是开发环境，然后是测试环境，也叫stage环境。接着是预发布环境，也称为pre-release环境，最后是生产环境，也叫product环境。部署流程如下：
+
+![部署环境](https://upload-images.jianshu.io/upload_images/3112582-f0f598d8fa186347.png?imageMogr2/auto-orient/strip|imageView2/2/w/541/format/webp)
+
+#### 部署操作
+
+部署，其实就是要启动一个长时间执行的服务进程，因此，需要使用nohup和&命令，以不挂断进程的方式执行：nohup node app.js &。同时还要考虑项目停止和项目重启。因此需要写一个bash脚本来简化操作。bash脚本的内容通过与web应用约定好的方式来实现，这里所说的约定，其实就是要解决进程ID不容易查找的问题。
+
+### 性能
+
+提升web应用性能的方法有好多，例如动静分离、多进程架构、分布式，但是这些都是需要进行拆分的，因此，先说一下拆分原则：
+1.做专一的事
+2.让擅长的工具做擅长的事情
+3.将模型简化
+4.将风险分离
+
+#### 动静分离
+
+node可以通过中间件的方式实现动静分离，但是，还是那个原则，让擅长的工具做擅长的事情。因此，将图片、脚本、样式表和多媒体等静态文件都引导到专业的静态文件服务器上，让node只处理动态请求即可。这个过程可以使用nginx或者利用CDN来处理。
+
+![动静分离](https://upload-images.jianshu.io/upload_images/3112582-8bae1e166b4797af.png?imageMogr2/auto-orient/strip|imageView2/2/w/427/format/webp)
+
+#### 启用缓存
+
+提升性能差不多只有两个途径，一是提升服务的速度，二是避免不必要的计算。避免不必要的计算使用最多的场景就是缓存的使用。现在的通常做法是使用redis作为缓存。将从数据库中查询出来的静态内容或者不变的内容，通过redis进行存储，等到下一次同样的请求到来时，就会优先检查缓存是否存在数据，如果存在就命中缓存中的数据，如果没有就去db中再次请求，然后返回并同步缓存。
+
+#### 多进程架构
+
+使用多进程架构可以充分利用cpu，同时，因为node不需要额外的容器就可以使用http服务（基于http模块），因此，需要开发者自己处理多进程的管理，另外，也可以使用官方提供的cluster模块，或者pm、forever、pm2这样的模块来进行进程的管理。
+
+#### 读写分离
+
+读写分离主要是对于数据库的操作时读写分离的，读的速度要远远快于写的速度。（因为写需要锁表，来保护数据一致性），读写分离需要将数据库进行主从设计，但是，因为我公司没有专门的运维人员，因此，我们当时使用的阿里的rds进行读写分离的实现的。
+
+### 日志
+
+为了建立健全的排查和跟踪机制，需要为系统增加日志，完善的日志最能还原问题现场，好似侦探断案的第一手线索。
+
+#### 访问日志
+
+访问日志一般用来记录每个客户端对应用的访问。
+
+#### 异常日志
+
+用来记录意外产生的异常错误。
+
+#### 日志与数据库
+
+日志在线写，日志分析通过一些文件同步到数据库中。
+
+#### 分割日志
+
+可以按照日期分割，也可以按照日志类型分割（_stdout和_stderr）。
+
+### 监控报警
+
+对于新上线的应用，需要两个方面的监控，业务逻辑的监控和硬件型的监控。我们来看看具体怎么做。
+
+#### 监控
+
+###### 1. 日志监控
+
+例如查看具体的业务实现，通过日志时间分析，来反映某项业务的qps，同时，在日志上也可以查询到pv（每日ip访问或者刷新次数）和uv（每日某个客户端访问的次数，不重复计算），可以通过pv和uv很好地知道使用者的习惯、预知访问高峰等。
+
+###### 2.响应时间
+
+健康的系统响应时间波动较小，持续均衡。
+
+###### 3.进程监控
+
+检查操作系统中运行的应用（工作）进程数，如果低于某个预估值，就应当发出报警。
+
+###### 4.磁盘监控
+
+监控磁盘用量，防止因为磁盘空间不足造成的系统问题，一旦磁盘用量超过警戒值，服务器的管理者就应该清理日志或者清理磁盘了。
+
+###### 5.内存监控
+
+检查是否有内存泄漏的情况。如果内存只升不降，那么铁定就是内存泄漏了。健康的内存应该是有升有降的。
+
+如果进程中存在内存泄漏，又一时没有排查解决，有一种方案可以解决这种情况，这种方案应用于多进程架构的服务集群，让每个工作进程指定服务多少次请求，达到请求数之后进程就不再服务新的链家，主进程启动新的工作进程来服务客户，旧的进程等所有连接断开后就退出。
+
+###### 6.cpu占用监控
+
+cpu使用分为用户态、内核态、IOWait等，如果用户态cpu使用率较高，说明服务器上的应用需要大量的cpu开销，如果内核态cpu使用率较高，说明服务器花费大量时间进行进程调度或者系统调用，IOWait使用率则反应的是cpu等待磁盘IO操作。
+
+用户态小于70%、内核态小于35%且整体小于70%，cpu处于健康状态。
+
+###### 7.cpu load监控
+
+cpu load又称为cpu平均负载，描述操作系统当前的繁忙程度，可以简单的理解为cpu在单位时间内正在使用和等待使用cpu的平均任务数。它有三个指标，即1分钟的平均负载、5分钟的平均负载、15分钟的平均负载。cpu load 高说明进程数量过多，这在node中可能体现在用子进程模块反复启动新的进程。
+
+###### 8.IO负载
+
+IO负载，主要讲的是磁盘IO，对于node来说，此类IO压力多半来源于数据库IO。
+
+###### 9.网络监控
+
+主要监控网络流量，这个值可以查看公司的相关宣传是否有效，广告是否有效，是否增加了访问流量。（监控流入流量和流出流量）
+
+###### 10.应用状态监控
+
+这个监控可以通过增加时间戳来实现：
+
+```js
+app.use('/status', function (req, res) {
+    res.writeHead(200);
+    res.end(new Date());
+})
+```
+
+同时，对于业务相关的内容也需要尽可能的打印出来。
+
+###### 11.DNS监控
+
+可以基于第三方的软件进行检测，如DNSPod等，我们用的阿里云的DNS。
+
+#### 报警的实现
+
+有了监控，那么就一定应该提供报警系统。一般情况下，报警系统有：邮件报警、IM报警、短信报警、电话报警。
+
+### node服务稳定性
+
+单独一台服务器满足不了业务无限增长的需求，这就需要将node按多进程的方式部署到多台机器中，这样如果某台机器出现问题，其余机器为用户继续提供服务。另外，大企业也会进行异地机房灾备和搭建就近的服务器。这就抵消了一部分因为地理位置带来的网络延迟的问题。为了更好的稳定性，典型的水平扩展方式就是多进程、多机器、多机房，这样的分布式设计在现在的互联网公司并不少见。
+
+#### 多机器
+
+![多机器](https://upload-images.jianshu.io/upload_images/3112582-0f4ef6274f69f5b6.png?imageMogr2/auto-orient/strip|imageView2/2/w/561/format/webp)
+
+#### 多机房
+
+#### 容灾备份
+
+![容灾备份](https://upload-images.jianshu.io/upload_images/3112582-200397b411471922.png?imageMogr2/auto-orient/strip|imageView2/2/w/533/format/webp)
+
+### 异构共存
+
+node虽然神奇，但是，任何神奇的node功能，都是由操作系统的底层功能进行支持的。因此，node的异构共存，也是很简单和普遍的一件事。
+
+![异构共存](https://upload-images.jianshu.io/upload_images/3112582-e5cc3e5ffba6083b.png?imageMogr2/auto-orient/strip|imageView2/2/w/783/format/webp)
