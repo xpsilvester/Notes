@@ -424,6 +424,265 @@ node在网络安全方面提供了crypto、tls、https三个模块，crypto用�
 
 
 
-## 玩转进程
+## [玩转进程](https://www.jianshu.com/p/335a9e101c3f)
 
 ![process](https://images2015.cnblogs.com/blog/449064/201601/449064-20160120210224625-991406811.png)
+
+### 多进程架构
+
+面对单进程单线对多核使用不足的问题，前人的经验是启动多个进程，理想状态下，每个进程各自利用一个cpu，以此实现多核cpu的利用。node提供了child_process模块，并提供了child_process.fork()函数来实现进程的复制。我们来看一下代码：
+
+```js
+//worker.js
+var http = require('http');
+http.createServer(function (req, res) {
+   res.writeHead(200, {'Content-Type': 'text/plain'});
+   res.end('Hello World\n');
+}).listen(Math.round((1 + Math.random()) * 1000), '127.0.0.1');
+```
+
+这段代码，是node启动web服务的经典代码，然后我们根据master-workers的架构，来添加master.js模块。
+
+```js
+//master.js
+var fork = require('child_process').fork;
+var cpus = require('os').cpus();
+for (var i = 0; i < cpus.length; i++) {
+	fork('./worker.js');
+}
+```
+
+这里存在两个进程，master是主进程、worker是工作进程。
+
+![master-worker](https://upload-images.jianshu.io/upload_images/3112582-79abbc15340995a6.png?imageMogr2/auto-orient/strip|imageView2/2/w/611/format/webp)
+
+### 创建子进程
+
+child_process模块给予了node随意创建子进程（child_process）的能力，它提供了4个方法用于创建子进程。
+
+```js
+var cp = require('child_process');
+cp.spawn('node', ['worker.js']);
+cp.exec('node worker.js', function (err, stdout, stderr) {
+// some code
+});
+cp.execFile('worker.js', function (err, stdout, stderr) {
+// some code
+});
+cp.fork('./worker.js');
+```
+
+![child_process api](https://upload-images.jianshu.io/upload_images/3112582-df96bbea6ee2b4bb.png?imageMogr2/auto-orient/strip|imageView2/2/w/1041/format/webp)
+
+### 进程间通信
+
+通过fork()或其他api创建子进程后，为了实现父子进程之间的通信，父进程与子进程之间将会创建IPC通道，通过IPC通道，父子进程之间才能通过message和send()传递消息。
+
+```js
+// parent.js
+var cp = require('child_process');
+var n = cp.fork(__dirname + '/sub.js');
+n.on('message', function (m) {
+    console.log('PARENT got message:', m);
+});
+n.send({ hello: 'world' });
+// sub.js
+process.on('message', function (m) {
+    console.log('CHILD got message:', m);
+});
+process.send({ foo: 'bar' });
+```
+
+### 进程间通信原理
+
+IPC的全称是Inter-Process Communication，即进程间通信。进程间通信的目的是为了让不同的进程能够互相访问资源，并进程协调工作。父进程在实际创建子进程前，会创建IPC通道并监听它，然后才真正创建出子进程，并通过环境变量（NODE_CHANNEL_FD）告诉子进程这个IPC通信的文件描述符。子进程在启动的过程中，根据文件描述符去连接这个已存在的IPC通道，从而完成父子进程之间的连接。
+
+![ipc](https://upload-images.jianshu.io/upload_images/3112582-0c77f3df39874968.png?imageMogr2/auto-orient/strip|imageView2/2/w/425/format/webp)
+
+![ipc2](https://upload-images.jianshu.io/upload_images/3112582-d87533b1fa9635f7.png?imageMogr2/auto-orient/strip|imageView2/2/w/421/format/webp)
+
+### 句柄传递
+
+node0.5.9之后引入了进程间发送句柄的功能，send()方法除了能够通过IPC发送数据外还能发送句柄，第二个可选参数就是句柄:
+
+```js
+child.send(message, [sendHandle])
+```
+
+句柄是一种可以用来标识资源的引用，它的内部包含了指向对象的文件描述符。因此，句柄可以用来标识一个服务端的socket对象、一个客户端的socket对象、一个udp套接字、一个管道等
+
+这个句柄就解决了一个问题，我们可以去掉代理方案，在主进程接收到socket请求后，将这个socket直接发送给工作进程，而不重新与工作进程之间建立新的socket连接转发数据。我们来看一下代码实现：
+
+```js
+// parent.js
+var cp = require('child_process');
+var child1 = cp.fork('child.js');
+var child2 = cp.fork('child.js');
+// Open up the server object and send the handle
+var server = require('net').createServer();
+server.on('connection', function (socket) {
+    socket.end('handled by parent\n');
+});
+server.listen(1337, function () {
+    child1.send('server', server);
+    child2.send('server', server);
+});
+//然后打印出来
+
+// child.js
+process.on('message', function (m, server) {
+    if (m === 'server') {
+        server.on('connection', function (socket) {
+            socket.end('handled by child, pid is ' + process.pid + '\n');
+        });
+    }
+});
+```
+
+![句柄1](https://upload-images.jianshu.io/upload_images/3112582-ec6313e34ca79485.png?imageMogr2/auto-orient/strip|imageView2/2/w/565/format/webp)
+
+这个可以在父进程和子进程之间来回处理了。现在这个是tcp层面的转化，我们之后选择用http层面来再次试试。
+
+```js
+// parent.js
+var cp = require('child_process');
+var child1 = cp.fork('child.js');
+var child2 = cp.fork('child.js');
+// Open up the server object and send the handle
+var server = require('net').createServer();
+server.listen(1337, function () {
+    child1.send('server', server);
+    child2.send('server', server);
+    // 关掉
+    server.close();
+});
+
+//修改一下子进程
+// child.js
+var http = require('http');
+var server = http.createServer(function (req, res) {
+    res.writeHead(200, { 'Content-Type': 'text/plain' });
+    res.end('handled by child, pid is ' + process.pid + '\n');
+});
+process.on('message', function (m, tcp) {
+    if (m === 'server') {
+        tcp.on('connection', function (socket) {
+            server.emit('connection', socket);
+        });
+    }
+});
+```
+
+这样一来，请求都是由子进程处理，看一下整个过程中，服务的过程发送了一次改变。主进程发送完句柄，并关闭监听之后，就变成了如下结构：
+
+![句柄2](https://upload-images.jianshu.io/upload_images/3112582-b1fd3aea0c24a19e.png?imageMogr2/auto-orient/strip|imageView2/2/w/487/format/webp)
+
+### 句柄发送与还原
+
+发送到IPC管道中的实际上是我们要发送的句柄文件描述符，文件描述符实际上是一个整数值，这个message对象在写入到IPC通道时，也会通过JSON.stringify()进行序列化，所以最终发送到IPC通道中的信息都是字符串，send()方法能发送消息和句柄并不意味着它能发送任意对象。
+
+连接了IPC通道的子进程可以读取到父进程发来的消息，将字符串通过JSON.parse()解析还原为对象后，才出发message事件将消息体传递给应用层使用，在这个过程中，消息对象还要被进行过滤处理，message.cmd的值如果以NODE_为前缀，它将响应一个内部事件internalMessage
+
+如果message.cmd值为NODE_HANDLE，它将取出message.type的值和得到的文件描述符一起还原出一个对应的对象。这个过程的示意图如下：
+
+![句柄发送与还原](https://upload-images.jianshu.io/upload_images/3112582-b76b1e5bf164c2f2.png?imageMogr2/auto-orient/strip|imageView2/2/w/439/format/webp)
+
+### 端口共同监听
+
+在node句柄发送的过程中，多个进程可以监听到相同的端口，而不引起EADDRINUSE异常，这是因为，我们独立启动的进程中，tcp服务端套接字socket的文件描述符并不相同，导致监听相同的端口时会抛出异常，但是node底层对每个端口监听都设置了SO_REUSEADDR选项，这个选项的涵义是不同进程可以就相同的网卡和端口进行监听，这个服务器端套接字可以被不同的进程复用：
+
+```js
+setsockopt(tcp->io_watcher.fd, SOL_SOCKET, SO_REUSEADDR, &on, sizeof(on))
+```
+
+由于独立启动的进程互相之间并不知道文件描述符，所以监听相同端口就会失败，但对于send()发送的句柄还原出来的服务而言，他们的文件描述符是相同的，所以监听相同端口不会引起异常。
+
+多个应用监听相同端口时，文件描述符同一时间只能被某个进程所用，换言之就是网络请求向服务器端发送时，只有一个幸运的进程能够抢到连接，也就是说只有他能为这个请求进行服务。这些进程也都是抢占式的。
+
+### 集群稳定之路
+
+#### 进程事件
+
+| 事件名     | 说明                                                         |
+| ---------- | ------------------------------------------------------------ |
+| error      | 当子进程无法被复制创建、无法被杀死、无法发送消息时会触发该事件 |
+| exit       | 子进程退出时触发该事件，子进程如果是正常退出，这个事件的第一个参数为退出码，否则为null，如果进程是通过kill()方法被杀死的，会得到第二个参数，它表示杀死进程时的信号 |
+| close      | 在子进程的标准输入输出流中止时触发该事件，参数与exit相同     |
+| disconnect | 在父进程或子进程中调用disconnect()方法时触发该事件，在调用该方法时将关闭监听IPC通道 |
+
+#### 自动重启
+
+![自动重启](https://upload-images.jianshu.io/upload_images/3112582-b4a78383b68c23d8.png?imageMogr2/auto-orient/strip|imageView2/2/w/347/format/webp)
+
+一旦有未捕获的异常出现，工作进程就会停止接收新的连接，当所以连接断开后，退出进程，主进程在监听到工作进程的exit后，将立即启动新的进程服务，以此保证整个集群中总是有进程再为用户服务。
+
+#### 自杀信号（suicide）
+
+工作进程在得知要退出时，向主进程发送一个自杀信号，然后才停止接收新的连接，当所有连接断开后再退出。主进程在接收到自杀信号后，立即创建新的工作进程服务
+
+#### 限量重启
+
+在极端情况下，进程有可能会频繁重启，极有可能是编写的代码有问题。为了消除这种无意义的重启，在满足一定规则的限制下，不应当反复重启。比如在单位时间内规定只能重启多少次，超过限制就触发giveup事件，告知放弃重启工作进程这个重要事件。
+
+### 负载均衡
+
+node默认提供的机制是采用操作系统的`抢占式策略`，就是在一堆工作进程中，闲着的进程对到来的请求进行抢占，谁抢到，谁服务。但是，node的抢占策略是根据cpu的繁忙程度而定的，因此会出现IO繁忙，但是cpu空闲的情况。因此，node v0.11提供了一种新的策略，`Round-Robin（轮叫调度）`。轮叫调度由主进程接受连接，将其依次分发给工作进程，分发的策略是在N个工作进程中，每次选择第i=(i+1)modn个进程来发送连接。
+
+### 状态共享
+
+进程间的数据是不能共享的，但是，配置文件、session之类的数据应该是一致的。因此，一般采用第三方数据存储的方案进行功能扩展。也就利用db、文件、缓存来共享状态和数据。我们可以使用子进程定时轮询的方式来同步状态，这是用资源换功能的一种方式，会有大量的资源浪费、并发、数据延时等情况的出现。
+
+![状态共享1](https://upload-images.jianshu.io/upload_images/3112582-c467739824841a23.png?imageMogr2/auto-orient/strip|imageView2/2/w/333/format/webp)
+
+另外一种就是主动通知，也就是减少轮询，让轮询只在消息队列层面出现，其他功能都基于事件的调度和触发来实现。我们将这种用来发送通知和查询状态是否更改的进程叫做通知进程，这个进程应该设计为，只进行轮询和通知，不处理任何业务逻辑。
+
+![状态共享2](https://upload-images.jianshu.io/upload_images/3112582-a0b0c1b125742cde.png?imageMogr2/auto-orient/strip|imageView2/2/w/347/format/webp)
+
+### cluster模块
+
+node0.8后，在内核中增加了cluster模块，这是因为child_process要做单机集群需要处理的事情太多了，因此，才会给cluster这个核心模块。cluster可以更方便的解决多cpu的利用问题，同时也提供了较完善的api，用以处理进程的健壮性问题
+
+```js
+var cluster = require('cluster');
+var http = require('http');
+var numCPUs = require('os').cpus().length;
+if (cluster.isMaster) {
+    // Fork workers
+    for (var i = 0; i < numCPUs; i++) {
+        cluster.fork();
+    }
+    cluster.on('exit', function (worker, code, signal) {
+        console.log('worker ' + worker.process.pid + ' died');
+    });
+} else {
+    // Workers can share any TCP connection
+    // In this case its a HTTP server
+    http.createServer(function (req, res) {
+        res.writeHead(200);
+        res.end("hello world\n");
+    }).listen(8000);
+}
+```
+
+### Cluster工作原理
+
+cluster模块是child_process和net模块组合起来的一个功能封装，cluster启动时，会在内部启动TCP服务器（只能启动一个tcp服务），在cluster.fork()子进程时，将这个tcp服务器端socket的文件描述符发送给工作进程，如果进程是通过cluster.fork()复制出来的，那么他的环境变量里就存在NODE_UNIQUE_ID，如果工作进程中存在listen()监听网络端口的调用，它将拿到文件描述符，通过SO_REUSEADDR端口重用，从而实现多个子进程共享端口。对于，普通方式启动的进程，则不存在文件描述符传递共享等事情。在cluster模块中，一个主进程只能管理一组工作进程：
+
+![cluster](https://upload-images.jianshu.io/upload_images/3112582-3dbda371a44c7383.png?imageMogr2/auto-orient/strip|imageView2/2/w/379/format/webp)
+
+对比与child_process，自行通过child_process来操作进程的场景下，程序可以同时控制多组工作进程，因为，我们可以创建多组tcp服务，使得子进程可以共享多个服务器端的socket。
+
+### Cluster事件
+
+也可以看出是child_process模块的事件封装
+
+| 事件       | 说明                                                         |
+| ---------- | ------------------------------------------------------------ |
+| fork       | 复制一个工作进程后，触发该事件                               |
+| online     | 复制好一个工作进程后，工作进程主动发送一条online消息给主进程，主进程收到消息后，触发该事件 |
+| listening  | 工作进程中调用listen()后，也就是共享了服务端的socket后，发送一条listening消息给主进程，主进程收到消息后，触发该事件 |
+| disconnect | 主进程和工作进程退出时触发该事件                             |
+| exit       | 有工作进程退出时触发该事件                                   |
+| setup      | cluster.setupMaster()执行后触发该事件                        |
+
+虽然，我们学习了这些知识，但是在生产环境中，建议使用pm2这样的成熟工具来管理进程。另外，在node的进程管理之外，还需要用监听进程数量或监听日志的方式确保整个系统的稳定性，即使主进程出错退出，也能即使得到监控警报，使得开发者可以及时处理故障。
