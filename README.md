@@ -106,7 +106,6 @@
 - [Node.js 如何处理 ES6 模块](http://www.ruanyifeng.com/blog/2020/08/how-nodejs-use-es6-module.html)
 - [Node.js日志神器（winston）](https://juejin.im/post/6865926810061045774)
 - [Node.js VS 浏览器以及事件循环机制](https://juejin.im/post/6871832597891121166)
-- [Node.js 如何处理 ES6 模块](http://www.ruanyifeng.com/blog/2020/08/how-nodejs-use-es6-module.html)
 
 ## [Webpack相关知识](https://github.com/xpsilvester/Notes/tree/master/Webpack)
 
