@@ -141,6 +141,7 @@
 - [React + TypeScript + Antd + Koa 实现Excel导入导出功能](https://github.com/xpsilvester/Notes/blob/master/Project/React-TypeScript-Antd-Koa.md)
 - [可能是你见过最完善的微前端解决方案](https://zhuanlan.zhihu.com/p/78362028)
 - [Docker+Nginx+Jenkins实现前端自动化部署](https://juejin.im/post/6869736425953165319)
+- [前端工程化中的自动化部署](https://segmentfault.com/a/1190000027076490)
 - [PSD工具](https://juejin.im/post/6844903870880038926)
 - [前端开发常用免费资源，显著提升工作效率](https://juejin.im/post/6875943665597546510)
 
