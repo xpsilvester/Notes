@@ -145,6 +145,7 @@
 - [前端工程化中的自动化部署](https://segmentfault.com/a/1190000027076490)
 - [PSD工具](https://juejin.im/post/6844903870880038926)
 - [前端开发常用免费资源，显著提升工作效率](https://juejin.im/post/6875943665597546510)
+- [前端接入单点登录（sso）开发流程](https://juejin.im/post/6881945458471550983)
 
 ## [Linux相关知识](https://github.com/xpsilvester/Notes/tree/master/Linux)
 
