@@ -65,6 +65,8 @@
 - [使用Vue3.0，我收获了哪些知识点（一）](https://juejin.im/post/6869521076771094536)
 - [Vue3.0 不畏惧祖传代码的 Composition API](https://juejin.im/post/6874748339246776327)
 - [面向未来的前端构建工具-vite](https://juejin.im/post/6869915676501835783)
+- [Vue3实战系列：结合 Ant-Design-of-Vue 实践 Composition API](https://juejin.im/post/6882393804310052871)
+- [组合式 API 征求意见稿](https://composition-api.vuejs.org/zh/#%E5%9F%BA%E6%9C%AC%E8%8C%83%E4%BE%8B)
 - [React受控组件与非受控组件](https://github.com/xpsilvester/Notes/blob/master/Vue_React/controllComponent.md)
 - [写React Hooks前必读](https://mp.weixin.qq.com/s/bUcsqBYdK0DHhvbJ_yTyqQ)
 - [React Hooks 知识点总结](https://github.com/xpsilvester/Notes/blob/master/Vue_React/react_hooks.md)
