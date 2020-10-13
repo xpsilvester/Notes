@@ -61,6 +61,7 @@
 - [Vue源码解析，keep-alive是如何实现缓存的？](https://juejin.im/post/6862206197877964807)
 - [Vue模板编译原理](https://juejin.im/post/6863241580753616903)
 - [【Vue进阶】——如何实现组件属性透传？](https://juejin.im/post/6865451649817640968)
+- [浅析 vue-router 源码和动态路由权限分配](https://juejin.im/post/6882539694170013710)
 - [详解 Vue SSR 服务器端渲染](https://segmentfault.com/a/1190000015964813)
 - [使用Vue3.0，我收获了哪些知识点（一）](https://juejin.im/post/6869521076771094536)
 - [Vue3.0 不畏惧祖传代码的 Composition API](https://juejin.im/post/6874748339246776327)
