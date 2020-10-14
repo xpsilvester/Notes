@@ -92,6 +92,7 @@
 - [Npm相关的基础知识](https://juejin.im/post/5ef7e0066fb9a07e976bc89e)
 - [node.js题目](https://juejin.im/post/5d2fc598e51d4577596487a3)
 - [nodejs基本原理总结](https://cloud.tencent.com/developer/article/1483753)
+- [Node.js 10.x 文件模块](https://segmentfault.com/a/1190000024536624)
 - [nodejs 全局变量和全局对象](https://www.cnblogs.com/gpzhen/p/7216004.html)
 - [Node.js 全栈秒杀系统](https://zhuanlan.zhihu.com/p/114363815)
 - [Koa 框架教程](http://www.ruanyifeng.com/blog/2017/08/koa.html)
