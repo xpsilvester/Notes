@@ -423,3 +423,29 @@ this.setState(prevState => ({
 )}/>
 ```
 
+## 33.`history`模式中`push`和`replace`的区别
+
+- `push`方法会向 history 栈添加一个新的记录，当用户点击浏览器后退按钮时，则回到之前的 URL。
+- `replace`导航后不会留下 history 记录。即使点击返回按钮也不会回到这个页面。
+
+## 34.用户登录后如何实现自动化重定向？
+
+- `react-router`模块中提供了`<Redirect>`可以实现重定向
+
+```jsx
+import React, { Component } from 'react'
+import { Redirect } from 'react-router'
+
+export default class LoginComponent extends Component {
+  render() {
+    if (this.state.isLoggedIn === true) {
+      return <Redirect to="/your/redirect/page" />
+    } else {
+      return <div>{'Login Please'}</div>
+    }
+  }
+}
+```
+
+
+
