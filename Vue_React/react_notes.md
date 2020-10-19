@@ -373,3 +373,53 @@ const setTitle = (title) => (WrappedComponent) => {
 ```jsx
 componentDidUpdate(object prevProps, object prevState)
 ```
+
+## 30.如何更新state中对象的值？
+
+- `Object.assign()`
+
+```js
+const user = Object.assign({}, this.state.user, { age: 42 })
+this.setState({ user })
+```
+
+- `拓展运算符`
+
+```js
+const user = { ...this.state.user, age: 42 }
+this.setState({ user })
+```
+
+- 在setState方法里更新
+
+```js
+this.setState(prevState => ({
+  user: {
+    ...prevState.user,
+    age: 42
+  }
+}))
+```
+
+## 31.如何在行内`style`中添加浏览器前缀？
+
+- React不会自动添加浏览器前缀，需要手动添加
+
+```jsx
+<div style={{
+  transform: 'rotate(90deg)',
+  WebkitTransform: 'rotate(90deg)', // note the capital 'W' here
+  msTransform: 'rotate(90deg)' // 'ms' is the only lowercase vendor prefix
+}} />
+```
+
+## 32.[什么是`render props`？](https://www.jianshu.com/p/5d20dc263231)
+
+- 给组件添加一个值为函数的属性，这个函数可以在组件渲染（render）的时候调用。就是为了给原有组件“注入”其它组件的代码。
+
+```jsx
+<DataProvider render={data => (
+  <h1>{`Hello ${data.target}`}</h1>
+)}/>
+```
+
