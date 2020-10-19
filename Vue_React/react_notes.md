@@ -447,5 +447,47 @@ export default class LoginComponent extends Component {
 }
 ```
 
+## 35.什么是React测试中的Shallow Renderer？
+
+- 浅层渲染对于在React中编写单元测试用例很有用。它使您可以更深层次地渲染组件，并断言其渲染方法返回的事实，而不必担心未实例化或渲染的子组件的行为。
+
+```jsx
+//原有组件
+function MyComponent() {
+  return (
+    <div>
+      <span className={'heading'}>{'Title'}</span>
+      <span className={'description'}>{'Description'}</span>
+    </div>
+  )
+}
+
+//测试用例
+import ShallowRenderer from 'react-test-renderer/shallow'
+
+// in your test
+const renderer = new ShallowRenderer()
+renderer.render(<MyComponent />)
+
+const result = renderer.getRenderOutput()
+
+expect(result.type).toBe('div')
+expect(result.props.children).toEqual([
+  <span className={'heading'}>{'Title'}</span>,
+  <span className={'description'}>{'Description'}</span>
+])
+```
+
+## 36.[什么是React测试中的TestRenderer？](http://react.caibaojian.com.cn/docs/test-renderer.html)
+
+- 该包提供了一个React的渲染器，可以用来将 React 组件渲染成纯 JavaScript 对象，不需要依赖于 DOM 和原生移动环境。
+- 本质上，该包可以在无需使用浏览器或 jsdom 的情况下，轻松地抓取由 React DOM 或 React Native渲染出的平台视图层次结构（类似于DOM树）
+
+## 37.[ReactTestUtils的作用](https://reactjs.bootcss.com/docs/test-utils.html)
+
+- ReactTestUtils 可搭配你所选的测试框架，轻松实现 React 组件测试。在 Facebook 内部，使用 Jest 来轻松实现 JavaScript 测试。你可以从 Jest 官网的 React 教程中了解如何开始使用它。
+
+## 38.[Jest测试框架入门](https://www.bbsmax.com/A/ZOJPepll5v/)
+
 
 
