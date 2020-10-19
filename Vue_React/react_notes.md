@@ -348,3 +348,28 @@ const setTitle = (title) => (WrappedComponent) => {
 - React.memo(...)是React v16.6引进来的新属性。它的作用和React.PureComponent类似，是用来控制函数组件的重新渲染的。React.memo(...) 其实就是函数组件的React.PureComponent。
 
 - React.memo会返回一个纯化(purified)的组件MemoFuncComponent，这个组件将会在JSX标记中渲染出来。当组件的参数props和状态state发生改变时，React将会检查前一个状态和参数是否和下一个状态和参数是否相同，如果相同，组件将不会被渲染，如果不同，组件将会被重新渲染。
+
+## 26.[React新生命周期中的getDerivedStateFromProps有什么用？](https://www.jianshu.com/p/50fe3fb9f7c3)
+
+- 这个生命周期的功能实际上就是将传入的props映射到state上面
+- 意味着即使你的props没有任何变化，而是父state发生了变化，导致子组件发生了re-render，这个生命周期函数依然会被调用。
+- 这个生命周期函数是为了替代componentWillReceiveProps存在的，所以在你需要使用componentWillReceiveProps的时候，就可以考虑使用getDerivedStateFromProps来进行替代了。
+
+## 27.[React新生命周期中的getSnapshotBeforeUpdate有什么用？](https://blog.csdn.net/wust_cyl/article/details/84306393)
+
+- 在render之前调用，state已更新
+- 可以用来获取render之前的dom状态
+
+## 28.[setState和replaceState的区别](https://blog.csdn.net/pixelEyesOfMao/article/details/80829376)
+
+- `setState` 合并nextState和当前state，并重新渲染组件。setState是React事件处理函数中和请求回调函数中触发UI更新的主要方法。
+- `replaceState`方法与`setState`类似，但是方法只会保留nextState中状态，原state不在nextState中的状态都会被删除。
+- 也可以再`setState`中设置`false/null`来代替`replaceState`
+
+## 29.如何监听state变化？
+
+- 可以`componentDidUpdate`生命周期方法中监听，组件更新后会执行`componentDidUpdate`
+
+```jsx
+componentDidUpdate(object prevProps, object prevState)
+```
