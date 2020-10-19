@@ -489,5 +489,15 @@ expect(result.props.children).toEqual([
 
 ## 38.[Jest测试框架入门](https://www.bbsmax.com/A/ZOJPepll5v/)
 
+## 39.[React中的Flux](https://www.jianshu.com/p/d8008cf18450)
 
+- flux 是 react 中的类似于 vuex 的公共状态管理方案，它是 Facebook 官方给出的应用架构，利用数据的单向流动的形式对公共状态进行管理。
+- 现已不推荐使用。但是为了能更好的理解 Redux 方案，还是有必要熟悉 flux 的工作流程。
+
+## 40.[React中的Redux](https://www.redux.org.cn/)
+
+- Redux 是 JavaScript 状态容器，提供可预测化的状态管理。
+- 核心概念：state、action、reducer
+- 三大原则：单一数据源、State 是只读的、使用纯函数来执行修改
+- 
 
