@@ -182,6 +182,7 @@
 - [77.9K Star 的 Axios 项目有哪些值得借鉴的地方](https://juejin.im/post/6885471967714115597)
 - [DNS解析过程](https://www.zhihu.com/question/23042131)
 - [CDN实现原理](https://www.jianshu.com/p/14dede92b02f)
+- [HTTPS过程以及详细案例](https://www.cnblogs.com/helloworldcode/p/10104935.html)
 
 ## 后端相关知识
 
