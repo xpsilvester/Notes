@@ -179,6 +179,7 @@
 - [一文读懂 Web 安全](https://juejin.im/post/6854573221241749512)
 - [CSP入门教程](http://www.ruanyifeng.com/blog/2016/09/csp.html)
 - [零距离接触websocket🚀](https://juejin.im/post/6876301731966713869)
+- [77.9K Star 的 Axios 项目有哪些值得借鉴的地方](https://juejin.im/post/6885471967714115597)
 
 ## 后端相关知识
 
