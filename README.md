@@ -180,6 +180,8 @@
 - [CSP入门教程](http://www.ruanyifeng.com/blog/2016/09/csp.html)
 - [零距离接触websocket🚀](https://juejin.im/post/6876301731966713869)
 - [77.9K Star 的 Axios 项目有哪些值得借鉴的地方](https://juejin.im/post/6885471967714115597)
+- [DNS解析过程](https://www.zhihu.com/question/23042131)
+- [CDN实现原理](https://www.jianshu.com/p/14dede92b02f)
 
 ## 后端相关知识
 
