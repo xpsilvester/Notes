@@ -499,5 +499,12 @@ expect(result.props.children).toEqual([
 - Redux 是 JavaScript 状态容器，提供可预测化的状态管理。
 - 核心概念：state、action、reducer
 - 三大原则：单一数据源、State 是只读的、使用纯函数来执行修改
-- 
+
+## 41.React 与Flux相比，Redux的缺点是什么？
+
+- 您将需要学习避免发生突变： Flux对突变数据没有任何意见，但是Redux不喜欢突变，并且许多与Redux互补的软件包都假设您永远不会改变状态。您可以使用仅限开发人员的包（例如redux-immutable-state-invariantImmutable.js）强制执行此操作，或指示您的团队编写不可变的代码。 
+- 您将必须仔细选择软件包：尽管Flux明确地不尝试解决诸如撤消/重做，持久性或形式之类的问题，但是Redux具有诸如中间件和商店增强器之类的扩展点，并且产生了丰富的功能。生态系统。 
+- 目前还没有很好的Flow集成： Flux当前允许您执行非常令人印象深刻的静态类型检查，而Redux还不支持。
+
+## 42.[对比React 16.3的新Context API和Redux](https://zhuanlan.zhihu.com/p/33829066)
 
