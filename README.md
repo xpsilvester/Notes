@@ -114,6 +114,7 @@
 - [Node.js日志神器（winston）](https://juejin.im/post/6865926810061045774)
 - [Node.js VS 浏览器以及事件循环机制](https://juejin.im/post/6871832597891121166)
 - [大规格文件的上传优化](https://segmentfault.com/a/1190000022624799)
+- [Redis + NodeJS 实现一个能处理海量数据的异步任务队列系统](https://juejin.im/post/6886346942637572104)
 
 ## [Webpack相关知识](https://github.com/xpsilvester/Notes/tree/master/Webpack)
 
