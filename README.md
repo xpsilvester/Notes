@@ -7,6 +7,7 @@
 - [JavaScript 20 年](https://github.com/doodlewind/jshistory-cn)
 - [MDN文档笔记](https://github.com/xpsilvester/Notes/blob/master/JavaScript/MDN.md)
 - [深拷贝](https://github.com/xpsilvester/Notes/blob/master/JavaScript/deepClone.md)
+- [Object.assign 原理及其实现](https://mp.weixin.qq.com/s/1nZr-dEzlivs8quf0vdKwg)
 - [想自学JS吗？想提升JS底层原理吗？76张脑图带你彻底搞懂原生JS](https://juejin.im/post/5ebb68796fb9a0435432df8e#heading-20)
 - [JavaScript数据类型相关](https://github.com/xpsilvester/Notes/blob/master/JavaScript/jsType2.md)
 - [DOM操作常用API](https://juejin.im/post/5f184a356fb9a07e9c59f26f)
@@ -50,6 +51,7 @@
 - [「算法与数据结构」一张脑图带你看动态规划算法之美](https://juejin.im/post/6872115031501340679)
 - [TypeScript实现贪心算法与回溯算法](https://juejin.im/post/6872022498326609933)
 - [「算法与数据结构」带你看哈希算法之美](https://juejin.im/post/6874708801208254478)
+- [「中高级前端」窥探数据结构的世界- ES6版](https://mp.weixin.qq.com/s?__biz=MzA4Nzg0MDM5Nw==&mid=2247484584&idx=1&sn=7f9d591bd89c5bbff7f6bb331fc7461a&source=41#wechat_redirect)
 
 ## [React和Vue相关知识点总结](https://github.com/xpsilvester/Notes/tree/master/Vue_React)
 
@@ -86,6 +88,7 @@
 - [[译] 对比 React Hooks 和 Vue Composition API](https://blog.csdn.net/tonylua/article/details/103311090)
 - [对比 React Hooks 和 Vue Composition API](https://zhuanlan.zhihu.com/p/158734246)
 - [你不知道的 React 和 Vue 的 20 个区别](https://mp.weixin.qq.com/s/vZo1XlMLxrzAyALzIPlktw)
+- [Vuex、Flux、Redux、Redux-saga、Dva、MobX](https://mp.weixin.qq.com/s/FmQ5n68UPzFSWM7gKh4YZg)
 
 ## [移动端开发相关知识](https://github.com/xpsilvester/Notes/tree/master/Mobile/h5.md)
 
@@ -115,6 +118,7 @@
 - [Node.js VS 浏览器以及事件循环机制](https://juejin.im/post/6871832597891121166)
 - [大规格文件的上传优化](https://segmentfault.com/a/1190000022624799)
 - [Redis + NodeJS 实现一个能处理海量数据的异步任务队列系统](https://juejin.im/post/6886346942637572104)
+- [nodejs版本管理nvm](https://www.cnblogs.com/gaozejie/p/10689742.html)
 
 ## [Webpack相关知识](https://github.com/xpsilvester/Notes/tree/master/Webpack)
 
@@ -131,6 +135,7 @@
 - [Tree-Shaking性能优化实践 - 原理篇](https://juejin.im/post/6844903544756109319)
 - [Tree-Shaking性能优化实践 - 实践篇](https://juejin.im/post/6844903544760336398)
 - [让我们来写个 webpack 插件](https://hijiangtao.github.io/2019/12/01/Introduction-of-webpack-plugin/)
+- [【webpack 性能优化】编译速度从 50S 到 7S](https://juejin.im/post/6887863430510968839)
 
 ## [Electron相关](https://www.electronjs.org/)
 
