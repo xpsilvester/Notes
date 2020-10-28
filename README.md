@@ -182,6 +182,7 @@
 
 ## [前端网络相关知识](https://github.com/xpsilvester/Notes/tree/master/Network)
 
+- [大二逃课总结的1.2w字的计算机网络知识！扫盲！](https://juejin.im/post/6888226129435197447)
 - [HTTP中的OPTIONS请求](https://juejin.im/post/6855989328876617736)
 - [「查缺补漏」巩固你的HTTP知识体系](https://juejin.im/post/6857287743966281736)
 - [HTTP cookie指南](https://github.com/qq449245884/xiaozhi/issues/260)
