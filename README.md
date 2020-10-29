@@ -150,6 +150,7 @@
 - [智能小程序档案馆——埋点统计](https://juejin.im/post/5be3f2f2f265da614f6fcbcc)
 - [页面通信、DOM监听、懒加载、首屏加载](https://juejin.im/post/5f2157fe6fb9a07e5d76f108)
 - [前端性能优化指标](https://juejin.im/post/5f0b056de51d45349917bf16)
+- [「前端进阶」高性能渲染十万条数据(虚拟列表)](https://juejin.im/post/6844903982742110216)
 - [Element-UI表格二次封装](https://juejin.im/post/5f1d92cb5188252e884e986f)
 - [封装 axios 拦截器实现用户无感刷新 access_token](https://juejin.im/post/5f1ba98ae51d4534b73a9d7a)
 - [axios取消接口请求](https://www.cnblogs.com/ysk123/p/11544634.html)
