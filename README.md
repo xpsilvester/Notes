@@ -138,6 +138,7 @@
 - [Tree-Shaking性能优化实践 - 实践篇](https://juejin.im/post/6844903544760336398)
 - [让我们来写个 webpack 插件](https://hijiangtao.github.io/2019/12/01/Introduction-of-webpack-plugin/)
 - [【webpack 性能优化】编译速度从 50S 到 7S](https://juejin.im/post/6887863430510968839)
+- [【前端工程化】篇四 席卷八荒-Webpack（进阶）](https://juejin.im/post/6888528583623933966)
 
 ## [Electron相关](https://www.electronjs.org/)
 
