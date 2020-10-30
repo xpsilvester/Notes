@@ -72,6 +72,7 @@
 - [Vue3实战系列：结合 Ant-Design-of-Vue 实践 Composition API](https://juejin.im/post/6882393804310052871)
 - [组合式 API 征求意见稿](https://composition-api.vuejs.org/zh/#%E5%9F%BA%E6%9C%AC%E8%8C%83%E4%BE%8B)
 - [使用Vue3封装一些有用的组合API](https://juejin.im/post/6888925879243079687)
+- [2020年，需要了解 Vue3 的哪些知识](https://juejin.im/post/6888870031178858503)
 - [Vue3.0 系列](https://dxmo.gitee.io/views/frontend/2020/Vue/Vue3-1.html)
 - [React受控组件与非受控组件](https://github.com/xpsilvester/Notes/blob/master/Vue_React/controllComponent.md)
 - [写React Hooks前必读](https://mp.weixin.qq.com/s/bUcsqBYdK0DHhvbJ_yTyqQ)
