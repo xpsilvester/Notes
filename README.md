@@ -53,6 +53,7 @@
 - [TypeScript实现贪心算法与回溯算法](https://juejin.im/post/6872022498326609933)
 - [「算法与数据结构」带你看哈希算法之美](https://juejin.im/post/6874708801208254478)
 - [「中高级前端」窥探数据结构的世界- ES6版](https://mp.weixin.qq.com/s?__biz=MzA4Nzg0MDM5Nw==&mid=2247484584&idx=1&sn=7f9d591bd89c5bbff7f6bb331fc7461a&source=41#wechat_redirect)
+- [GitHub几个数据结构与算法项目](https://juejin.im/post/6890298762917314573)
 
 ## [React和Vue相关知识点总结](https://github.com/xpsilvester/Notes/tree/master/Vue_React)
 
@@ -154,6 +155,7 @@
 - [智能小程序档案馆——埋点统计](https://juejin.im/post/5be3f2f2f265da614f6fcbcc)
 - [页面通信、DOM监听、懒加载、首屏加载](https://juejin.im/post/5f2157fe6fb9a07e5d76f108)
 - [前端性能优化指标](https://juejin.im/post/5f0b056de51d45349917bf16)
+- [前端优化详解以及需要关注的几个问题](https://juejin.im/post/6888848660591968264)
 - [「前端进阶」高性能渲染十万条数据(虚拟列表)](https://juejin.im/post/6844903982742110216)
 - [Element-UI表格二次封装](https://juejin.im/post/5f1d92cb5188252e884e986f)
 - [封装 axios 拦截器实现用户无感刷新 access_token](https://juejin.im/post/5f1ba98ae51d4534b73a9d7a)
