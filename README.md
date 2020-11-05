@@ -82,6 +82,7 @@
 - [手写 React Hooks](https://juejin.im/post/6872223515580481544)
 - [快速了解 React Hooks 原理](https://segmentfault.com/a/1190000019966124)
 - [React Fiber 源码解析](https://juejin.im/post/6859528127010471949)
+- [轻烤 React 核心机制 Reconciliation](https://juejin.im/post/6891242214324699143)
 - [React 架构的演变 - Hooks 的实现](https://juejin.im/post/6888262413016432647)
 - [React Context 性能优化及代码组织的优化](https://juejin.im/post/6889247428797530126)
 - [React 代码性能优化](https://juejin.im/post/6889825025638006797)
