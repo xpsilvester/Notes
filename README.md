@@ -173,6 +173,7 @@
 - [前端接入单点登录（sso）开发流程](https://juejin.im/post/6881945458471550983)
 - [图文并茂，为你揭开“单点登录“的神秘面纱](https://www.zoo.team/article/sso)
 - [极简秒杀系统 -《大前端 Node.js》](https://juejin.im/post/6886350762692214792)
+- [GraphQL 入门详解](https://segmentfault.com/a/1190000017766370)
 
 ## [Linux相关知识](https://github.com/xpsilvester/Notes/tree/master/Linux)
 
