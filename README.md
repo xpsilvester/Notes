@@ -174,6 +174,8 @@
 - [图文并茂，为你揭开“单点登录“的神秘面纱](https://www.zoo.team/article/sso)
 - [极简秒杀系统 -《大前端 Node.js》](https://juejin.im/post/6886350762692214792)
 - [GraphQL 入门详解](https://segmentfault.com/a/1190000017766370)
+- [手把手带你入门前端工程化——超详细教程](https://juejin.im/post/6892003555818143752)
+- [前端项目自动化部署——超详细教程（Jenkins、Github Actions）](https://juejin.im/post/6887751398499287054)
 
 ## [Linux相关知识](https://github.com/xpsilvester/Notes/tree/master/Linux)
 
