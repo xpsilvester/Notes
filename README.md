@@ -8,6 +8,7 @@
 - [MDN文档笔记](https://github.com/xpsilvester/Notes/blob/master/JavaScript/MDN.md)
 - [深拷贝](https://github.com/xpsilvester/Notes/blob/master/JavaScript/deepClone.md)
 - [Object.assign 原理及其实现](https://mp.weixin.qq.com/s/1nZr-dEzlivs8quf0vdKwg)
+- [call、apply、bind](https://juejin.im/post/6844903968443891720)
 - [想自学JS吗？想提升JS底层原理吗？76张脑图带你彻底搞懂原生JS](https://juejin.im/post/5ebb68796fb9a0435432df8e#heading-20)
 - [JavaScript数据类型相关](https://github.com/xpsilvester/Notes/blob/master/JavaScript/jsType2.md)
 - [DOM操作常用API](https://juejin.im/post/5f184a356fb9a07e9c59f26f)
