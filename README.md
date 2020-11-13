@@ -179,6 +179,7 @@
 - [GraphQL 入门详解](https://segmentfault.com/a/1190000017766370)
 - [手把手带你入门前端工程化——超详细教程](https://juejin.im/post/6892003555818143752)
 - [前端项目自动化部署——超详细教程（Jenkins、Github Actions）](https://juejin.im/post/6887751398499287054)
+- [试试前端自动化测试！（React 实战）](https://juejin.im/post/6894234532224958478)
 
 ## [Linux相关知识](https://github.com/xpsilvester/Notes/tree/master/Linux)
 
