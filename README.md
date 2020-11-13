@@ -70,6 +70,7 @@
 - [详解 Vue SSR 服务器端渲染](https://segmentfault.com/a/1190000015964813)
 - [使用Vue3.0，我收获了哪些知识点（一）](https://juejin.im/post/6869521076771094536)
 - [Vue3.0 不畏惧祖传代码的 Composition API](https://juejin.im/post/6874748339246776327)
+- [用原生实现Vue3，真香~](https://juejin.im/post/6893880467305529352)
 - [面向未来的前端构建工具-vite](https://juejin.im/post/6869915676501835783)
 - [Vue3实战系列：结合 Ant-Design-of-Vue 实践 Composition API](https://juejin.im/post/6882393804310052871)
 - [组合式 API 征求意见稿](https://composition-api.vuejs.org/zh/#%E5%9F%BA%E6%9C%AC%E8%8C%83%E4%BE%8B)
