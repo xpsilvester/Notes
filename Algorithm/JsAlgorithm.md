@@ -57,6 +57,8 @@ JS的常用算法练习
 
 [28.字符串匹配KMP](#字符串匹配KMP)
 
+[29.求众数](#求众数)
+
 ## 初级算法
 ### 线性查找-时间复杂度O(n)--相当于算法界中的HelloWorld
 ```JavaScript
@@ -1766,5 +1768,30 @@ function KMP(sourceStr, searchStr) {
     } else {
       return -1;
     }
+}
+```
+
+## 求众数
+
+给定一个大小为 n 的数组，找到其中的多数元素。多数元素是指在数组中出现次数大于 ⌊ n/2 ⌋ 的元素。
+
+```js
+//投票算法
+//如果我们把众数记为 +1，把其他数记为 -1，将它们全部加起来，显然和大于 0，从结果本身我们可以看出众数比其他数多。
+//时间复杂度O(n)，空间复杂度O(1)
+majorityElement = function(nums) {
+  let majority_element = null
+  let count = 0
+  for (let num of nums) {
+    if (count == 0) {
+      majority_element = num
+    }
+    if (num != majority_element) {
+      count--
+    } else {
+      count++
+    }
+  }
+  return majority_element
 }
 ```
