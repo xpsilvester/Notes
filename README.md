@@ -160,6 +160,7 @@
 - [智能小程序档案馆——埋点统计](https://juejin.im/post/5be3f2f2f265da614f6fcbcc)
 - [页面通信、DOM监听、懒加载、首屏加载](https://juejin.im/post/5f2157fe6fb9a07e5d76f108)
 - [前端性能优化指标](https://juejin.im/post/5f0b056de51d45349917bf16)
+- [前端性能优化之谈谈常见的性能指标及上报策略](https://blog.csdn.net/weixin_42098339/article/details/105872809)
 - [前端优化详解以及需要关注的几个问题](https://juejin.im/post/6888848660591968264)
 - [「前端进阶」高性能渲染十万条数据(虚拟列表)](https://juejin.im/post/6844903982742110216)
 - [Element-UI表格二次封装](https://juejin.im/post/5f1d92cb5188252e884e986f)
