@@ -313,6 +313,14 @@ class ErrorBoundary extends React.Component {
 
 - 大部分开发中用到的都是React封装的事件，比如onChange、onClick、onTouchMove等，这些事件处理程序中的setState都是异步处理的。
 
+- setState通常的运用场景：
+
+  1. 在生命周期里使用，其中一般运用较多的为componentDidMount，在这里setState以异步的方式执行。 
+  2. 在react包装过的合成事件中执行setState，执行异步。
+  3. settimeout里调用setState，setState同步执行。
+  4. 原生事件中，即用 addEventListener或者是document.querySelector().onclick的方式，在这些事件回调里使用setState也会同步执行。 
+- 相关原理：我们通常遇到的setState是batch操作，即当有一个setState被执行时，内部会创建一个待更新的队列。每一次setState都是往队列里推入新的东西。而在原生事件或者settimeout里，setState是立即执行，并不再是批量更新了。
+
 ## 24.[如何在react中使用装饰器decorators](https://blog.csdn.net/iiichigo/article/details/84572353)
 
 - Decorator 是 ES7 的一个新语法，他可以对一些对象进行装饰包装然后返回一个被包装过的对象，可以装饰的对象包括：类，属性，方法等。打个比方：你出去玩，出门前戴了一顶帽子，这是帽子就是装饰器，你自己就是被装饰的对象。
