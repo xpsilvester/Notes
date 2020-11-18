@@ -182,6 +182,7 @@
 - [手把手带你入门前端工程化——超详细教程](https://juejin.im/post/6892003555818143752)
 - [前端项目自动化部署——超详细教程（Jenkins、Github Actions）](https://juejin.im/post/6887751398499287054)
 - [从零开始通过webhooks实现前端自动化](https://www.cnblogs.com/WhiteM/p/12837208.html)
+- [写给前端的 Jenkins 教程——10分钟实现前端/ Node.js 项目的 CI/CD](https://juejin.im/post/6896151951545729031)
 - [试试前端自动化测试！（React 实战）](https://juejin.im/post/6894234532224958478)
 
 ## [Linux相关知识](https://github.com/xpsilvester/Notes/tree/master/Linux)
