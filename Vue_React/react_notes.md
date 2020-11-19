@@ -138,7 +138,7 @@ React 16.3+阶段如图所示：
 
 ![before](..\images\phasesbefore16.3.png)
 
-## 15.React有哪些生命周期方法？
+## 15.[React有哪些生命周期方法？](https://www.jianshu.com/p/b331d0e4b398)
 
 在16.3之前：
 
@@ -163,6 +163,10 @@ React 16.3+阶段如图所示：
 - **componentDidUpdate:** 在组件完成更新后立即调用。在初始化时不会被调用。此时可以获取dom节点。（当shouldComponentUpdate返回false时不会调用）
 
 - **componentWillUnmount:** 组件将要卸载时调用，一些事件监听和定时器需要在此时清除。 
+
+## 15.1[为什么废弃react生命周期函数？](https://segmentfault.com/a/1190000021272657)
+
+## 15.2[React新生命周期--getDerivedStateFromProps](https://www.jianshu.com/p/50fe3fb9f7c3)
 
 ## 16.[什么是高阶组件(HOC)？](https://react.docschina.org/docs/higher-order-components.html)
 
