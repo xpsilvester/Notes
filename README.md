@@ -79,6 +79,7 @@
 - [2020年，需要了解 Vue3 的哪些知识](https://juejin.im/post/6888870031178858503)
 - [Vue3.0 系列](https://dxmo.gitee.io/views/frontend/2020/Vue/Vue3-1.html)
 - [React受控组件与非受控组件](https://github.com/xpsilvester/Notes/blob/master/Vue_React/controllComponent.md)
+- [探索 React 合成事件](https://segmentfault.com/a/1190000038251163)
 - [写React Hooks前必读](https://mp.weixin.qq.com/s/bUcsqBYdK0DHhvbJ_yTyqQ)
 - [React Hooks 知识点总结](https://github.com/xpsilvester/Notes/blob/master/Vue_React/react_hooks.md)
 - [烤透 React Hook](https://juejin.im/post/6867745889184972814)
