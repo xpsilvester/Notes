@@ -278,6 +278,13 @@ class MyComponent2 extends React.Component {
 
 - 如果一个 class 组件中定义了`static getDerivedStateFromError()`或`componentDidCatch()`这两个生命周期方法中的任意一个（或两个）时，那么这个组件就变成一个错误边界。当抛出错误后，使用`static getDerivedStateFromError()`渲染备用 UI ，使用`componentDidCatch()`打印错误信息。
 
+- 错误边界无法捕获以下场景中产生的错误：
+
+  - 事件处理
+  - 异步代码（例如 setTimeout 或 requestAnimationFrame 回调函数）
+  - 服务端渲染
+  - 它自身抛出来的错误（并非它的子组件）
+
 ```jsx
 class ErrorBoundary extends React.Component {
   constructor(props) {
