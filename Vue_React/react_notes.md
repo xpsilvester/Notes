@@ -262,11 +262,17 @@ class MyComponent2 extends React.Component {
 
 - lazy()方法不支持直接exports，仅仅支持 default exports。
 
-## 21.[什么是portals ？](https://www.jianshu.com/p/fef9b2135512)
+## 21.[什么是portals ？](https://segmentfault.com/a/1190000037755863)
 
 - 插槽(Portals)能将子节点渲染到父组件的 DOM 层次之外
 
 - 第一个参数（child）是任何可渲染的 React 子元素，例如一个元素，字符串或 片段(fragment)。第二个参数（container）则是一个 DOM 元素。
+
+- Portal能够将子组件渲染到父组件以外的DOM树，他通常用于需要子组件需要从父组件的容器中脱离出来的场景，有以下场景:
+  - Dialog 对话框
+  - Tooltip 文字提示
+  - Popover 弹出框
+  - Loader 全局loader
 
 ## 22.[react16之错误边界(Error Boundaries)](https://zhuanlan.zhihu.com/p/151861708)
 
