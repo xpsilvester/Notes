@@ -138,7 +138,7 @@ React 16.3+阶段如图所示：
 
 ![before](..\images\phasesbefore16.3.png)
 
-## 15.[React有哪些生命周期方法？](https://www.jianshu.com/p/b331d0e4b398)
+## 15.[React有哪些生命周期方法？](https://react.docschina.org/docs/react-component.html)
 
 在16.3之前：
 
