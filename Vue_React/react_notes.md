@@ -438,13 +438,47 @@ this.setState(prevState => ({
 }} />
 ```
 
-## 32.[什么是`render props`？](https://www.jianshu.com/p/5d20dc263231)
+## 32.[什么是`render props`？](https://react.docschina.org/docs/render-props.html)
 
 - 给组件添加一个值为函数的属性，这个函数可以在组件渲染（render）的时候调用。就是为了给原有组件“注入”其它组件的代码。
+- 可以实现组件复用，例如鼠标位置的监听，写一个组件Mouse实现鼠标位置的监听并把相关参数通过`this.props.render(this.state)`暴露出来，
+  `Mouse`组件通过`render = {data => (<Other data={data}/>)}`将data的值传给`<Other />`组件。
 
 ```jsx
-<DataProvider render={data => (
-  <h1>{`Hello ${data.target}`}</h1>
+class Mouse extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleMouseMove = this.handleMouseMove.bind(this);
+    this.state = { x: 0, y: 0 };
+  }
+
+  handleMouseMove(event) {
+    this.setState({
+      x: event.clientX,
+      y: event.clientY
+    });
+  }
+
+  render() {
+    return (
+      <div style={{ height: '100vh' }} onMouseMove={this.handleMouseMove}>
+        {this.props.render(this.state)}
+      </div>
+    );
+  }
+}
+
+class Other extends React.Component {
+  render() {
+    const mouse = this.props.mouse;
+    return (
+      <div style={{ position: 'absolute', width:'10px',height:'10px',background:'#000' ,left: mouse.x, top: mouse.y,transition:'all 0.5s' }} ></div>
+    );
+  }
+}
+
+<Mouse render={mouse => (
+  <Other mouse={mouse} />
 )}/>
 ```
 
