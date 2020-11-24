@@ -443,7 +443,10 @@ this.setState(prevState => ({
 - 给组件添加一个值为函数的属性，这个函数可以在组件渲染（render）的时候调用。就是为了给原有组件“注入”其它组件的代码。
 - 可以实现组件复用，例如鼠标位置的监听，写一个组件Mouse实现鼠标位置的监听并把相关参数通过`this.props.render(this.state)`暴露出来，
   `Mouse`组件通过`render = {data => (<Other data={data}/>)}`将data的值传给`<Other />`组件。
-
+- 将 Render Props 与 React.PureComponent 一起使用时要小心:因为浅比较 props 的时候总会得到 false，
+  并且在这种情况下每一个 render 对于 render prop 将会生成一个新的值。为了绕过这一问题，有时你可以定义一个 prop 作为实例方法。
+- render prop 是因为模式才被称为 render prop ，你不一定要用名为 render 的 prop 来使用这种模式。
+- 关于 render prop 一个有趣的事情是你可以使用带有 render prop 的常规组件来实现大多数高阶组件 (HOC)。
 ```jsx
 class Mouse extends React.Component {
   constructor(props) {
