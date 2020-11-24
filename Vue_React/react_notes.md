@@ -570,3 +570,7 @@ expect(result.props.children).toEqual([
 
 ## 42.[对比React 16.3的新Context API和Redux](https://zhuanlan.zhihu.com/p/33829066)
 
+## 43.[immer相关介绍](https://segmentfault.com/a/1190000017270785)
+
+- Immer 是 mobx 的作者写的一个 immutable 库，核心实现是利用 ES6 的 proxy，几乎以最小的成本实现了 js 的不可变数据结构，简单易用、体量小巧、设计巧妙，满足了我们对JS不可变数据结构的需求。
+
