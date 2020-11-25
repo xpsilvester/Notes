@@ -555,6 +555,8 @@ expect(result.props.children).toEqual([
 
 - flux 是 react 中的类似于 vuex 的公共状态管理方案，它是 Facebook 官方给出的应用架构，利用数据的单向流动的形式对公共状态进行管理。
 - 现已不推荐使用。但是为了能更好的理解 Redux 方案，还是有必要熟悉 flux 的工作流程。
+- 而不同于 Flux ，Redux 并没有 dispatcher 的概念。
+- 和 Flux 的另一个重要区别，是 Redux 设想你永远不会变动你的数据。
 
 ## 40.[React中的Redux](https://www.redux.org.cn/)
 
