@@ -558,11 +558,16 @@ expect(result.props.children).toEqual([
 - 而不同于 Flux ，Redux 并没有 dispatcher 的概念。
 - 和 Flux 的另一个重要区别，是 Redux 设想你永远不会变动你的数据。
 
-## 40.[React中的Redux](https://www.redux.org.cn/)
+## 40.[React中的Redux](https://www.cntofu.com/book/4/docs/basics/DataFlow.md)
 
 - Redux 是 JavaScript 状态容器，提供可预测化的状态管理。
 - 核心概念：state、action、reducer
 - 三大原则：单一数据源、State 是只读的、使用纯函数来执行修改
+- 数据流：
+  - 1.调用 store.dispatch(action)
+  - 2.Redux store 调用 reducer 函数，并传入当前的 state 树和 action
+  - 3.根 reducer 应该把多个子 reducer 输出合并成一个单一的 state 树。
+  - 4.Redux store 保存了根 reducer 返回的完整 state 树。
 
 ## 41.React 与Flux相比，Redux的缺点是什么？
 
