@@ -101,6 +101,7 @@
 - [对比 React Hooks 和 Vue Composition API](https://zhuanlan.zhihu.com/p/158734246)
 - [你不知道的 React 和 Vue 的 20 个区别](https://mp.weixin.qq.com/s/vZo1XlMLxrzAyALzIPlktw)
 - [Vuex、Flux、Redux、Redux-saga、Dva、MobX](https://mp.weixin.qq.com/s/FmQ5n68UPzFSWM7gKh4YZg)
+- [Flux、Redux、Vuex、MobX 总结-概念篇](https://zhuanlan.zhihu.com/p/75696114)
 - [SPA 路由三部曲之核心原理](https://juejin.im/post/6895882310458343431)
 
 ## [移动端开发相关知识](https://github.com/xpsilvester/Notes/tree/master/Mobile/h5.md)
