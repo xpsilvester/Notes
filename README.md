@@ -221,6 +221,7 @@
 - [DNS解析过程](https://www.zhihu.com/question/23042131)
 - [CDN实现原理](https://www.jianshu.com/p/14dede92b02f)
 - [HTTPS过程以及详细案例](https://www.cnblogs.com/helloworldcode/p/10104935.html)
+- [40 张图带你搞懂 TCP 和 UDP](https://juejin.cn/post/6900710442583359501)
 
 ## 后端相关知识
 
