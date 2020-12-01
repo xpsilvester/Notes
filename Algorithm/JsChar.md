@@ -129,3 +129,5 @@ function templateFunc(str,data){
 console.log(templateFunc(templateStr,data));
 ```
 
+## [javascript trie前缀树的示例](https://www.jb51.net/article/133915.htm)
+
