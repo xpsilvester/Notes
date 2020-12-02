@@ -181,6 +181,8 @@ null == undefined //true
 ' \t\r\n' == 0 //true
 ```
 
+## [ECMAScript 等性运算符](https://www.w3school.com.cn/js/pro_js_operators_equality.asp)
+
 ## 参考资料：
 
 [javascript的数据类型有哪些？](https://www.html.cn/qa/javascript/11027.html)
