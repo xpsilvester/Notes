@@ -72,6 +72,7 @@
 - [Vue模板编译原理](https://juejin.im/post/6863241580753616903)
 - [Vue 项目一些常见问题的解决方案](https://juejin.im/post/6895497352120008717)
 - [【Vue质问清单】常在vue中游走，多问几个为什么](https://juejin.cn/post/6905922153234268168)
+- [分享8个非常实用的Vue自定义指令](https://juejin.cn/post/6906028995133833230)
 - [【Vue进阶】——如何实现组件属性透传？](https://juejin.im/post/6865451649817640968)
 - [浅析 vue-router 源码和动态路由权限分配](https://juejin.im/post/6882539694170013710)
 - [详解 Vue SSR 服务器端渲染](https://segmentfault.com/a/1190000015964813)
