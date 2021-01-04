@@ -201,6 +201,7 @@
 - [浅谈前端单元测试](https://juejin.cn/post/6844903624301084680)
 - [Serverless 相关主题](https://juejin.im/post/6894087576504926215)
 - [腾讯 IMWEB 前端团队一站式 Serverless 开发解决方案](https://serverlesscloud.cn/best-practice/2020-11-11-imweb-serverless/)
+- [闲庭信步聊前端 - 见微知著微前端](https://juejin.cn/post/6911873800669757447)
 
 ## [Linux相关知识](https://github.com/xpsilvester/Notes/tree/master/Linux)
 
