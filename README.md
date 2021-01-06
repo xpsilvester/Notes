@@ -1,6 +1,6 @@
-# Web开发知识点总结
+# Web开发文章收录
 
-前端学习过程中的一些笔记，总结了一些常见的前端知识点。
+前端学习过程中的一些记录，收集了一些常见的前端知识点。
 
 ## [JavaScript知识点总结](https://github.com/xpsilvester/Notes/tree/master/JavaScript) 
 
@@ -141,6 +141,7 @@
 - [大规格文件的上传优化](https://segmentfault.com/a/1190000022624799)
 - [Redis + NodeJS 实现一个能处理海量数据的异步任务队列系统](https://juejin.im/post/6886346942637572104)
 - [nodejs版本管理nvm](https://www.cnblogs.com/gaozejie/p/10689742.html)
+- [node_modules 困境](https://juejin.cn/post/6914508615969669127)
 
 ## [Webpack相关知识](https://github.com/xpsilvester/Notes/tree/master/Webpack)
 
