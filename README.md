@@ -236,6 +236,10 @@
 - [HTTPS过程以及详细案例](https://www.cnblogs.com/helloworldcode/p/10104935.html)
 - [40 张图带你搞懂 TCP 和 UDP](https://juejin.cn/post/6900710442583359501)
 
+## 计算机原理
+
+- [计算机底层是如何计算加法的？](https://juejin.cn/post/6914540169299722253)
+
 ## 后端相关知识
 
 - [没用过消息队列？一文带你体验RabbitMQ收发消息](https://juejin.im/post/6856571028496351239)
