@@ -165,7 +165,7 @@
 
 - [今天教你烤一份香喷喷的Electron](https://juejin.im/post/5efe7c5fe51d4534a1237861)
 
-## [前端项目相关总结](https://github.com/xpsilvester/Notes/tree/master/Project)
+## [项目相关](https://github.com/xpsilvester/Notes/tree/master/Project)
 
 - [推荐几个大厂的前端代码规范，学会了，你也能写出诗一样的代码！](https://juejin.im/post/6893891476913291278)
 - [前端监控和前端埋点方案设计](https://segmentfault.com/a/1190000015864670)
@@ -203,6 +203,7 @@
 - [Serverless 相关主题](https://juejin.im/post/6894087576504926215)
 - [腾讯 IMWEB 前端团队一站式 Serverless 开发解决方案](https://serverlesscloud.cn/best-practice/2020-11-11-imweb-serverless/)
 - [闲庭信步聊前端 - 见微知著微前端](https://juejin.cn/post/6911873800669757447)
+- [1499飞天茅台脚本使用过程中遇到的Python问题汇总索引目录【淘宝-天猫超市、京东】](https://juejin.cn/post/6914627920082403335)
 
 ## [Linux相关知识](https://github.com/xpsilvester/Notes/tree/master/Linux)
 
