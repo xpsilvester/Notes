@@ -61,6 +61,7 @@
 - [「算法与数据结构」带你看哈希算法之美](https://juejin.im/post/6874708801208254478)
 - [「中高级前端」窥探数据结构的世界- ES6版](https://mp.weixin.qq.com/s?__biz=MzA4Nzg0MDM5Nw==&mid=2247484584&idx=1&sn=7f9d591bd89c5bbff7f6bb331fc7461a&source=41#wechat_redirect)
 - [GitHub几个数据结构与算法项目](https://juejin.im/post/6890298762917314573)
+- [结合React源码，五分钟带你掌握优先队列](https://juejin.cn/post/6917022255180414984)
 
 ## [React和Vue相关知识点总结](https://github.com/xpsilvester/Notes/tree/master/Vue_React)
 
