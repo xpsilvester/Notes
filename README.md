@@ -216,6 +216,7 @@
 - [CentOS 6.6上部署asp.net MVC项目详细过程](https://github.com/xpsilvester/Notes/blob/master/Linux/CentOS6.6上部署asp.netMVC项目详细过程.md)
 - [CentOS 7上部署asp.net MVC项目详细过程](https://github.com/xpsilvester/Notes/blob/master/Linux/CentOS7上部署asp.netMVC项目详细过程.md)
 - [对不起，学会这些 Linux 知识后，我有点飘](https://juejin.im/post/6881755746216706062)
+- [6w字搞定Linux基本操作，建议收藏](https://juejin.cn/post/6917096816118857736)
 
 ## [C#相关知识](https://github.com/xpsilvester/Notes/tree/master/C%23)
 
