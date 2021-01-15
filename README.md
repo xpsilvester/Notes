@@ -28,6 +28,7 @@
 - [CSS外部字体引入并实现压缩及自动化](https://github.com/xpsilvester/Notes/blob/master/CSS/CSS外部字体引入并实现压缩及自动化.md)
 - [「一劳永逸」48张小图带你领略flex布局之美](https://juejin.im/post/6866914148387651592)
 - [【建议收藏】css晦涩难懂的点都在这啦](https://juejin.im/post/6888102016007176200)
+- [CSS 奇技淫巧：动态高度过渡动画](https://juejin.cn/post/6917061427958120461)
 
 ## 浏览器相关知识
 
@@ -240,6 +241,7 @@
 - [CDN实现原理](https://www.jianshu.com/p/14dede92b02f)
 - [HTTPS过程以及详细案例](https://www.cnblogs.com/helloworldcode/p/10104935.html)
 - [40 张图带你搞懂 TCP 和 UDP](https://juejin.cn/post/6900710442583359501)
+- [请用JS实现Ajax并发请求控制](https://juejin.cn/post/6916317088521027598)
 
 ## 计算机原理
 
