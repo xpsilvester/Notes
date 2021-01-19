@@ -267,6 +267,10 @@
 - [打工四年总结的数据库知识点](https://juejin.im/post/6883270227078070286)
 - [Redis 入门](https://juejin.im/post/6844903639765483533#heading-59)
 
+## 学习资源
+
+- [2020 我收集的 B 站学习资源](https://juejin.cn/post/6919037488967188493)
+
 ## 题目汇总
 
 - [每天一道题](https://www.kancloud.cn/freya001/interview/1224405)
