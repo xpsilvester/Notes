@@ -270,6 +270,7 @@
 ## 学习资源
 
 - [2020 我收集的 B 站学习资源](https://juejin.cn/post/6919037488967188493)
+- [Svelte——不止于快](https://blog.csdn.net/as645788/article/details/104889413)
 
 ## 题目汇总
 
