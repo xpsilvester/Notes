@@ -64,6 +64,7 @@
 - [GitHub几个数据结构与算法项目](https://juejin.im/post/6890298762917314573)
 - [结合React源码，五分钟带你掌握优先队列](https://juejin.cn/post/6917022255180414984)
 - [实现一个数组（包含对象等类型元素）去重函数](https://mp.weixin.qq.com/s/UAnAMDMt2dAsYMFXYn5G9Q)
+- [Manacher算法的详细讲解](https://www.jianshu.com/p/116aa58b7d81)
 
 ## [React和Vue相关知识点总结](https://github.com/xpsilvester/Notes/tree/master/Vue_React)
 
