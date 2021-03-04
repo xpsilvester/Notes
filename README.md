@@ -259,6 +259,8 @@
 
 - [我对web前端与可视化的一些思考|🏆 技术专题第三期](https://juejin.im/post/6865921593726468103)
 
+- [滴滴开源 LogicFlow：专注流程可视化的前端框架](https://juejin.cn/post/6933413834682007560)
+
 - [Playcanvas知识记录](https://github.com/xpsilvester/Notes/blob/master/Playcanvas/Playcanvas.md)
 
 ## [数据库相关知识](https://github.com/xpsilvester/Notes/tree/master/SQL)
