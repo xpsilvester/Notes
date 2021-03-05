@@ -275,6 +275,7 @@
 
 - [2020 我收集的 B 站学习资源](https://juejin.cn/post/6919037488967188493)
 - [Svelte——不止于快](https://blog.csdn.net/as645788/article/details/104889413)
+- [写在2021: 值得关注/学习的前端框架和工具库](https://juejin.cn/post/6935670539088461855)
 
 ## 题目汇总
 
