@@ -147,6 +147,7 @@
 - [Redis + NodeJS 实现一个能处理海量数据的异步任务队列系统](https://juejin.im/post/6886346942637572104)
 - [nodejs版本管理nvm](https://www.cnblogs.com/gaozejie/p/10689742.html)
 - [node_modules 困境](https://juejin.cn/post/6914508615969669127)
+- [Libuv 之 - 只看这篇是不够的](https://juejin.cn/post/6945702722645524517)
 
 ## [Webpack相关知识](https://github.com/xpsilvester/Notes/tree/master/Webpack)
 
