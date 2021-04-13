@@ -68,6 +68,7 @@
 - [实现一个数组（包含对象等类型元素）去重函数](https://mp.weixin.qq.com/s/UAnAMDMt2dAsYMFXYn5G9Q)
 - [Manacher算法的详细讲解](https://www.jianshu.com/p/116aa58b7d81)
 - [精读《DOM diff 原理详解》](https://juejin.cn/post/6947856296771223589)
+- [前端开发中的Error以及异常捕获](https://blog.csdn.net/w1366352655/article/details/85855989)
 
 ## [React和Vue相关知识点总结](https://github.com/xpsilvester/Notes/tree/master/Vue_React)
 
