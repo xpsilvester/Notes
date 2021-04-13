@@ -30,6 +30,7 @@
 - [【建议收藏】css晦涩难懂的点都在这啦](https://juejin.im/post/6888102016007176200)
 - [CSS 奇技淫巧：动态高度过渡动画](https://juejin.cn/post/6917061427958120461)
 - [仅使用CSS提高页面渲染速度](https://juejin.cn/post/6942661408181977118)
+- [听说过CSS in JS，还有JS in CSS?](https://juejin.cn/post/6950209377403928584)
 
 ## 浏览器相关知识
 
