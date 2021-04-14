@@ -94,6 +94,7 @@
 - [使用Vue3封装一些有用的组合API](https://juejin.im/post/6888925879243079687)
 - [2020年，需要了解 Vue3 的哪些知识](https://juejin.im/post/6888870031178858503)
 - [Vue3.0 系列](https://dxmo.gitee.io/views/frontend/2020/Vue/Vue3-1.html)
+- [Vue3 + TypeScript 复盘总结](https://juejin.cn/post/6950487211368251399)
 - [React受控组件与非受控组件](https://github.com/xpsilvester/Notes/blob/master/Vue_React/controllComponent.md)
 - [探索 React 合成事件](https://segmentfault.com/a/1190000038251163)
 - [写React Hooks前必读](https://mp.weixin.qq.com/s/bUcsqBYdK0DHhvbJ_yTyqQ)
