@@ -207,6 +207,7 @@
 - [腾讯 IMWEB 前端团队一站式 Serverless 开发解决方案](https://serverlesscloud.cn/best-practice/2020-11-11-imweb-serverless/)
 - [闲庭信步聊前端 - 见微知著微前端](https://juejin.cn/post/6911873800669757447)
 - [1499飞天茅台脚本使用过程中遇到的Python问题汇总索引目录【淘宝-天猫超市、京东】](https://juejin.cn/post/6914627920082403335)
+- [从 0 开始手把手带你搭建一套规范的 Vue3.x 项目工程环境](https://juejin.cn/post/6951649464637636622)
 
 ## 前端工程化
 
