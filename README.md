@@ -21,6 +21,7 @@
 - [JavaScript事件详解](https://github.com/xpsilvester/Notes/blob/master/JavaScript/dom.md)
 - [html5之Range对象详解](https://www.jianshu.com/p/ad2f818cc3b0)
 - [Event loop、requestIdleCallback 和 requestAnimationFrame](https://www.cnblogs.com/rsapaper/p/12799175.html)
+- [死磕 36 个 JS 手写题（搞懂后，提升真的大）](https://mp.weixin.qq.com/s/7KwM6fNM5MICHiIwoRDm-w)
 
 ## [CSS知识点总结](https://github.com/xpsilvester/Notes/tree/master/CSS)
 
