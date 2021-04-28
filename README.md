@@ -122,6 +122,7 @@
 - [Flux、Redux、Vuex、MobX 总结-概念篇](https://zhuanlan.zhihu.com/p/75696114)
 - [SPA 路由三部曲之核心原理](https://juejin.im/post/6895882310458343431)
 - [「React进阶」 React全部api解读+基础实践大全(夯实基础2万字总结)](https://juejin.cn/post/6950063294270930980)
+- [「react进阶」一文吃透react事件系统原理](https://juejin.cn/post/6955636911214067720)
 
 ## [移动端开发相关知识](https://github.com/xpsilvester/Notes/tree/master/Mobile/h5.md)
 
