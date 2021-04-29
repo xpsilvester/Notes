@@ -294,6 +294,10 @@
 - [2020 年前端技术发展盘点](https://juejin.cn/post/6945259393898250276)
 - [机器学习进阶 - 深入思考逻辑回归](https://juejin.cn/post/6951340421658181646)
 
+## 视频相关
+
+- [流媒体视频基础 MSE 入门 & FFmpeg 制作视频预览缩略图和 fmp4](https://juejin.cn/post/6953777965838630926)
+
 ## 题目汇总
 
 - [每天一道题](https://www.kancloud.cn/freya001/interview/1224405)
