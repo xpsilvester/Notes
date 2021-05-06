@@ -183,6 +183,7 @@
 - [推荐几个大厂的前端代码规范，学会了，你也能写出诗一样的代码！](https://juejin.im/post/6893891476913291278)
 - [前端监控和前端埋点方案设计](https://segmentfault.com/a/1190000015864670)
 - [前端监控方案](https://github.com/xpsilvester/Notes/blob/master/Project/前端监控方案.md)
+- [基于typescript开发前端错误及性能监控SDK](https://juejin.cn/post/6958690901380038687)
 - [智能小程序档案馆——埋点统计](https://juejin.im/post/5be3f2f2f265da614f6fcbcc)
 - [页面通信、DOM监听、懒加载、首屏加载](https://juejin.im/post/5f2157fe6fb9a07e5d76f108)
 - [前端性能优化指标](https://juejin.im/post/5f0b056de51d45349917bf16)
