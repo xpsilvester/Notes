@@ -74,6 +74,7 @@
 ## [React和Vue相关知识点总结](https://github.com/xpsilvester/Notes/tree/master/Vue_React)
 
 - [React和Vue对比](https://github.com/xpsilvester/Notes/blob/master/Vue_React/react_vs_vue.md)
+- [前端搞框架-React & Vue 设计思路大 PK](https://juejin.cn/post/6959073633033519135)
 - [Vue项目优化方案](https://juejin.im/post/5f0f1a045188252e415f642c)
 - [Vue项目性能优化总结](https://juejin.im/post/6857856269488193549)
 - [Vue项目常见问题](https://juejin.im/post/5f144cfbf265da22b05b01db)
