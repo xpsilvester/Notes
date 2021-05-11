@@ -156,6 +156,7 @@
 - [nodejs版本管理nvm](https://www.cnblogs.com/gaozejie/p/10689742.html)
 - [node_modules 困境](https://juejin.cn/post/6914508615969669127)
 - [Libuv 之 - 只看这篇是不够的](https://juejin.cn/post/6945702722645524517)
+- [PM2实用入门指南](https://juejin.cn/post/6960843722644783141)
 
 ## [Webpack相关知识](https://github.com/xpsilvester/Notes/tree/master/Webpack)
 
