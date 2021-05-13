@@ -302,5 +302,6 @@
 
 - [每天一道题](https://www.kancloud.cn/freya001/interview/1224405)
 - [17K star 仓库，解决 90% 的大厂基础面试题](https://juejin.cn/post/6947860760840110088)
+- [最全的 Vue 面试题+详解答案](https://juejin.cn/post/6961222829979697165)
 
 [Markdown 文章排版](https://www.mdnice.com/)
