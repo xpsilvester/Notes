@@ -70,7 +70,7 @@
 - [实现一个数组（包含对象等类型元素）去重函数](https://mp.weixin.qq.com/s/UAnAMDMt2dAsYMFXYn5G9Q)
 - [Manacher算法的详细讲解](https://www.jianshu.com/p/116aa58b7d81)
 - [精读《DOM diff 原理详解》](https://juejin.cn/post/6947856296771223589)
-- [前端开发中的Error以及异常捕获](https://blog.csdn.net/w1366352655/article/details/85855989)
+- [这些经典的前端基础算法题, 你会做几道?](https://juejin.cn/post/6963263757510246413)
 
 ## [React和Vue相关知识点总结](https://github.com/xpsilvester/Notes/tree/master/Vue_React)
 
@@ -186,6 +186,7 @@
 - [推荐几个大厂的前端代码规范，学会了，你也能写出诗一样的代码！](https://juejin.im/post/6893891476913291278)
 - [前端监控和前端埋点方案设计](https://segmentfault.com/a/1190000015864670)
 - [前端监控方案](https://github.com/xpsilvester/Notes/blob/master/Project/前端监控方案.md)
+- [前端开发中的Error以及异常捕获](https://blog.csdn.net/w1366352655/article/details/85855989)
 - [基于typescript开发前端错误及性能监控SDK](https://juejin.cn/post/6958690901380038687)
 - [智能小程序档案馆——埋点统计](https://juejin.im/post/5be3f2f2f265da614f6fcbcc)
 - [页面通信、DOM监听、懒加载、首屏加载](https://juejin.im/post/5f2157fe6fb9a07e5d76f108)
