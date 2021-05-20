@@ -257,7 +257,7 @@
 - [零距离接触websocket🚀](https://juejin.im/post/6876301731966713869)
 - [77.9K Star 的 Axios 项目有哪些值得借鉴的地方](https://juejin.im/post/6885471967714115597)
 - [DNS解析过程](https://www.zhihu.com/question/23042131)
-- [CDN实现原理](https://www.jianshu.com/p/14dede92b02f)
+- [前端必会：CDN加速原理](https://mp.weixin.qq.com/s/Df9kYNquukRCwwocgRblcQ)
 - [HTTPS过程以及详细案例](https://www.cnblogs.com/helloworldcode/p/10104935.html)
 - [40 张图带你搞懂 TCP 和 UDP](https://juejin.cn/post/6900710442583359501)
 - [请用JS实现Ajax并发请求控制](https://juejin.cn/post/6916317088521027598)
