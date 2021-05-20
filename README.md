@@ -158,6 +158,8 @@
 - [node_modules 困境](https://juejin.cn/post/6914508615969669127)
 - [Libuv 之 - 只看这篇是不够的](https://juejin.cn/post/6945702722645524517)
 - [PM2实用入门指南](https://juejin.cn/post/6960843722644783141)
+- [Nodejs中的ORM框架](https://github.com/zhaoyangkanshijie/record/blob/master/nodejs%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98.md#ORM%E6%A1%86%E6%9E%B6)
+- [Nodejs定时任务框架](https://github.com/zhaoyangkanshijie/record/blob/master/nodejs%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98.md#%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E6%A1%86%E6%9E%B6)
 
 ## [Webpack相关知识](https://github.com/xpsilvester/Notes/tree/master/Webpack)
 
