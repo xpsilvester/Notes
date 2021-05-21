@@ -19,6 +19,7 @@
 - [实战中学习浏览器工作原理 — HTML 解析与 CSS 计算](https://juejin.im/post/6863974361737478151)
 - [编写高质量可维护的代码之优化逻辑判断](https://juejin.im/post/6859125809655840776)
 - [JavaScript事件详解](https://github.com/xpsilvester/Notes/blob/master/JavaScript/dom.md)
+- [万字长文总结DOM操作](https://juejin.cn/post/6875674323042959368)
 - [html5之Range对象详解](https://www.jianshu.com/p/ad2f818cc3b0)
 - [Event loop、requestIdleCallback 和 requestAnimationFrame](https://www.cnblogs.com/rsapaper/p/12799175.html)
 - [死磕 36 个 JS 手写题（搞懂后，提升真的大）](https://mp.weixin.qq.com/s/7KwM6fNM5MICHiIwoRDm-w)
