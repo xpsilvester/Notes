@@ -49,6 +49,7 @@
 - [从零开始配置 TypeScript 项目](https://juejin.im/post/6856410900577026061)
 - [TypeScript学习笔记](https://github.com/xpsilvester/Notes/blob/master/TypeScript/TypeScriptNotes.md)
 - [如何用 Typescript 写一个完整的 Vue 应用程序](https://juejin.im/post/6860703641037340686)
+- [前端冷知识-装饰器](https://juejin.cn/post/6965428382284644388)
 
 ## [JavaScript常见算法总结](https://github.com/xpsilvester/Notes/tree/master/Algorithm)
 
